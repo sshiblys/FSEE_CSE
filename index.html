@@ -1,0 +1,1890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Computer Science &amp; Engineering Directorate — Faculty of Science, Engineering &amp; Environment, University of Salford</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#C8102E; --red-dk:#9e0c22; --red-lt:#FBEAEC;
+  --ink:#0B1220; --ink-soft:#1B2538;
+  --paper:#F7F5F1; --paper-dk:#EFEBE3; --white:#FFFFFF;
+  --circuit:#00D9A3; --circuit-dk:#00B386;
+  --steel:#4A5568; --steel-lt:#8A93A3;
+  --line:#E3DFD8; --line-dk:#2A3550; --amber:#F0A93B;
+  --r:10px; --r-lg:18px;
+  --shadow:0 1px 2px rgba(11,18,32,.04), 0 8px 24px rgba(11,18,32,.06);
+  --shadow-lg:0 4px 12px rgba(11,18,32,.08), 0 24px 48px rgba(11,18,32,.12);
+  --trans:.22s cubic-bezier(.4,0,.2,1);
+  --serif:'Fraunces', Georgia, serif;
+  --sans:'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono:'IBM Plex Mono', ui-monospace, monospace;
+}
+*{box-sizing:border-box; margin:0; padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans); background:var(--paper); color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden}
+img{max-width:100%; display:block}
+a{color:inherit; text-decoration:none}
+button{font-family:inherit; cursor:pointer; border:none; background:none}
+ul{list-style:none}
+::selection{background:var(--circuit); color:var(--ink)}
+@media (prefers-reduced-motion: reduce){*{animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important}}
+:focus-visible{outline:3px solid var(--circuit); outline-offset:2px}
+.wrap{max-width:1280px; margin:0 auto; padding:0 32px}
+@media (max-width:720px){.wrap{padding:0 20px}}
+
+/* TOPBAR */
+.topbar{background:var(--ink); color:var(--steel-lt); font-family:var(--mono); font-size:.72rem; letter-spacing:.03em}
+.topbar .wrap{display:flex; justify-content:space-between; align-items:center; height:34px}
+.topbar a{color:var(--steel-lt); transition:color var(--trans)}
+.topbar a:hover{color:var(--circuit)}
+.topbar-links{display:flex; gap:20px}
+.topbar-status{display:flex; align-items:center; gap:6px; color:var(--circuit)}
+.dot{width:6px; height:6px; border-radius:50%; background:var(--circuit); box-shadow:0 0 8px var(--circuit); animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1} 50%{opacity:.4}}
+
+/* HEADER */
+header.site{background:var(--white); border-bottom:1px solid var(--line); position:sticky; top:0; z-index:100}
+.nav-row{display:flex; align-items:center; justify-content:space-between; height:76px; gap:24px}
+.brand{display:flex; align-items:center; gap:14px; cursor:pointer}
+.brand-mark{width:44px; height:44px; border-radius:9px; background:var(--red); display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-weight:600; color:#fff; font-size:.92rem; flex-shrink:0}
+.brand-text{display:flex; flex-direction:column; line-height:1.15}
+.brand-text .b1{font-family:var(--serif); font-weight:600; font-size:1.1rem; letter-spacing:-.01em; color:var(--ink)}
+.brand-text .b2{font-family:var(--mono); font-size:.62rem; color:var(--steel); letter-spacing:.04em; text-transform:uppercase}
+nav.main{display:flex; align-items:center; gap:2px}
+nav.main a, nav.main button.navlink{font-size:.9rem; font-weight:500; color:var(--ink-soft); padding:10px 13px; border-radius:8px; transition:all var(--trans); position:relative}
+nav.main a:hover, nav.main button.navlink:hover{background:var(--paper-dk); color:var(--red)}
+.nav-cta{background:var(--red); color:#fff !important; padding:10px 18px; border-radius:8px; font-weight:600; font-size:.86rem; transition:background var(--trans)}
+.nav-cta:hover{background:var(--red-dk)}
+.nav-toggle{display:none; flex-direction:column; gap:5px; width:28px; padding:8px}
+.nav-toggle span{display:block; height:2px; background:var(--ink); border-radius:2px; transition:var(--trans)}
+@media (max-width:1080px){
+  nav.main{display:none}
+  .nav-toggle{display:flex}
+  nav.main.open{display:flex; flex-direction:column; position:absolute; top:76px; left:0; right:0; background:#fff; border-bottom:1px solid var(--line); padding:12px; box-shadow:var(--shadow-lg)}
+  nav.main.open a, nav.main.open button{width:100%; text-align:left}
+}
+
+/* discipline sub-nav */
+.subnav{background:var(--ink); border-bottom:1px solid rgba(255,255,255,.08)}
+.subnav .wrap{display:flex; gap:4px; overflow-x:auto; padding:10px 32px}
+.subnav a{
+  font-family:var(--mono); font-size:.74rem; color:var(--steel-lt); padding:8px 14px; border-radius:7px;
+  white-space:nowrap; transition:all var(--trans); border:1px solid transparent;
+}
+.subnav a:hover{color:#fff; background:rgba(255,255,255,.06)}
+.subnav a.active{color:var(--circuit); border-color:rgba(0,217,163,.3); background:rgba(0,217,163,.08)}
+
+/* HERO (landing) */
+.hero{background:var(--ink); color:#fff; position:relative; overflow:hidden}
+.hero::before{content:''; position:absolute; inset:0; background:radial-gradient(circle at 85% 20%, rgba(0,217,163,.10), transparent 45%), radial-gradient(circle at 10% 90%, rgba(200,16,46,.14), transparent 50%); pointer-events:none}
+.hero-grid{position:absolute; inset:0; opacity:.05; pointer-events:none; background-image:linear-gradient(rgba(255,255,255,.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.6) 1px, transparent 1px); background-size:48px 48px}
+.hero-inner{position:relative; z-index:1; padding:64px 0 56px; display:grid; grid-template-columns:1.15fr .85fr; gap:56px; align-items:start}
+@media (max-width:980px){.hero-inner{grid-template-columns:1fr; padding:40px 0}}
+.eyebrow{font-family:var(--mono); font-size:.74rem; letter-spacing:.08em; text-transform:uppercase; color:var(--circuit); display:flex; align-items:center; gap:8px; margin-bottom:18px}
+.eyebrow .line{width:28px; height:1px; background:var(--circuit)}
+.hero h1{font-family:var(--serif); font-weight:600; font-size:clamp(2rem, 4.2vw, 3.2rem); line-height:1.07; letter-spacing:-.02em; margin-bottom:20px}
+.hero h1 em{font-style:italic; color:var(--circuit); font-weight:500}
+.hero p.lead{font-size:1.05rem; color:#C7CEDB; max-width:540px; margin-bottom:32px; line-height:1.65}
+.hero-ctas{display:flex; gap:12px; flex-wrap:wrap}
+.btn{display:inline-flex; align-items:center; gap:8px; padding:13px 22px; border-radius:9px; font-weight:600; font-size:.9rem; transition:all var(--trans)}
+.btn-primary{background:var(--red); color:#fff}
+.btn-primary:hover{background:var(--red-dk); transform:translateY(-1px)}
+.btn-ghost{background:rgba(255,255,255,.06); color:#fff; border:1px solid rgba(255,255,255,.18)}
+.btn-ghost:hover{background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.3)}
+.btn-dark{background:var(--ink); color:#fff}
+.btn-dark:hover{background:var(--ink-soft)}
+
+.hero-side{display:flex; flex-direction:column; gap:18px}
+
+.console{background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.1); border-radius:var(--r-lg); overflow:hidden; backdrop-filter:blur(6px)}
+.console-bar{display:flex; align-items:center; gap:8px; padding:12px 16px; border-bottom:1px solid rgba(255,255,255,.08); font-family:var(--mono); font-size:.7rem; color:var(--steel-lt)}
+.console-bar .dots{display:flex; gap:6px}
+.console-bar .dots span{width:9px; height:9px; border-radius:50%; background:rgba(255,255,255,.18)}
+.console-body{padding:18px 20px}
+.console-row{display:flex; justify-content:space-between; align-items:baseline; padding:11px 0; border-bottom:1px solid rgba(255,255,255,.06); font-family:var(--mono); font-size:.8rem}
+.console-row:last-child{border-bottom:none}
+.console-row .k{color:var(--steel-lt)}
+.console-row .v{color:#fff; font-weight:500; text-align:right}
+.console-row .v.accent{color:var(--circuit)}
+
+.console-video{
+  display:block; position:relative; border-radius:var(--r-lg); overflow:hidden; aspect-ratio:16/9; background:#000;
+  border:1px solid rgba(255,255,255,.1); transition:border-color var(--trans), transform var(--trans);
+}
+.console-video:hover{border-color:rgba(0,217,163,.4); transform:translateY(-2px)}
+.console-video img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.8; transition:opacity var(--trans)}
+.console-video:hover img{opacity:.65}
+.console-video-playbtn{
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  width:56px; height:56px; border-radius:50%; background:rgba(200,16,46,.92);
+  display:flex; align-items:center; justify-content:center; transition:all var(--trans);
+  box-shadow:0 4px 18px rgba(0,0,0,.45); z-index:2;
+}
+.console-video:hover .console-video-playbtn{background:var(--red); transform:translate(-50%,-50%) scale(1.08)}
+.console-video-playbtn svg{margin-left:3px}
+.console-video-label{
+  position:absolute; bottom:0; left:0; right:0; padding:30px 16px 12px;
+  background:linear-gradient(transparent, rgba(0,0,0,.92) 75%);
+  display:flex; flex-direction:column; gap:2px;
+}
+.console-video-label .vl-title{font-family:var(--serif); font-weight:600; font-size:.92rem; color:#fff}
+.console-video-label .vl-sub{font-family:var(--mono); font-size:.62rem; color:#C7CEDB; letter-spacing:.02em}
+
+/* SECTION SCAFFOLDING */
+section{padding:80px 0}
+@media (max-width:720px){section{padding:52px 0}}
+.section-head{display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin-bottom:40px; flex-wrap:wrap}
+.section-head h2{font-family:var(--serif); font-weight:600; font-size:clamp(1.5rem,3vw,2.2rem); letter-spacing:-.015em; color:var(--ink)}
+.section-head p{color:var(--steel); max-width:480px; margin-top:8px}
+.section-eyebrow{font-family:var(--mono); font-size:.7rem; letter-spacing:.08em; text-transform:uppercase; color:var(--red); margin-bottom:10px; display:block}
+.sec-paper{background:var(--paper)}
+.sec-white{background:var(--white)}
+.sec-ink{background:var(--ink); color:#fff}
+
+/* DISCIPLINE CARDS (landing "meet the academics") */
+.disc-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:var(--r-lg); overflow:hidden}
+@media (max-width:980px){.disc-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.disc-grid{grid-template-columns:1fr}}
+.disc-card{
+  position:relative; min-height:280px; cursor:pointer; overflow:hidden;
+  display:flex; flex-direction:column; justify-content:flex-end; padding:26px;
+}
+.disc-card img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform .5s ease}
+.disc-card:hover img{transform:scale(1.07)}
+.disc-card::before{
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(11,18,32,.25) 0%, rgba(11,18,32,.65) 55%, rgba(11,18,32,.95) 100%);
+  transition:background var(--trans);
+}
+.disc-card:hover::before{background:linear-gradient(180deg, rgba(200,16,46,.2) 0%, rgba(11,18,32,.7) 55%, rgba(11,18,32,.96) 100%)}
+.disc-card > *{position:relative; z-index:1}
+.disc-mark{width:44px; height:44px; border-radius:9px; background:rgba(255,255,255,.16); backdrop-filter:blur(4px); border:1px solid rgba(255,255,255,.25); color:#fff; display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-weight:700; font-size:.86rem; margin-bottom:14px}
+.disc-card h4{font-family:var(--serif); font-size:1.18rem; font-weight:600; line-height:1.3; color:#fff; margin-bottom:8px; text-shadow:0 2px 6px rgba(0,0,0,.55)}
+.disc-card p{font-size:.85rem; color:#F0F2F6; line-height:1.55; text-shadow:0 1px 4px rgba(0,0,0,.5)}
+.disc-count{font-family:var(--mono); font-size:.72rem; color:var(--amber); font-weight:700; margin-top:12px; text-shadow:0 1px 3px rgba(0,0,0,.5)}
+
+/* STATS */
+.stats{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:rgba(255,255,255,.1); border-radius:var(--r-lg); overflow:hidden}
+@media (max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stat{background:var(--ink); padding:32px 24px; text-align:center}
+.stat .num{font-family:var(--serif); font-size:2.3rem; font-weight:600; color:var(--circuit); line-height:1}
+.stat .label{font-family:var(--mono); font-size:.7rem; color:var(--steel-lt); margin-top:10px; text-transform:uppercase; letter-spacing:.04em}
+
+/* RESEARCH THEMES */
+.theme-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:var(--r-lg); overflow:hidden}
+@media (max-width:780px){.theme-grid{grid-template-columns:1fr}}
+.theme-card{background:var(--white); padding:34px 32px; transition:background var(--trans)}
+.theme-card:hover{background:var(--paper)}
+.theme-icon{width:64px; height:64px; margin-bottom:18px}
+.theme-icon svg{width:100%; height:100%}
+.theme-num{font-family:var(--mono); font-size:.74rem; color:var(--red); font-weight:600; margin-bottom:12px; display:block}
+.theme-card h4{font-family:var(--serif); font-size:1.3rem; font-weight:600; margin-bottom:10px}
+.theme-card p{color:var(--steel); font-size:.92rem; line-height:1.65; margin-bottom:14px}
+.theme-card a{font-size:.85rem; font-weight:600; color:var(--ink)}
+
+/* LABS — redesigned: colorful grid with images */
+.labs-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px}
+@media (max-width:980px){.labs-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.labs-grid{grid-template-columns:1fr}}
+.lab-card{
+  position:relative; border-radius:var(--r-lg); overflow:hidden; aspect-ratio:4/5;
+  cursor:default; transition:transform var(--trans), box-shadow var(--trans);
+  box-shadow:var(--shadow);
+}
+.lab-card:hover{transform:translateY(-4px); box-shadow:var(--shadow-lg)}
+.lab-card.featured{grid-column:span 2; grid-row:span 1; aspect-ratio:8/5}
+@media (max-width:980px){.lab-card.featured{grid-column:span 2}}
+@media (max-width:600px){.lab-card.featured{grid-column:span 1; aspect-ratio:4/5}}
+.lab-card img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform .5s ease}
+.lab-card:hover img{transform:scale(1.06)}
+.lab-card .lab-overlay{
+  position:absolute; inset:0;
+  background:linear-gradient(180deg, transparent 0%, transparent 35%, rgba(11,18,32,.55) 65%, rgba(11,18,32,.94) 100%);
+  display:flex; flex-direction:column; justify-content:flex-end; padding:22px;
+}
+.lab-card .lab-badge{
+  position:absolute; top:16px; left:16px;
+  font-family:var(--mono); font-size:.66rem; font-weight:700; padding:5px 11px; border-radius:99px;
+  text-transform:uppercase; letter-spacing:.04em; color:#fff;
+}
+.lab-badge.flagship{background:var(--red)}
+.lab-badge.new{background:var(--amber); color:var(--ink)}
+.lab-badge.research{background:var(--circuit); color:var(--ink)}
+.lab-badge.teaching{background:var(--amber); color:var(--ink)}
+.lab-card h4{font-family:var(--serif); color:#fff; font-size:1.15rem; font-weight:600; line-height:1.25; margin-bottom:8px; text-shadow:0 2px 6px rgba(0,0,0,.55)}
+.lab-card.featured h4{font-size:1.4rem}
+.lab-card p{color:#F0F2F6; font-size:.82rem; line-height:1.55; text-shadow:0 1px 4px rgba(0,0,0,.5)}
+.lab-card .lab-tag-row{display:flex; gap:6px; flex-wrap:wrap; margin-top:10px}
+.lab-card .lab-tag{
+  font-family:var(--mono); font-size:.62rem; color:#fff; background:rgba(255,255,255,.14);
+  padding:3px 9px; border-radius:99px; backdrop-filter:blur(4px);
+}
+
+/* WORK WITH US */
+.wwu-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:20px}
+@media (max-width:720px){.wwu-grid{grid-template-columns:1fr}}
+.wwu-card{position:relative; border-radius:var(--r-lg); overflow:hidden; aspect-ratio:16/10; cursor:pointer}
+.wwu-card img{width:100%; height:100%; object-fit:cover; transition:transform .4s ease}
+.wwu-card:hover img{transform:scale(1.04)}
+.wwu-overlay{position:absolute; inset:0; background:linear-gradient(transparent 40%, rgba(11,18,32,.9)); display:flex; flex-direction:column; justify-content:flex-end; padding:26px}
+.wwu-overlay h4{font-family:var(--serif); color:#fff; font-size:1.25rem; font-weight:600; margin-bottom:6px}
+.wwu-overlay p{color:#C7CEDB; font-size:.86rem; line-height:1.55}
+
+/* STAFF DIRECTORY */
+.staff-controls{display:flex; gap:12px; margin-bottom:28px; flex-wrap:wrap; align-items:center}
+.staff-search{flex:1; min-width:220px; position:relative}
+.staff-search input{width:100%; padding:13px 16px 13px 42px; border:1.5px solid var(--line); border-radius:9px; font-family:var(--sans); font-size:.9rem; background:var(--white); transition:border-color var(--trans)}
+.staff-search input:focus{border-color:var(--red); outline:none}
+.staff-search svg{position:absolute; left:14px; top:50%; transform:translateY(-50%); opacity:.4}
+.staff-count{font-family:var(--mono); font-size:.76rem; color:var(--steel); white-space:nowrap; padding:0 6px}
+
+.staff-section-label{
+  font-family:var(--mono); font-size:.7rem; text-transform:uppercase; letter-spacing:.06em;
+  color:var(--red); margin:36px 0 16px; display:flex; align-items:center; gap:10px;
+}
+.staff-section-label:first-child{margin-top:0}
+.staff-section-label::after{content:''; flex:1; height:1px; background:var(--line)}
+
+.staff-grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(248px,1fr)); gap:14px}
+.staff-card{
+  background:var(--white); border:1px solid var(--line); border-radius:var(--r);
+  overflow:hidden; cursor:pointer; transition:all var(--trans);
+  display:flex; align-items:flex-start; gap:13px; padding:15px;
+}
+.staff-card:hover{border-color:var(--red); box-shadow:var(--shadow); transform:translateY(-2px)}
+.staff-card.featured{border-color:var(--red); border-width:1.5px; background:linear-gradient(180deg, var(--red-lt), var(--white) 40%)}
+.staff-photo-box{
+  width:56px; height:56px; border-radius:50%; background:var(--ink-soft); position:relative; overflow:hidden;
+  flex-shrink:0; cursor:zoom-in; border:2px solid var(--white); box-shadow:0 0 0 1px var(--line);
+}
+.staff-photo-box:hover{box-shadow:0 0 0 2px var(--circuit)}
+.staff-photo-box img{width:100%; height:100%; object-fit:cover; display:block}
+.staff-photo-fallback{
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg, var(--ink), var(--ink-soft)); color:var(--circuit);
+  font-family:var(--mono); font-weight:600; font-size:1.05rem;
+}
+.staff-zoom-hint{
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  background:rgba(11,18,32,.45); opacity:0; transition:opacity var(--trans); color:#fff; font-size:.85rem;
+}
+.staff-photo-box:hover .staff-zoom-hint{opacity:1}
+.staff-card-flags{position:absolute; top:-3px; right:-3px; display:flex; flex-direction:column; gap:2px; align-items:flex-end}
+.staff-director-flag{
+  background:var(--red); color:#fff;
+  font-family:var(--mono); font-size:.52rem; font-weight:700; padding:2px 5px; border-radius:4px;
+  text-transform:uppercase; letter-spacing:.02em; white-space:nowrap; box-shadow:0 1px 3px rgba(0,0,0,.3);
+}
+.staff-prof-flag{
+  background:var(--circuit); color:var(--ink);
+  font-family:var(--mono); font-size:.52rem; font-weight:700; padding:2px 5px; border-radius:4px; white-space:nowrap;
+  box-shadow:0 1px 3px rgba(0,0,0,.3);
+}
+.staff-unverified-dot{
+  width:9px; height:9px; border-radius:50%; background:var(--amber); border:1.5px solid #fff;
+  box-shadow:0 1px 2px rgba(0,0,0,.3);
+}
+.staff-info{min-width:0; flex:1; padding-top:2px}
+.staff-info h5{font-size:.9rem; font-weight:600; color:var(--ink); margin-bottom:2px; line-height:1.3}
+.staff-info .role{font-size:.73rem; color:var(--red); font-weight:500; margin-bottom:5px; line-height:1.3}
+.staff-info .exp{font-size:.68rem; color:var(--steel-lt); font-family:var(--mono)}
+.staff-empty{text-align:center; padding:60px 20px; color:var(--steel-lt); font-family:var(--mono); font-size:.86rem; grid-column:1/-1}
+
+/* PHOTO LIGHTBOX */
+.lightbox-overlay{
+  position:fixed; inset:0; background:rgba(11,18,32,.92); display:none;
+  align-items:center; justify-content:center; z-index:1100; padding:40px; cursor:zoom-out;
+}
+.lightbox-overlay.open{display:flex}
+.lightbox-img-wrap{max-width:420px; max-height:80vh; text-align:center}
+.lightbox-img-wrap img{width:100%; max-height:70vh; object-fit:contain; border-radius:var(--r-lg); box-shadow:var(--shadow-lg)}
+.lightbox-img-wrap .lb-name{color:#fff; font-family:var(--serif); font-size:1.2rem; font-weight:600; margin-top:16px}
+.lightbox-img-wrap .lb-role{color:#B7C0D1; font-size:.85rem; margin-top:4px}
+.lightbox-close{
+  position:absolute; top:24px; right:28px; width:42px; height:42px; border-radius:50%;
+  background:rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center;
+  color:#fff; font-size:1.3rem; transition:background var(--trans);
+}
+.lightbox-close:hover{background:rgba(255,255,255,.2)}
+.modal-overlay{position:fixed; inset:0; background:rgba(11,18,32,.6); backdrop-filter:blur(3px); display:none; align-items:flex-start; justify-content:center; z-index:1000; padding:40px 20px; overflow-y:auto}
+.modal-overlay.open{display:flex}
+.modal{background:var(--white); border-radius:var(--r-lg); max-width:680px; width:100%; box-shadow:var(--shadow-lg); position:relative; margin:auto}
+.modal-close{position:absolute; top:18px; right:18px; width:36px; height:36px; border-radius:50%; background:rgba(255,255,255,.15); display:flex; align-items:center; justify-content:center; font-size:1.1rem; color:#fff; transition:all var(--trans); z-index:2}
+.modal-close:hover{background:var(--red)}
+.modal-head{background:var(--ink); color:#fff; padding:32px 36px 26px; border-radius:var(--r-lg) var(--r-lg) 0 0; display:flex; gap:20px; align-items:center; position:relative; overflow:hidden}
+.modal-photo{width:84px; height:84px; border-radius:14px; flex-shrink:0; overflow:hidden; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); position:relative; cursor:zoom-in}
+.modal-photo:hover .modal-photo-hint{opacity:1}
+.modal-photo-hint{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(11,18,32,.4); opacity:0; transition:opacity .2s; color:#fff; font-size:1.1rem}
+.modal-photo img{width:100%; height:100%; object-fit:cover}
+.modal-photo .fallback{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:var(--circuit); font-family:var(--mono); font-weight:600; font-size:1.5rem}
+.modal-head h3{font-family:var(--serif); font-size:1.4rem; font-weight:600}
+.modal-head .role{font-size:.86rem; color:#B7C0D1; margin-top:4px}
+.modal-body{padding:30px 36px}
+.modal-body p.bio{color:var(--ink-soft); line-height:1.75; margin-bottom:22px}
+.modal-section-label{font-family:var(--mono); font-size:.68rem; text-transform:uppercase; letter-spacing:.06em; color:var(--steel-lt); margin-bottom:10px; display:block}
+.modal-tags{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:22px}
+.tag{font-family:var(--mono); font-size:.7rem; padding:5px 11px; border-radius:99px; background:var(--paper-dk); color:var(--steel); border:1px solid var(--line)}
+.modal-foot{display:flex; gap:10px; flex-wrap:wrap; padding-top:18px; border-top:1px solid var(--line)}
+.modal-foot a{font-size:.85rem}
+
+/* COURSES */
+.course-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+@media (max-width:860px){.course-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.course-grid{grid-template-columns:1fr}}
+.course-card{background:var(--white); border:1px solid var(--line); border-radius:var(--r); padding:24px; transition:all var(--trans); display:flex; flex-direction:column; gap:12px}
+.course-card:hover{border-color:var(--red); box-shadow:var(--shadow)}
+.course-level{font-family:var(--mono); font-size:.66rem; text-transform:uppercase; letter-spacing:.05em; color:var(--red); font-weight:600}
+.course-card h4{font-family:var(--serif); font-size:1.1rem; font-weight:600; line-height:1.3}
+.course-card p{font-size:.84rem; color:var(--steel); flex:1}
+
+/* FOOTER */
+footer{background:var(--ink); color:#C7CEDB; padding:60px 0 28px}
+.foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px; padding-bottom:40px; border-bottom:1px solid rgba(255,255,255,.1)}
+@media (max-width:780px){.foot-grid{grid-template-columns:1fr 1fr; gap:28px}}
+.foot-brand .brand-text .b1{color:#fff}
+.foot-brand p{margin-top:16px; font-size:.84rem; color:var(--steel-lt); max-width:280px; line-height:1.6}
+.foot-col h6{font-family:var(--mono); font-size:.7rem; text-transform:uppercase; letter-spacing:.05em; color:var(--steel-lt); margin-bottom:16px}
+.foot-col a{display:block; font-size:.86rem; padding:6px 0; color:#C7CEDB; transition:color var(--trans)}
+.foot-col a:hover{color:var(--circuit)}
+.foot-bottom{display:flex; justify-content:space-between; align-items:center; padding-top:24px; flex-wrap:wrap; gap:12px; font-size:.76rem; color:var(--steel-lt); font-family:var(--mono)}
+
+/* GMIOT NEWS SPOTLIGHT */
+.gmiot-feature{display:grid; grid-template-columns:1fr 1.3fr; gap:36px; align-items:start}
+@media (max-width:860px){.gmiot-feature{grid-template-columns:1fr}}
+.gmiot-feature-copy p{color:var(--steel); line-height:1.7; margin-bottom:18px}
+.gmiot-gallery{display:grid; grid-template-columns:repeat(2,1fr); gap:14px}
+.gmiot-gallery-item{position:relative; border-radius:var(--r); overflow:hidden; aspect-ratio:4/3; box-shadow:var(--shadow); cursor:pointer}
+.gmiot-gallery-item img{width:100%; height:100%; object-fit:cover; transition:transform .4s ease}
+.gmiot-gallery-item:hover img{transform:scale(1.08)}
+.gmiot-gallery-item .cap{
+  position:absolute; bottom:0; left:0; right:0; padding:10px 12px 8px;
+  background:linear-gradient(transparent, rgba(11,18,32,.9));
+  font-family:var(--mono); font-size:.64rem; color:#fff;
+}
+.bldg-video{
+  position:relative; display:block; aspect-ratio:16/10; background:#000; overflow:hidden;
+}
+.bldg-video img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.82; transition:opacity var(--trans), transform .5s ease}
+.bldg-video:hover img{opacity:.68; transform:scale(1.03)}
+.bldg-video-playbtn{
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  width:64px; height:64px; border-radius:50%; background:rgba(200,16,46,.92);
+  display:flex; align-items:center; justify-content:center; transition:all var(--trans);
+  box-shadow:0 4px 20px rgba(0,0,0,.45); z-index:2;
+}
+.bldg-video:hover .bldg-video-playbtn{background:var(--red); transform:translate(-50%,-50%) scale(1.08)}
+.bldg-video-playbtn svg{margin-left:3px}
+.bldg-video-label{
+  position:absolute; bottom:0; left:0; right:0; padding:30px 20px 16px;
+  background:linear-gradient(transparent, rgba(0,0,0,.9) 75%);
+  display:flex; flex-direction:column; gap:3px;
+}
+.bldg-video-label .vl-title{font-family:var(--serif); font-weight:600; font-size:1.05rem; color:#fff}
+.bldg-video-label .vl-sub{font-family:var(--mono); font-size:.66rem; color:#C7CEDB; letter-spacing:.02em}
+
+.bldg-gallery{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:20px}
+@media (max-width:860px){.bldg-gallery{grid-template-columns:repeat(2,1fr)}}
+.bldg-gallery-item{position:relative; border-radius:var(--r); overflow:hidden; aspect-ratio:4/3; box-shadow:var(--shadow)}
+.bldg-gallery-item img{width:100%; height:100%; object-fit:cover; transition:transform .4s ease}
+.bldg-gallery-item:hover img{transform:scale(1.08)}
+.bldg-gallery-item .cap{
+  position:absolute; bottom:0; left:0; right:0; padding:12px 14px 10px;
+  background:linear-gradient(transparent, rgba(11,18,32,.88));
+  font-family:var(--mono); font-size:.68rem; color:#fff; letter-spacing:.02em;
+}
+/* DISCIPLINE PAGE HERO BANNER */
+.disc-hero-banner{
+  position:relative; border-radius:var(--r-lg); overflow:hidden; min-height:220px;
+  background-size:cover; background-position:center; margin-bottom:36px;
+  display:flex; align-items:flex-end;
+}
+.disc-hero-overlay{
+  width:100%; padding:32px;
+  background:linear-gradient(180deg, rgba(11,18,32,.55) 0%, rgba(11,18,32,.8) 50%, rgba(11,18,32,.96) 100%);
+}
+.disc-hero-overlay .section-eyebrow{color:var(--amber) !important; text-shadow:0 1px 3px rgba(0,0,0,.5)}
+.disc-hero-overlay h2{font-family:var(--serif); font-size:clamp(1.5rem,3vw,2.1rem); font-weight:600; margin:6px 0 8px; letter-spacing:-.015em; color:#fff !important; text-shadow:0 2px 6px rgba(0,0,0,.55)}
+.disc-hero-overlay p{max-width:560px; font-size:.95rem; line-height:1.6; color:#F0F2F6 !important; text-shadow:0 1px 4px rgba(0,0,0,.5)}
+.reveal.in{opacity:1; transform:translateY(0)}
+.skip-link{position:absolute; left:-999px; top:0; background:var(--red); color:#fff; padding:12px 18px; z-index:2000}
+.skip-link:focus{left:12px; top:12px}
+.page{display:none}
+.page.active{display:block}
+.back-row{margin-bottom:24px}
+.back-link{font-family:var(--mono); font-size:.8rem; color:var(--steel); display:inline-flex; align-items:center; gap:6px; transition:color var(--trans)}
+.back-link:hover{color:var(--red)}
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="topbar-links">
+      <a href="https://www.salford.ac.uk" target="_blank" rel="noopener">salford.ac.uk</a>
+      <a href="https://www.salford.ac.uk/school-of-science-engineering-and-environment" target="_blank" rel="noopener">SEE Faculty</a>
+      <a href="https://www.salford.ac.uk/courses/postgraduate" target="_blank" rel="noopener">Postgraduate</a>
+    </div>
+    <div class="topbar-status"><span class="dot"></span> <span id="topbarCount">97</span> verified academic staff</div>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap nav-row">
+    <a href="javascript:void(0)" class="brand" onclick="goHome()">
+      <div class="brand-mark">CS&amp;E</div>
+      <div class="brand-text">
+        <span class="b1">CS&amp;E Directorate</span>
+        <span class="b2">Faculty of Science, Engineering &amp; Environment</span>
+      </div>
+    </a>
+    <nav class="main" id="mainNav">
+      <button class="navlink" onclick="goHome()">Overview</button>
+      <button class="navlink" onclick="openDirector()">Director</button>
+      <button class="navlink" onclick="navSection('disciplines')">Academics</button>
+      <button class="navlink" onclick="navSection('research')">Research</button>
+      <button class="navlink" onclick="navSection('labs')">Labs</button>
+      <button class="navlink" onclick="navSection('study')">Study</button>
+      <button class="navlink" onclick="navSection('work-with-us')">Work with us</button>
+      <a href="https://www.salford.ac.uk/courses/postgraduate" class="nav-cta" target="_blank" rel="noopener">Apply Now</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <div class="subnav" id="discSubnav" style="display:none">
+    <div class="wrap" id="discSubnavInner"></div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================= LANDING PAGE ================= -->
+<div class="page active" id="page-home">
+
+  <section class="hero" style="padding:0">
+    <div class="hero-grid"></div>
+    <div class="wrap hero-inner">
+      <div>
+        <div class="eyebrow"><span class="line"></span> University of Salford &middot; Within the Faculty of Science, Engineering &amp; Environment</div>
+        <h1>Computer Science &amp; Engineering, <em>across four disciplines.</em></h1>
+        <p class="lead">From robotics and acoustics to civil structures and intelligent systems, the CS&amp;E Directorate brings together four academic disciplines at the University of Salford &mdash; based in the SEE Building, minutes from MediaCityUK.</p>
+        <div class="hero-ctas">
+          <a href="javascript:void(0)" onclick="navSection('disciplines')" class="btn btn-primary">Meet the academics</a>
+          <a href="javascript:void(0)" onclick="navSection('labs')" class="btn btn-ghost">Explore our labs</a>
+        </div>
+      </div>
+      <div class="hero-side reveal">
+        <div class="console">
+          <div class="console-bar"><div class="dots"><span></span><span></span><span></span></div> directorate.status</div>
+          <div class="console-body">
+            <div class="console-row"><span class="k">Disciplines</span><span class="v accent">4</span></div>
+            <div class="console-row"><span class="k">Verified academic staff</span><span class="v" id="consoleStaffCount">97</span></div>
+            <div class="console-row"><span class="k">Professors</span><span class="v accent" id="consoleProfCount">16</span></div>
+            <div class="console-row"><span class="k">Home building</span><span class="v">SEE Building, Peel Park</span></div>
+            <div class="console-row"><span class="k">Flagship facilities</span><span class="v accent">NERIC &middot; DSAI Hub</span></div>
+          </div>
+        </div>
+        <a class="console-video" href="https://www.youtube.com/watch?v=3GSawMhWN0I" target="_blank" rel="noopener" aria-label="Watch: Discover NERIC on YouTube">
+          <img src="https://i.ytimg.com/vi/3GSawMhWN0I/hqdefault.jpg" alt="" loading="lazy">
+          <div class="console-video-playbtn">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <div class="console-video-label">
+            <span class="vl-title">Discover NERIC</span>
+            <span class="vl-sub">Northern Engineering &amp; Robotics Innovation Centre &middot; Watch on YouTube</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec-ink" style="padding:0">
+    <div class="wrap" style="padding:52px 32px">
+      <div class="stats">
+        <div class="stat"><div class="num">4</div><div class="label">Disciplines</div></div>
+        <div class="stat"><div class="num" id="statStaff">97</div><div class="label">Academic Staff</div></div>
+        <div class="stat"><div class="num" id="statProf">16</div><div class="label">Professors</div></div>
+        <div class="stat"><div class="num">3</div><div class="label">Flagship Labs &amp; Hubs</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec-white" id="disciplines">
+    <div class="wrap">
+      <span class="section-eyebrow">Academics</span>
+      <div class="section-head">
+        <h2>Four disciplines, one directorate</h2>
+        <p>Select a discipline to meet its academic staff, with full verified profiles linked to the University of Salford repository.</p>
+      </div>
+      <div class="disc-grid" id="discGrid"></div>
+    </div>
+  </section>
+
+  <section class="sec-paper" id="research">
+    <div class="wrap">
+      <span class="section-eyebrow">Research</span>
+      <div class="section-head">
+        <h2>Our research themes</h2>
+        <p>Our research aligns with the University of Salford's four institution-wide research themes &mdash; pathways to a future where knowledge drives positive change.</p>
+      </div>
+      <div class="theme-grid" id="themeGrid"></div>
+    </div>
+  </section>
+
+  <section class="sec-white" id="labs">
+    <div class="wrap">
+      <span class="section-eyebrow">Facilities</span>
+      <div class="section-head">
+        <h2>Labs &amp; innovation facilities</h2>
+        <p>Robotics, autonomous systems, and data-driven AI &mdash; built and run inside the SEE Building and across our specialist research centres.</p>
+      </div>
+      <div class="labs-grid" id="labsRack"></div>
+    </div>
+  </section>
+
+  <section class="sec-paper" id="gmiot-news">
+    <div class="wrap">
+      <span class="section-eyebrow">New Facility &middot; Opening December 2025</span>
+      <div class="section-head">
+        <h2>Inside the new GMIoT building</h2>
+        <p>A first look at the Greater Manchester Institute of Technology &mdash; a £14.3m, low-carbon building taking shape right next to the SEE Building on Peel Park campus.</p>
+      </div>
+      <div class="gmiot-feature">
+        <div class="gmiot-feature-copy">
+          <p>Designed by jmarchitects and built by Tilbury Douglas, the two-storey, 1,840m&sup2; GMIoT building will house digital labs, virtual reality spaces, a prototyping workshop and ICT studios &mdash; delivering Higher Technical Qualifications, HNDs and apprenticeships across construction, engineering, digital, media and health science, in partnership with GCHQ, Siemens, Laing O&rsquo;Rourke, TalkTalk and the BBC.</p>
+          <p>The building is A-rated and low carbon, featuring a green roof with photovoltaic panels and a living wall supported by rainwater harvesting &mdash; part of the University&rsquo;s commitment to Net Zero Carbon by 2038. Its exterior shingle cladding was deliberately colour-matched: green tiles echoing neighbouring Peel Park, and red tiles to match the SEE Building next door.</p>
+          <a href="https://gmiot.ac.uk/" target="_blank" rel="noopener" class="btn btn-primary">Visit GMIoT.ac.uk &rarr;</a>
+        </div>
+        <div class="gmiot-gallery" id="gmiotGallery"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec-paper" id="study">
+    <div class="wrap">
+      <span class="section-eyebrow">Study with us</span>
+      <div class="section-head">
+        <h2>Courses across CS&amp;E</h2>
+        <p>From foundation year to PhD, taught by the academics in our four disciplines.</p>
+      </div>
+      <div class="course-grid" id="courseGrid"></div>
+    </div>
+  </section>
+
+  <section class="sec-white" id="work-with-us">
+    <div class="wrap">
+      <span class="section-eyebrow">Engage</span>
+      <div class="section-head">
+        <h2>Work with us</h2>
+        <p>Industry collaborations, research partnerships, international exchanges, outreach activities &mdash; these are just some of the ways we can engage and work together.</p>
+      </div>
+      <div class="wwu-grid">
+        <a class="wwu-card" href="https://www.salford.ac.uk/schools-and-colleges" target="_blank" rel="noopener">
+          <img src="https://www.salford.ac.uk/sites/default/files/2021-02/SEE%20Accordion%20Architecture%20Students%20Group.jpg" alt="Schools and Colleges" loading="lazy">
+          <div class="wwu-overlay"><h4>Schools and Colleges</h4><p>Our Recruitment and Widening Participation teams support students making informed decisions about their future.</p></div>
+        </a>
+        <a class="wwu-card" href="https://www.salford.ac.uk/alumni" target="_blank" rel="noopener">
+          <img src="https://www.salford.ac.uk/sites/default/files/2021-02/SEE%20Accordion%20Computer%20Science.jpg" alt="Alumni" loading="lazy">
+          <div class="wwu-overlay"><h4>Alumni</h4><p>As a Salford graduate, you're part of a global alumni community &mdash; stay connected and build new connections.</p></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec-paper" id="building">
+    <div class="wrap">
+      <span class="section-eyebrow">Home</span>
+      <div class="section-head">
+        <h2>The SEE Building</h2>
+        <p>Computer Science &amp; Engineering is based in the Faculty of Science, Engineering &amp; Environment building on Peel Park campus.</p>
+      </div>
+      <div style="display:grid; grid-template-columns:1.3fr 1fr; gap:0; border-radius:var(--r-lg); overflow:hidden; border:1px solid var(--line); background:var(--white)" class="bldg-feature">
+        <a href="https://www.youtube.com/watch?v=qyGiBqpV8Xo" target="_blank" rel="noopener" class="bldg-video" aria-label="Watch: SEE Building Case Study on YouTube">
+          <img src="https://i.ytimg.com/vi/qyGiBqpV8Xo/hqdefault.jpg" alt="" loading="lazy">
+          <div class="bldg-video-playbtn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <div class="bldg-video-label">
+            <span class="vl-title">SEE Building &mdash; Case Study</span>
+            <span class="vl-sub">University of Salford &middot; Watch on YouTube</span>
+          </div>
+        </a>
+        <div style="padding:38px">
+          <span class="section-eyebrow">Peel Park Campus</span>
+          <h3 style="font-family:var(--serif); font-size:1.4rem; font-weight:600; margin-bottom:14px; line-height:1.25">A purpose-built home for engineering and computing</h3>
+          <p style="color:var(--steel); margin-bottom:22px; line-height:1.65">The four-storey, 15,500 sq m SEE Building brings together teaching labs, robotics facilities, a wind tunnel and laser laboratories, and research space for all four CS&amp;E disciplines &mdash; 100% electric-powered, a short walk from Salford Crescent station and minutes from MediaCityUK.</p>
+          <a href="https://www.salford.ac.uk/school-of-science-engineering-and-environment" target="_blank" rel="noopener" class="btn btn-dark">Visit the SEE Faculty site &rarr;</a>
+        </div>
+      </div>
+      <div class="bldg-gallery" id="bldgGallery"></div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ================= DISCIPLINE PAGE TEMPLATE (populated by JS) ================= -->
+<div class="page" id="page-discipline">
+  <section class="sec-paper" style="padding-top:40px">
+    <div class="wrap">
+      <div class="back-row"><a href="javascript:void(0)" onclick="goHome()" class="back-link">&larr; All disciplines</a></div>
+      <div id="discHeader"></div>
+      <div class="staff-controls">
+        <div class="staff-search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="text" id="discSearch" placeholder="Search by name, role, or research area&hellip;" autocomplete="off">
+        </div>
+        <div class="staff-count" id="discStaffCount"></div>
+      </div>
+      <div id="discStaffContainer"></div>
+    </div>
+  </section>
+</div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand"><div class="brand-mark">CS&amp;E</div><div class="brand-text"><span class="b1">CS&amp;E Directorate</span></div></div>
+        <p>Part of the Faculty of Science, Engineering &amp; Environment at the University of Salford, Greater Manchester.</p>
+      </div>
+      <div class="foot-col">
+        <h6>Directorate</h6>
+        <a href="javascript:void(0)" onclick="navSection('disciplines')">Academic Staff</a>
+        <a href="javascript:void(0)" onclick="navSection('research')">Research Themes</a>
+        <a href="javascript:void(0)" onclick="navSection('labs')">Labs &amp; Facilities</a>
+        <a href="javascript:void(0)" onclick="navSection('work-with-us')">Work with us</a>
+      </div>
+      <div class="foot-col">
+        <h6>University</h6>
+        <a href="https://www.salford.ac.uk" target="_blank" rel="noopener">salford.ac.uk</a>
+        <a href="https://www.salford.ac.uk/school-of-science-engineering-and-environment" target="_blank" rel="noopener">SEE Faculty</a>
+        <a href="https://www.salford.ac.uk/courses/postgraduate" target="_blank" rel="noopener">Postgraduate study</a>
+        <a href="https://www.salford.ac.uk/our-staff" target="_blank" rel="noopener">All university staff</a>
+      </div>
+      <div class="foot-col">
+        <h6>Contact</h6>
+        <a href="https://www.salford.ac.uk/contact-us" target="_blank" rel="noopener">Contact us</a>
+        <a href="https://www.salford.ac.uk/jobs" target="_blank" rel="noopener">Jobs</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 University of Salford &mdash; Computer Science &amp; Engineering Directorate</span>
+      <span>SEE Faculty &middot; Peel Park Campus, Salford, Greater Manchester</span>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modalBox" role="dialog" aria-modal="true"></div>
+</div>
+
+<div class="lightbox-overlay" id="lightboxOverlay">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close image">&times;</button>
+  <div class="lightbox-img-wrap" id="lightboxContent"></div>
+</div>
+
+<script>
+// ============ CS&E Directorate — 4 disciplines, staff data (verified + sourced-from-salford.ac.uk) ============
+const DISCIPLINES = {
+  "computer-science": {
+    label: "Computer Science",
+    short: "CS",
+    desc: "AI, data science, cybersecurity, software engineering and computer vision.",
+    people: [
+      {
+        slug: "mo-saraee", name: "Mo Saraee", initials: "MS",
+        title: "Professor of Data Science; Director of Computer Science & Engineering", bio: "Professor Mo Saraee holds a chair in Data Science and is Director of Computer Science & Engineering at the University of Salford. She received her PhD from the University of Manchester. Her research covers Data Science, Machine Learning, NLP, Big Data, and Medical Informatics, with over 150 publications spanning these fields.",
+        email: "m.saraee@salford.ac.uk", wtId: "1160360", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1160360.jpg",
+        expertise: ["Data Science", "Machine Learning", "NLP", "Big Data", "Medical Informatics"], isProfessor: true, isDirector: true, unverified: false
+      },
+      {
+        slug: "olayinka-adeboye", name: "Olayinka Adeboye", initials: "OA",
+        title: "Lecturer in Cyber Security", bio: "Dr Olayinka Adeboye is a Lecturer at the University of Salford with research interests in Cybersecurity, data privacy, data analytics and artificial intelligence. His research focuses on the privacy preservation of connected and autonomous vehicle data, exploring novel approaches to protecting sensitive information in emerging smart mobility systems.",
+        email: "a.a.adeboye@salford.ac.uk", wtId: "2002881", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/2002881.jpg",
+        expertise: ["Cybersecurity", "Data Privacy", "Autonomous Vehicles", "AI", "Data Analytics"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "ali-alameer", name: "Ali Alameer", initials: "AA",
+        title: "Senior Lecturer in Computer Science", bio: "Dr Ali Alameer is a Senior Lecturer in Computer Science at the University of Salford with research interests in machine learning, data mining, and intelligent systems. He contributes to teaching and research in the Computer Science discipline group.",
+        email: "a.alameer@salford.ac.uk", wtId: "1178234", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1178234.jpg",
+        expertise: ["Machine Learning", "Data Mining", "Intelligent Systems", "Computer Science"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "apostolos-antonacopoulos", name: "Apostolos Antonacopoulos", initials: "AA",
+        title: "Professor of Pattern Recognition", bio: "Professor Apostolos Antonacopoulos leads the Pattern Recognition and Image Analysis (PRImA) research Lab at the University of Salford, where he holds the post of Professor of Pattern Recognition. He received his PhD from UMIST in 1995 and founded the PRImA Lab at the University of Liverpool before joining Salford in 2005 as Senior Lecturer. He received the IAPR/ICDAR Young Investigator Award in 2005 for outstanding contributions to historical document processing. He has published extensively on Document Analysis, Image Enhancement, Segmentation, Recognition, and Performance Evaluation, and has co-edited landmark publications in the field.",
+        email: "a.antonacopoulos@salford.ac.uk", wtId: "1159733", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1159733.jpg",
+        expertise: ["Pattern Recognition", "Document Analysis", "Image Analysis", "OCR", "Historical Document Processing"], isProfessor: true, isDirector: false, unverified: false
+      },
+      {
+        slug: "muhammad-ateeq", name: "Muhammad Ateeq", initials: "MA",
+        title: "Lecturer in Computer Science", bio: "Dr Muhammad Ateeq is a Lecturer in Computer Science at the University of Salford, contributing to teaching and research in computing and information systems within the Faculty of Science, Engineering and Environment.",
+        email: "m.ateeq@salford.ac.uk", wtId: "1179746", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1179746.jpg",
+        expertise: ["Computer Science", "Information Systems", "Computing"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "julian-bass", name: "Julian Bass", initials: "JB",
+        title: "Professor of Software Engineering", bio: "Professor Julian Bass is a Professor of Software Engineering at the University of Salford with expertise in agile software development, DevOps, and software engineering practice. He has extensive industry and academic experience and contributes to teaching at undergraduate and postgraduate levels in the Computer Science discipline group, with a particular focus on software engineering methodologies and agile practices.",
+        email: "j.bass@salford.ac.uk", wtId: "1167761", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1167761.jpg",
+        expertise: ["Software Engineering", "Agile Development", "DevOps", "Software Architecture", "Requirements Engineering"], isProfessor: true, isDirector: false, unverified: false
+      },
+      {
+        slug: "christopher-bryant", name: "Christopher Bryant", initials: "CB",
+        title: "Lecturer in Computer Science", bio: "Dr Christopher Bryant is a Lecturer in Computer Science at the University of Salford, contributing to teaching and research in computing, programming, and software development within the Faculty of Science, Engineering and Environment.",
+        email: "c.bryant@salford.ac.uk", wtId: "1160677", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1160677.jpg",
+        expertise: ["Computer Science", "Programming", "Software Development", "Computing Education"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "edmund-chadwick", name: "Edmund Chadwick", initials: "EC",
+        title: "Professor of Applied Mathematics", bio: "Professor Edmund Chadwick is a Professor of Applied Mathematics at the University of Salford with expertise in mathematical modelling, fluid dynamics, and applied mathematics. He contributes to research and teaching at the interface of mathematics and engineering.",
+        email: "e.chadwick@salford.ac.uk", wtId: "1154415", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1154415.jpg",
+        expertise: ["Applied Mathematics", "Fluid Dynamics", "Mathematical Modelling", "Numerical Methods"], isProfessor: true, isDirector: false, unverified: false
+      },
+      {
+        slug: "rabea-elmazuzi", name: "Rabea Elmazuzi", initials: "RE",
+        title: "Lecturer in Computer Science", bio: "Dr Rabea Elmazuzi is a Lecturer in Computer Science at the University of Salford, contributing to teaching and research in the Computer Science discipline group within the Faculty of Science, Engineering and Environment.",
+        email: "r.elmazuzi@salford.ac.uk", wtId: "1163240", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1163240.jpg",
+        expertise: ["Computer Science", "Network Security", "Computing"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "tarek-gaber", name: "Tarek Gaber", initials: "TG",
+        title: "Senior Lecturer in Cybersecurity and Artificial Intelligence", bio: "Dr Tarek Gaber is a Senior Lecturer at the University of Salford with over two decades of academic and research experience across cybersecurity, artificial intelligence, secure systems, and Safe AI. His work focuses on developing resilient AI models, secure digital infrastructures, and innovative applications for industry and public sector transformation. He has authored over 100 scholarly publications with more than 40 published in Q1 journals. He has led or co-led research projects exceeding £1 million in funding, supported by Innovate UK, GCHQ, Research England, and UKAEA. He is ranked among Stanford University's top 2% of scientists globally and #1 in Computer Science at the University of Salford by the AD Scientific Index (2024). He served as Programme Leader for the MSc Cyber Security programme. He is a Fellow of the UK Higher Education Academy (FHEA) and a member of IEEE. He received his PhD in Computer Science (Information Security) from the University of Manchester in 2012.",
+        email: "t.gaber@salford.ac.uk", wtId: "1173592", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1173592.jpg",
+        expertise: ["Cybersecurity", "Artificial Intelligence", "Resilient AI", "Secure Systems", "Safe AI"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "lee-griffiths", name: "Lee Griffiths", initials: "LG",
+        title: "Senior Lecturer in Computer Science", bio: "Dr Lee Griffiths is a Senior Lecturer in Computer Science at the University of Salford with expertise in networking, data communications, and computer systems. He contributes to teaching in the Computer Science discipline group at both undergraduate and postgraduate levels.",
+        email: "l.griffiths@salford.ac.uk", wtId: "1163324", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1163324.jpg",
+        expertise: ["Computer Networking", "Data Communications", "Computer Systems", "Network Management"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "sadaf-hina", name: "Sadaf Hina", initials: "SH",
+        title: "Lecturer in Computer Science", bio: "Dr Sadaf Hina is a Lecturer in Computer Science at the University of Salford, contributing to teaching and research in computing, data science, and information systems within the Faculty of Science, Engineering and Environment.",
+        email: "s.hina@salford.ac.uk", wtId: "1178861", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1178861.jpg",
+        expertise: ["Computer Science", "Data Science", "Information Systems"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "gloria-iyawa", name: "Gloria Iyawa", initials: "GI",
+        title: "Lecturer in Computer Science", bio: "Dr Gloria Iyawa is a Lecturer in Computer Science at the University of Salford with research interests in health informatics, e-health systems, and digital transformation in healthcare. She contributes to teaching in the Computer Science discipline group.",
+        email: "g.iyawa@salford.ac.uk", wtId: "1178511", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1178511.jpg",
+        expertise: ["Health Informatics", "e-Health", "Digital Health", "Information Systems", "Computer Science"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "helen-keegan", name: "Helen Keegan", initials: "HK",
+        title: "Senior Lecturer in Digital Media / Computer Science", bio: "Dr Helen Keegan is a Senior Lecturer in the Faculty of Science, Engineering and Environment at the University of Salford, with expertise in mobile learning, digital media, and technology-enhanced learning. She has an extensive track record of innovation in teaching with technology and interdisciplinary research.",
+        email: "h.keegan@salford.ac.uk", wtId: "1153680", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1153680.jpg",
+        expertise: ["Mobile Learning", "Digital Media", "Technology-Enhanced Learning", "e-Learning", "Digital Innovation"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "surbhi-khan", name: "Surbhi Khan", initials: "SK",
+        title: "Lecturer in Computer Science (Top 2% Scientists Globally)", bio: "Dr Surbhi B. Khan is a Lecturer in the Faculty of Science, Engineering and Environment at the University of Salford. She is a Project Management Professional Certified from PMP, USA. She is ranked among the top 2% of scientists globally (Stanford University/Elsevier) for the second consecutive year (2023 and 2024). She supervises a number of PhDs and research associates, and has published over 250 articles and books in high-impact outlets, and has been granted patents from USA. She serves as Deputy EIC in TCE Letters, Associate Editor in IEEE Transactions on Consumer Electronics, HCIS and EAAI journals. She is a senior member of IEEE and has submitted grants as CO-PI in HORIZON-EIC-2025-PATHFINDEROPEN. Her research interests include Machine Learning, Data Science in Healthcare and IoT, Text Analytics and Detection, and Sentiment Analysis.",
+        email: "s.b.khan@salford.ac.uk", wtId: "1480970", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1480970.jpg",
+        expertise: ["Machine Learning", "Data Science in Healthcare", "IoT", "Text Analytics", "Sentiment Analysis"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "kaveh-kiani", name: "Kaveh Kiani", initials: "KK",
+        title: "Lecturer in Computer Science", bio: "Dr Kaveh Kiani is a Lecturer in Computer Science at the University of Salford, contributing to teaching and research in computing and software engineering within the Faculty of Science, Engineering and Environment.",
+        email: "k.kiani@salford.ac.uk", wtId: "1177296", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1177296.jpg",
+        expertise: ["Computer Science", "Software Engineering", "Algorithms"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "taha-mansouri", name: "Taha Mansouri", initials: "TM",
+        title: "Lecturer in Computer Science", bio: "Dr Taha Mansouri is a Lecturer in Computer Science at the University of Salford, contributing to teaching and research in the Computer Science discipline group.",
+        email: "t.mansouri@salford.ac.uk", wtId: "1174575", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1174575.jpg",
+        expertise: ["Computer Science", "Software Engineering", "Computing"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "md-shadab-mashuk", name: "Md Shadab Mashuk", initials: "MM",
+        title: "Lecturer in Computer Science", bio: "Dr Md Shadab Mashuk is a Lecturer in Computer Science at the University of Salford with research interests in indoor positioning, sensor fusion, and machine learning applications. He contributes to teaching and research in the Computer Science discipline group.",
+        email: "m.mashuk@salford.ac.uk", wtId: "1178750", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1178750.jpg",
+        expertise: ["Indoor Positioning", "Sensor Fusion", "Machine Learning", "Computer Science", "IoT"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "andy-miah", name: "Andy Miah", initials: "AM",
+        title: "Chair of Science Communication & Future Media", bio: "Professor Andy Miah, PhD, is Chair of Science Communication & Future Media at the University of Salford, where he Directs The Science Communication Space in the Faculty of Science, Engineering and Environment, is the Ethics in Artificial Intelligence Champion for the University, and leads its Metaverse Special Interest Group. Professor Miah's research investigates the ethical, legal, social and cultural questions concerning technological change, drawing on ideas from science, technology, art, and media culture. Author of 10 books and over 150 academic articles, he has been at the forefront of debates about how humanity is moving beyond conventional evolutionary processes and towards evolution by technology. His recent works focus on artificial intelligence, esports, digital health, and the metaverse. He has been interviewed and written for media worldwide — Washington Post, The Guardian, the Independent, and the Times — and has given over 300 major invited conference presentations, appearing in over 300 media outlets including Fortune, Vogue, and the BBC.",
+        email: "a.miah@salford.ac.uk", wtId: "1171089", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1171089.jpg",
+        expertise: ["Science Communication", "AI Ethics", "Bioethics", "Metaverse", "Esports & Gaming", "Digital Health"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "azadeh-mohammadi", name: "Azadeh Mohammadi", initials: "AM",
+        title: "Senior Lecturer in Computer Science", bio: "Dr Azadeh Mohammadi is a Senior Lecturer in Computer Science at the University of Salford with research interests in machine learning, data analytics, and artificial intelligence applications. She contributes to teaching and research in the Computer Science discipline group.",
+        email: "a.mohammadi@salford.ac.uk", wtId: "1178148", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1178148.jpg",
+        expertise: ["Machine Learning", "Data Analytics", "Artificial Intelligence", "Computer Science"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "norman-murray", name: "Norman Murray", initials: "NM",
+        title: "Senior Lecturer in Computer Science", bio: "Dr Norman Murray is a Senior Lecturer in Computer Science at the University of Salford with expertise in software engineering, human-computer interaction, and computing education. He contributes to teaching and research across undergraduate and postgraduate programmes.",
+        email: "n.murray@salford.ac.uk", wtId: "1153552", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1153552.jpg",
+        expertise: ["Software Engineering", "Human-Computer Interaction", "Computing Education", "Computer Science"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "maybin-muyeba", name: "Maybin Muyeba", initials: "MM",
+        title: "Senior Lecturer in Computer Science", bio: "Dr Maybin Muyeba is a Senior Lecturer in Computer Science at the University of Salford with research interests in data mining, business intelligence, and database systems. He contributes to teaching in the Computer Science discipline group at undergraduate and postgraduate levels.",
+        email: "m.muyeba@salford.ac.uk", wtId: "2798143", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/2798143.jpg",
+        expertise: ["Data Mining", "Business Intelligence", "Database Systems", "Computer Science"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "eman-nashnush", name: "Eman Nashnush", initials: "EN",
+        title: "Lecturer in Computer Science", bio: "Dr Eman Nashnush is a Lecturer in Computer Science at the University of Salford, contributing to teaching and research in computing and data science within the Faculty of Science, Engineering and Environment.",
+        email: "e.nashnush@salford.ac.uk", wtId: "1173288", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1173288.jpg",
+        expertise: ["Computer Science", "Data Science", "Computing"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "mircea-nicolescu", name: "Mircea Nicolescu", initials: "MN",
+        title: "Teaching Fellow in Computer Science", bio: "Mr Mircea Nicolescu is a Teaching Fellow in Computer Science at the University of Salford, contributing to teaching in programming, software engineering, and computer science at undergraduate and postgraduate levels.",
+        email: "m.nicolescu1@salford.ac.uk", wtId: "1177536", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1177536.jpg",
+        expertise: ["Computer Science", "Programming", "Software Engineering"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "shivakumara-palaiahnakote", name: "Shivakumara Palaiahnakote", initials: "SP",
+        title: "Professor of Pattern Recognition / Computer Vision", bio: "Professor Shivakumara Palaiahnakote is a Professor in the Faculty of Science, Engineering and Environment at the University of Salford. He is a leading expert in pattern recognition, document image analysis, and computer vision. He has an extensive international publication record with hundreds of papers in top-tier journals and conferences.",
+        email: "s.palaiahnakote@salford.ac.uk", wtId: "2248154", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/2248154.jpg",
+        expertise: ["Pattern Recognition", "Computer Vision", "Document Image Analysis", "Text Detection", "Deep Learning"], isProfessor: true, isDirector: false, unverified: false
+      },
+      {
+        slug: "stefan-pletschacher", name: "Stefan Pletschacher", initials: "SP",
+        title: "Senior Lecturer in Computer Science", bio: "Dr Stefan Pletschacher is a Senior Lecturer in Computer Science at the University of Salford and a core member of the PRImA Pattern Recognition and Image Analysis Lab. His research focuses on document analysis, page layout analysis, and optical character recognition, with a particular emphasis on historical document processing.",
+        email: "s.pletschacher@salford.ac.uk", wtId: "1160808", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1160808.jpg",
+        expertise: ["Document Analysis", "Pattern Recognition", "OCR", "Historical Document Processing", "Page Layout Analysis"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "sadaqat-rehman", name: "Sadaqat Rehman", initials: "SR",
+        title: "Senior Lecturer in Computer Science", bio: "Dr Sadaqat Rehman is a Senior Lecturer in Computer Science at the University of Salford with research interests in machine learning, deep learning, computer vision, and medical image analysis. He contributes to teaching and research in the Computer Science discipline group.",
+        email: "s.rehman@salford.ac.uk", wtId: "1178359", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1178359.jpg",
+        expertise: ["Machine Learning", "Deep Learning", "Computer Vision", "Medical Image Analysis", "Computer Science"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "muhammad-saleem", name: "Muhammad Saleem", initials: "MS",
+        title: "Lecturer in Computer Science", bio: "Dr Muhammad Saleem is a Lecturer in Computer Science at the University of Salford, contributing to teaching and research in computing and data science.",
+        email: "m.saleem@salford.ac.uk", wtId: "2158359", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/2158359.jpg",
+        expertise: ["Computer Science", "Data Science", "Computing"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "kevin-sandiford", name: "Kevin Sandiford", initials: "KS",
+        title: "Lecturer in Computer Science", bio: "Kevin Sandiford is a Lecturer in Computer Science at the University of Salford, contributing to teaching in programming, software development, and computing at undergraduate levels.",
+        email: "k.sandiford@salford.ac.uk", wtId: "1154515", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1154515.jpg",
+        expertise: ["Computer Science", "Programming", "Software Development"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "henry-senior", name: "Henry Senior", initials: "HS",
+        title: "Senior Lecturer in Computer Science", bio: "Dr Henry Senior is a Senior Lecturer in Computer Science at the University of Salford with expertise in software engineering, programming, and computing systems. He contributes to teaching and research in the Computer Science discipline group.",
+        email: "h.senior@salford.ac.uk", wtId: "4409100", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/4409100.jpg",
+        expertise: ["Software Engineering", "Programming", "Computing Systems", "Computer Science"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "lee-speakman", name: "Lee Speakman", initials: "LS",
+        title: "Lecturer in Computer Science", bio: "Dr Lee Speakman is a Lecturer in Computer Science at the University of Salford, contributing to teaching and research in the Computer Science discipline group.",
+        email: "l.speakman@salford.ac.uk", wtId: "1176764", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1176764.jpg",
+        expertise: ["Computer Science", "Software Engineering", "Computing"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "nathan-topping", name: "Nathan Topping", initials: "NT",
+        title: "Lecturer in Computer Science", bio: "Dr Nathan Topping is a Lecturer in Computer Science at the University of Salford, contributing to teaching and research in computing and data analytics.",
+        email: "n.topping@salford.ac.uk", wtId: "1179822", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1179822.jpg",
+        expertise: ["Computer Science", "Data Analytics", "Computing"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "olga-umnova", name: "Olga Umnova", initials: "OU",
+        title: "Reader in Theoretical Acoustics", bio: "Dr Olga Umnova is a Reader in Theoretical Acoustics at the University of Salford. She holds a degree in Applied Physics and Mathematics from the Moscow Institute of Physics and Technology and a PhD in Acoustics from the General Physics Institute, Russian Academy of Science (1994). She has been a research fellow at the Open University and University of Hull, and has been an academic at Salford since 2004. She was awarded the prestigious IoA Tyndall Medal in 2010 for her contributions to acoustics. Her research covers scattering problems in acoustics, nonlinear acoustics, acoustic metamaterials, sonic crystals and porous materials. She serves as associate editor of the Journal of Applied Acoustics and the Journal of ACTA Acoustica.",
+        email: "o.umnova@salford.ac.uk", wtId: "1157544", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1157544.jpg",
+        expertise: ["Acoustic Metamaterials", "Porous Media Acoustics", "Nonlinear Acoustics", "Sonic Crystals", "Scattering Problems"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "sunil-vadera", name: "Sunil Vadera", initials: "SV",
+        title: "Professor of Computer Science", bio: "Sunil Vadera is a Professor of Computer Science at the University of Salford. He is a Fellow of the British Computer Society, a Chartered Engineer (C.Eng) and Chartered IT Professional (CITP). He has held many leadership roles including serving as Dean of the Faculty of Computing, Science and Engineering, Associate Dean of Research, Associate Head Teaching, and Director of Informatics Research Institute. He is past Chair of the British Computer Society (BCS) Accreditations Committee, which has responsibility for accreditation of UK degrees in Computing. Sunil was awarded the UK BDO Best Indian Scientist and Engineer in 2014 and the Amity Award for Research Contributions to AI and Neural Networks in 2018.",
+        email: "s.vadera@salford.ac.uk", wtId: "1161017", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1161017.jpg",
+        expertise: ["Artificial Intelligence", "Machine Learning", "Knowledge-Based Systems", "Case-Based Reasoning", "Data Mining"], isProfessor: true, isDirector: false, unverified: false
+      },
+      {
+        slug: "sabine-von-hunerbein", name: "Sabine Von-Hunerbein", initials: "SV",
+        title: "Lecturer in Computer Science / Acoustics", bio: "Dr Sabine Von-Hunerbein is a Lecturer at the University of Salford with expertise spanning Computer Science and Acoustics. Her research interests include psychoacoustics, auditory perception, and signal processing, contributing to the interdisciplinary research culture at the Acoustics Research Centre.",
+        email: "s.vonhunerbein@salford.ac.uk", wtId: "1154559", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1154559.jpg",
+        expertise: ["Psychoacoustics", "Auditory Perception", "Signal Processing", "Acoustic Science"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "dawn-mather", name: "Dawn Mather", initials: "DM",
+        title: "Lecturer in Computer Science", bio: "Dawn Mather (also recorded under the name Dawn Shaw in some University records) contributes to teaching and research in Computer Science at the University of Salford, with research interests including assistive technology for hearing-impaired children, 3D character animation, and the use of vector-based GPS tracking to improve data compression.",
+        email: "", wtId: "", photo: "",
+        expertise: ["Computer Science", "Assistive Technology", "3D Animation", "Software Development"], isProfessor: false, isDirector: false, unverified: true
+      },
+      {
+        slug: "faiz-jethwa", name: "Faiz Jethwa", initials: "FJ",
+        title: "Lecturer, Programme Leader BSc Computer Networks", bio: "Faiz Jethwa is a University Lecturer and Programme Leader for BSc Computer Networks at the University of Salford, also serving as Student Experience Lead within Computer Science & Engineering.",
+        email: "", wtId: "", photo: "",
+        expertise: ["Computer Networks", "Computer Science", "Student Experience"], isProfessor: false, isDirector: false, unverified: true
+      },
+      {
+        slug: "henry-madubuike", name: "Henry Madubuike", initials: "HM",
+        title: "Postdoctoral Researcher, Biomedical Research Centre", bio: "Dr Henry Madubuike is a researcher within the Microbial Communities theme of the University of Salford's Biomedical Research Centre, working alongside colleagues including Professor Chloe James, Professor Niroshini Nirmalan, and Dr Joe Latimer. His published research includes work on enzyme characterisation, with a 2022 study on the characterisation of a novel Acetyl Xylan Esterase (BaAXE) screened from the gut microbiota of the common black slug, conducted with Professor Natalie Ferry.",
+        email: "h.k.madubuike1@salford.ac.uk", wtId: "", photo: "",
+        expertise: ["Microbiology", "Biomedical Research", "Enzyme Characterisation"], isProfessor: false, isDirector: false, unverified: true
+      },
+      {
+        slug: "ian-drumm", name: "Ian Drumm", initials: "ID",
+        title: "Senior Lecturer in Computer Science / Acoustics", bio: "Dr Ian Drumm graduated with a BSc in Physics from the University of Leeds in 1989 before working as a software engineer and consultant for clients including Xerox, ICL and the Ministry of Defence. In 1999 he completed a PhD in Acoustics at the University of Salford, developing computer models to predict the propagation of sound in architectural spaces. He subsequently worked at the Manchester Visualisation Centre at the University of Manchester before returning to Salford, where he is now a Senior Lecturer. His research spans Extended Reality, Deep Learning, Acoustics, Audio and Public Engagement, including beam tracing for room acoustics prediction and applications of XR in medical training and psychology.",
+        email: "i.b.drumm@salford.ac.uk", wtId: "", photo: "",
+        expertise: ["Extended Reality", "Deep Learning", "Acoustics", "Audio Technology", "Public Engagement"], isProfessor: false, isDirector: false, unverified: true
+      },
+      {
+        slug: "jon-borresen", name: "Jon Borresen", initials: "JB",
+        title: "Senior Lecturer in Computer Science", bio: "Dr Jon Borresen contributes to teaching and research within Computer Science at the University of Salford, with research published through the University's repository in the area of complex systems and computational science.",
+        email: "", wtId: "", photo: "",
+        expertise: ["Complex Systems", "Computational Science", "Computer Science"], isProfessor: false, isDirector: false, unverified: true
+      },
+      {
+        slug: "maira-alamgir", name: "Maira Alamgir", initials: "MA",
+        title: "Researcher, Computer Science", bio: "Maira Alamgir is affiliated with the Faculty of Science, Engineering & Environment (SEE) at the University of Salford, with published research in computer vision approaches to multi-lingual sentiment analysis, including work on handwritten text sentiment analysis across English and Kannada scripts, conducted alongside Professor Shivakumara Palaiahnakote.",
+        email: "", wtId: "", photo: "",
+        expertise: ["Computer Vision", "Sentiment Analysis", "Multi-lingual NLP"], isProfessor: false, isDirector: false, unverified: true
+      },
+      {
+        slug: "nigel-blackie", name: "Nigel Blackie", initials: "NB",
+        title: "Director of ADMAE&TC", bio: "Dr Nigel Blackie has served as Director of ADMAE&TC at the University of Salford and was a full member of the Computer Networking & Telecommunications Research Centre. His teaching has included Web Content Creation, Web Technologies, Real Time Networks, and Research Methods and Project Management.",
+        email: "n.m.blackie@salford.ac.uk", wtId: "", photo: "",
+        expertise: ["Web Technologies", "Computer Networking", "Real Time Networks"], isProfessor: false, isDirector: false, unverified: true
+      },
+    ]
+  },
+  "aeromech": {
+    label: "Aeronautical & Mechanical Engineering",
+    short: "AM",
+    desc: "Aerospace structures, robotics, fluid dynamics and mechanical systems.",
+    people: [
+      {
+        slug: "usman-ali", name: "Usman Ali", initials: "UA",
+        title: "Teaching Fellow in Aeronautical Engineering", bio: "Dr Usman Ali is a Teaching Fellow in Aeronautical Engineering at the University of Salford, where he contributes to teaching, research, and curriculum development. He is a Fellow of the Higher Education Academy (FHEA). Dr Ali's research interests are centred on computational modelling and simulation, with a particular focus on Computational Fluid Dynamics (CFD) applied to practical engineering problems. His work encompasses numerical optimisation, active and passive flow control, experimental aerodynamics, Finite Element Analysis (FEA), and Fluid Structure Interaction (FSI). His PhD research at the University of Salford involved developing a novel optimised slot design to enhance the high-lift performance and lateral flow control of Unmanned Combat Aerial Vehicles (UCAVs). Before his current appointment, Dr Ali was a Lecturer in Mechanical Engineering at the University of Bolton. In his prior industrial role as a Design and Simulation Engineer at Unilever, Dr Ali led digital transformation projects within the R&D department.",
+        email: "u.ali@salford.ac.uk", wtId: "3604191", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/3604191.jpg",
+        expertise: ["Computational Fluid Dynamics", "Aerodynamics", "FEA", "Fluid-Structure Interaction", "Unmanned Aerial Vehicles"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "salem-ameen", name: "Salem Ameen", initials: "SA",
+        title: "Lecturer in Artificial Intelligence, Robotics and Automation", bio: "Dr Salem Ameen is a Lecturer in Artificial Intelligence, Robotics and Automation at the University of Salford. His research focuses on efficient, robust and practically deployable artificial intelligence for robotics, perception, and real-world decision-making. He completed his PhD at the University of Salford in 2017, specialising in optimising deep learning networks using multi-armed bandit methods. His current interests span modern deep learning, computer vision, multimodal AI, robotics, and intelligent autonomous systems, including transformer-based learning, vision-language and multimodal reasoning, robot perception in challenging environments, embodied AI, and physically grounded common-sense reasoning. He welcomes postgraduate researchers interested in robotics, perception, multimodal intelligence, healthcare AI, and autonomous systems.",
+        email: "s.ameen@salford.ac.uk", wtId: "1175069", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1175069.jpg",
+        expertise: ["Deep Learning", "Computer Vision", "Robotics", "Autonomous Systems", "Multimodal AI"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "ali-bahr-ennil", name: "Ali Bahr Ennil", initials: "AE",
+        title: "Lecturer in Aircraft Propulsion and Gas Turbine Engines", bio: "Dr Ali Bahr Ennil is a Lecturer of Aircraft Propulsion and Gas Turbine Engines at the University of Salford. He completed his bachelor's degree in Aeronautical Engineering from Engineering Academy Tajoura, Libya in 2003, a first-class MSc (Hons) in Mechanical Engineering from Military Technical College, Egypt in 2011, and a PhD in Mechanical Engineering from the University of Birmingham in 2016. His PhD thesis was 'Design Optimization of Small Axial Gas Turbine for Power Systems'. He is a Fellow of the UK Higher Education Academy (FHEA).",
+        email: "a.bahrennil@salford.ac.uk", wtId: "1949766", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1949766.jpg",
+        expertise: ["Aircraft Propulsion", "Gas Turbine Engines", "Aeronautical Engineering", "Design Optimisation"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "osman-beg", name: "Osman Beg", initials: "OB",
+        title: "Professor of Multi-Physical Fluid Mechanics", bio: "Professor Osman Beg is Director of the Multi-Physical Engineering Sciences Research Group (Corrosion Lab) at the University of Salford. The group spans simulation in biomedical, renewable energy, manufacturing, propulsion, marine and environmental applications. He has been UK editor for the Journal of Mechanics in Medicine and Biology (Singapore/USA) since 2010 and has co-edited a special volume, Modelling and Simulation in Engineering Sciences (2016). He has published 10 invited book chapters and 660 journal papers in leading journals including Physics of Fluids, Int. J. Hydrogen Energy, and ASME J. Biomedical Engineering. His work covers computational bio-nano-fluid dynamics and multi-physical electro-magnetic propulsion fluid dynamics.",
+        email: "o.beg@salford.ac.uk", wtId: "1168833", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1168833.jpg",
+        expertise: ["Multi-Physics Fluid Mechanics", "Computational Fluid Dynamics", "Bio-Fluid Dynamics", "Nanofluids", "Corrosion Engineering"], isProfessor: true, isDirector: false, unverified: false
+      },
+      {
+        slug: "martin-burby", name: "Martin Burby", initials: "MB",
+        title: "Senior Lecturer; Programme Leader MSc Aerospace Engineering & Autonomous Systems", bio: "Dr Martin Burby is a Senior Lecturer in the Faculty of Science, Engineering and Environment, and Programme Leader for the Masters programmes in Aerospace Engineering and Autonomous Systems. His areas of expertise cover both experimental and computational analysis across fluid flow, combustion technology, industrial and commercial application of sprays, petroleum and gas technology, and aerospace assembly. He has undertaken management consultancy and research work for blue-chip companies in new product design, developing and embedding innovation, testing products to standards, and health and safety advice in oil and gas.",
+        email: "m.burby@salford.ac.uk", wtId: "1159716", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1159716.jpg",
+        expertise: ["Fluid Mechanics", "Combustion Technology", "Aerospace Engineering", "Autonomous Systems", "Petroleum & Gas Technology"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "marta-camps-santasmasas", name: "Marta Camps Santasmasas", initials: "MS",
+        title: "Lecturer in Aeronautical Engineering; Co-lead MSc Aerospace Engineering", bio: "Dr Marta Camps Santasmasas is a Lecturer in Aeronautical Engineering at the University of Salford, co-leading the MSc Aerospace Engineering programme. She develops computer simulations that help understand how air moves through cities and around structures, supporting applications from wind energy to urban safety. She specialises in computational fluid dynamics (CFD) using advanced simulation methods to study airflow around aircraft components, buildings and wind turbines. She leads the development of GASCANS, a high-performance CFD tool built to run on GPUs, enabling fast and accurate simulations of turbulent flows. She draws on her background in video game programming to create interactive and visually rich CFD tools. She has worked in both academic and industrial environments since 2010, including roles in wind farm design and urban air quality modelling. She serves on the UK Turbulence Consortium Committee and acts as an evaluator for the European Commission.",
+        email: "m.campssantasmasas@salford.ac.uk", wtId: "2030635", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/2030635.jpg",
+        expertise: ["Computational Fluid Dynamics", "GPU Computing", "Wind Energy", "Turbulence Modelling", "Urban Air Quality"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "godpower-enyi", name: "Godpower Enyi", initials: "GE",
+        title: "Lecturer; Programme Leader, Mechanical Engineering (BEng/MEng)", bio: "Dr Godpower Enyi is a Lecturer at the University of Salford, where he received his PhD in Gas Engineering and was employed in 2012. He is Programme Leader for Mechanical Engineering (BEng and MEng) and was the pioneer Programme Leader of BEng Petroleum and Gas Engineering from 2012 to 2021. He teaches Energy Utilisation and Sustainability, Energy and Power, and Engineering Methodology. Prior to academia, he worked at Indorama Petrochemical Complex as Plant Superintendent and at the National Fertiliser Company of Nigeria as Plant Shift Superintendent and Deputy Materials Manager. He has over 16 years of industrial experience in chemical and gas plant operations. His current research covers New Energy Sources, Green/Blue Hydrogen, and Carbon Capture, Utilisation and Sequestration.",
+        email: "g.enyi@salford.ac.uk", wtId: "1163845", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1163845.jpg",
+        expertise: ["Gas Engineering", "Energy Utilisation", "Green/Blue Hydrogen", "Carbon Capture", "Petrochemical Engineering"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "yunus-govdeli", name: "Yunus Govdeli", initials: "YG",
+        title: "Lecturer in Aeronautical Engineering", bio: "Dr Yunus Govdeli is a Lecturer in Aeronautical Engineering at the University of Salford. He previously held a Post-Doctoral research position in the Department of Aeronautics at Imperial College London. His research expertise spans aeronautical engineering, and he contributes to undergraduate and postgraduate teaching in the AeroMech discipline group.",
+        email: "y.govdeli@salford.ac.uk", wtId: "1179905", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1179905.jpg",
+        expertise: ["Aeronautical Engineering", "Aerodynamics", "Autonomous Systems"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "paul-hampson", name: "Paul Hampson", initials: "PH",
+        title: "Lecturer in Aeronautical Engineering", bio: "Paul Hampson is a Lecturer in Aeronautical Engineering at the University of Salford. He is a Chartered Engineer (CEng), Senior Fellow of the Higher Education Academy (SFHEA), Member of the Institution of Engineering and Technology (MIET), and Member of the Royal Aeronautical Society (MRAeS).",
+        email: "p.hampson@salford.ac.uk", wtId: "1790796", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1790796.jpg",
+        expertise: ["Aeronautical Engineering", "Engineering Education"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "mary-he", name: "Mary He", initials: "MH",
+        title: "Lecturer in Mechanical Engineering", bio: "Dr Mary He is a Lecturer in Mechanical Engineering at the University of Salford, contributing to teaching and research in the AeroMech discipline group within the Faculty of Science, Engineering and Environment.",
+        email: "m.he@salford.ac.uk", wtId: "1179439", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1179439.jpg",
+        expertise: ["Mechanical Engineering", "Engineering Science"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "william-holderbaum", name: "William Holderbaum", initials: "WH",
+        title: "Professor of Control Engineering", bio: "Professor William Holderbaum is Professor of Control Engineering at the University of Salford, and a leading member of the Centre for Engineering the Future research group. He has strong expertise in control systems, energy harvesting, and engineering systems design. Professor Holderbaum was previously at the University of Reading and has an extensive publication record in control theory and electrical engineering applications.",
+        email: "w.holderbaum@salford.ac.uk", wtId: "1176271", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1176271.jpg",
+        expertise: ["Control Engineering", "Energy Systems", "Engineering Systems Design", "Control Theory"], isProfessor: true, isDirector: false, unverified: false
+      },
+      {
+        slug: "ali-kadir", name: "Ali Kadir", initials: "AK",
+        title: "Reader in High Temperature Corrosion and Coating Engineering", bio: "Dr Ali Kadir is a Reader in High Temperature Corrosion and Coating Engineering at the University of Salford. His expertise spans FEA, structural analysis, smart materials, and fire dynamics. He is a senior member of the Multi-Physical Engineering Sciences Research Group led by Professor Osman Beg, with a significant publication record in corrosion engineering and materials science.",
+        email: "a.kadir@salford.ac.uk", wtId: "1152176", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1152176.jpg",
+        expertise: ["High Temperature Corrosion", "Coating Engineering", "FEA", "Smart Materials", "Fire Dynamics"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "andreea-koreanschi", name: "Andreea Koreanschi", initials: "AK",
+        title: "Senior Lecturer in Aeronautical Engineering; Aircraft Design & Aerodynamics", bio: "Dr Andreea Koreanschi is a Senior Lecturer specialised in Aircraft Design and Aerodynamics at the University of Salford, with a focus on conventional and morphing technologies. She obtained her PhD from Ecole de Technologie Superieure in Montreal, Canada, with a thesis on Numerical and Experimental Validation of Optimisation Methodologies for a Wing-Tip Structure Equipped with Conventional and Morphing Ailerons. During her PhD she conducted research in collaboration with Bombardier Canada, Thales Canada, Alenia Aeronautica and University of Napoli for the design, manufacturing and testing of an active morphing wing and aileron system. She has served as programme leader for BEng/MEng Aeronautical Engineering and BEng/MEng Aircraft Engineering with Pilot Studies, contributing to their Royal Aeronautical Society accreditation. She serves on the board of the Engineering Professors' Council and is Chair of its Aerospace Community.",
+        email: "a.koreanschi@salford.ac.uk", wtId: "1171290", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1171290.jpg",
+        expertise: ["Aircraft Design", "Aerodynamics", "Wing Morphing Technologies", "Aeronautical Engineering", "Royal Aeronautical Society Accreditation"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "sireetorn-kuharat", name: "Sireetorn Kuharat", initials: "SK",
+        title: "Lecturer in Aeronautical Engineering", bio: "Dr Sireetorn Kuharat is a Lecturer in Aeronautical Engineering at the University of Salford with expertise in fluid-structure interaction, nanofluids, blood flow, FEA and multi-physics MHD modelling. She was awarded a prestigious Amelia Earhart Fellowship, recognising exceptional contributions by women to aerospace engineering. She is a member of the Multi-Physical Engineering Sciences Research Group and has published extensively in high-impact journals.",
+        email: "s.kuharat@salford.ac.uk", wtId: "1173872", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1173872.jpg",
+        expertise: ["Fluid-Structure Interaction", "Nanofluids", "FEA", "Multi-Physics MHD", "CFD"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "henry-leonard", name: "Henry Leonard", initials: "HL",
+        title: "Lecturer in Thermodynamics and Renewable Energy", bio: "Dr Henry Leonard is a Lecturer at the University of Salford with expertise in thermodynamics, renewable energy and fuel cells. He is a member of the Multi-Physical Engineering Sciences Research Group, contributing to research in energy systems and sustainable engineering.",
+        email: "h.leonard@salford.ac.uk", wtId: "1152091", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1152091.jpg",
+        expertise: ["Thermodynamics", "Renewable Energy", "Fuel Cells", "Energy Systems"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "saber-mahboubi-heydarabad", name: "Saber Mahboubi Heydarabad", initials: "SH",
+        title: "Lecturer in Robotics and Automation", bio: "Dr Saber Mahboubi is a Robotics and Automation Lecturer at the University of Salford. He holds a Marie Curie-funded PhD in Robotics from the University of Salford. He was involved in several research and industrial projects funded by the EU, EPSRC, and Innovate UK for the design of autonomous self-driving control systems, as well as innovative grasping technologies with applications in in-space non-cooperative manipulation and industrial robotic pick-and-place. He has more than eight years of industrial experience and is skilled in Robotic Manipulation, Artificial Intelligence and Machine Learning, Deep Learning, robust and nonlinear control systems, Industrial Automation, Autonomous Self-driving vehicles, CAD/CAM, and multi-body dynamic modelling.",
+        email: "s.mahboubiheydarabad@salford.ac.uk", wtId: "1166439", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1166439.jpg",
+        expertise: ["Robotic Manipulation", "Autonomous Vehicles", "Machine Learning", "Nonlinear Control Systems", "Industrial Automation"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "larisa-malysheva", name: "Larisa Malysheva", initials: "LM",
+        title: "Lecturer in Aeronautical/Mechanical Engineering", bio: "Dr Larisa Malysheva is a Lecturer in the Faculty of Science, Engineering and Environment at the University of Salford, contributing to the Centre for Engineering the Future research group.",
+        email: "l.malysheva@salford.ac.uk", wtId: "1168201", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1168201.jpg",
+        expertise: ["Aeronautical Engineering", "Mechanical Engineering"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "tian-xiang-mei", name: "Tian Xiang Mei", initials: "TM",
+        title: "Professor of Control Engineering", bio: "Professor Tian Xiang Mei is a Professor in the Faculty of Science, Engineering and Environment at the University of Salford and a prominent member of the Centre for Engineering the Future research group. He has expertise in control engineering, intelligent systems, and mechanical engineering applications. Professor Mei has an extensive research and publication record in control theory and mechatronics.",
+        email: "tx.mei@salford.ac.uk", wtId: "1168296", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1168296.jpg",
+        expertise: ["Control Engineering", "Intelligent Systems", "Mechatronics", "Vehicle Dynamics Control"], isProfessor: true, isDirector: false, unverified: false
+      },
+      {
+        slug: "amir-nourian", name: "Amir Nourian", initials: "AN",
+        title: "Reader (Associate Professor) in Mechanical Engineering; Academic Lead Research & Knowledge Exchange (CSE)", bio: "Dr Amir Nourian is a Reader (Associate Professor) in Mechanical Engineering at the University of Salford. He received his MSc (2010) and PhD (2013) from the University of Salford. His PhD research was part of winning the prestigious award 'Outstanding Contribution to Innovation and Technology' from Times Higher Education (THE), and contributed to a Technology Transfer scheme for developing a start-up company. His PhD involved designing and developing an eco-friendly valving arrangement for domestic aerosol sprays utilising 'clean air' propellant such as nitrogen, replacing harmful LPG. He joined the University of Salford as a full-time academic in 2013. His core research covers spraying systems, CFD in thermal management and fluid mechanics, energy, environmental and air quality, and new product development. He is the Academic Lead of Research and Knowledge Exchange within SEE for the CSE Directorate, and Subject Head for Aeronautical and Mechanical Engineering.",
+        email: "a.nourian@salford.ac.uk", wtId: "1163989", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1163989.jpg",
+        expertise: ["Spraying Systems", "CFD", "Thermal Management", "Energy & Air Quality", "New Product Development"], isProfessor: true, isDirector: false, unverified: false
+      },
+      {
+        slug: "amir-roohi", name: "Amir Roohi", initials: "AR",
+        title: "Lecturer in Aeronautical Engineering", bio: "Dr Amir Roohi is a Lecturer in the Faculty of Science, Engineering and Environment at the University of Salford, contributing to teaching and research in the AeroMech discipline group.",
+        email: "a.roohi@salford.ac.uk", wtId: "2449374", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/2449374.jpg",
+        expertise: ["Aeronautical Engineering", "Fluid Mechanics", "Engineering Science"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "oliviu-sugar-gabor", name: "Oliviu Sugar-Gabor", initials: "OS",
+        title: "Senior Lecturer in Aerodynamics", bio: "Dr Oliviu Sugar-Gabor is a Senior Lecturer in Aerodynamics at the University of Salford. He obtained his BEng and MSc degrees from the Polytechnic University of Bucharest, Romania. After working as a research engineer at the National Institute of Aerospace Research in Bucharest, he obtained his PhD in Aerodynamics from the University of Quebec in Montreal, Canada. He has been at the University of Salford since 2016. His research interests include applied aerodynamics, computational fluid dynamics, aerodynamic shape optimisation techniques, aircraft design and novel aircraft concepts, and non-intrusive reduced order modelling.",
+        email: "o.sugargabor@salford.ac.uk", wtId: "1169461", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1169461.jpg",
+        expertise: ["Aerodynamics", "CFD", "Aerodynamic Shape Optimisation", "Aircraft Design", "Reduced Order Modelling"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "theodoros-theodoridis", name: "Theodoros Theodoridis", initials: "TT",
+        title: "Lecturer in Mechanical/Aeronautical Engineering", bio: "Dr Theodoros Theodoridis is a Lecturer in the Faculty of Science, Engineering and Environment at the University of Salford, contributing to research and teaching in the Centre for Engineering the Future, with expertise in robotics, autonomous systems and mechanical engineering.",
+        email: "t.theodoridis@salford.ac.uk", wtId: "1166777", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1166777.jpg",
+        expertise: ["Robotics", "Autonomous Systems", "Mechanical Engineering", "Control Systems"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "guowu-wei", name: "Guowu Wei", initials: "GW",
+        title: "Reader in Robotics", bio: "Dr Guowu Wei is a Reader in Robotics in the Faculty of Science, Engineering and Environment at the University of Salford. He has more than 160 peer-reviewed publications and more than 20 patents. His research has been funded by EPSRC, EU-FP7, ICUK, NSFC, and the Royal Academy of Engineering. He is a Topic Editor and Associate Editor for several journals and conferences including Robotica and the Journal of Mechanical Engineering Science, and serves as Associate Editor for ICRA and IROS. He is currently the Deputy Chair of IFToMM MO UK. His research interests include bio-robotics, assistive robotics, rehabilitation and prosthetics, manipulation and grasping, and reconfigurable mechanisms and robotics. He has supervised and co-supervised 30 PhDs and 12 PDRAs. He has received 17 awards from academic bodies, international conferences, and journals.",
+        email: "g.wei@salford.ac.uk", wtId: "1167168", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1167168.jpg",
+        expertise: ["Robotics", "Bio-Robotics", "Rehabilitation & Prosthetics", "Manipulation & Grasping", "Reconfigurable Mechanisms"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "robert-weighman", name: "Robert Weighman", initials: "RW",
+        title: "Lecturer in Aeronautical Engineering", bio: "Robert Weighman is a Lecturer in the Faculty of Science, Engineering and Environment at the University of Salford, contributing to teaching in the AeroMech discipline group.",
+        email: "r.weighman@salford.ac.uk", wtId: "2099707", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/2099707.jpg",
+        expertise: ["Aeronautical Engineering", "Engineering Education"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "farhad-zahedi-hosseini", name: "Farhad Zahedi-Hosseini", initials: "FZ",
+        title: "Lecturer in Aeronautical/Mechanical Engineering", bio: "Dr Farhad Zahedi-Hosseini is a Lecturer in the Faculty of Science, Engineering and Environment at the University of Salford, contributing to teaching and research in the AeroMech discipline group.",
+        email: "f.zahedihosseini@salford.ac.uk", wtId: "1152731", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1152731.jpg",
+        expertise: ["Aeronautical Engineering", "Mechanical Engineering", "Engineering Dynamics"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "frances-wolff", name: "Frances Wolff", initials: "FW",
+        title: "Teaching Fellow in Aeronautical Engineering", bio: "Frances Wolff is a Teaching Fellow in Aeronautical Engineering at the University of Salford. She has extensive experience in the aviation industry as a Flight Examiner and Flight Instructor, conducting flight tests and teaching for the issue of Private Pilots' Licences. Her background includes Air Charter Operations, Cabin Crew work, and a period as an Airline Pilot. She joined the University of Salford in September 2009 as a part-time lecturer before being appointed full-time in August 2021, teaching aviation-based modules at all levels.",
+        email: "f.r.wolff@salford.ac.uk", wtId: "", photo: "",
+        expertise: ["Aviation", "Flight Instruction", "Aeronautical Engineering"], isProfessor: false, isDirector: false, unverified: true
+      },
+      {
+        slug: "omar-ariff", name: "Omar Kassim Ariff", initials: "OA",
+        title: "Lecturer in Aircraft Design", bio: "Dr Omar Kassim Ariff completed his Bachelor's degree in Aeronautical Engineering (2nd class upper honours) from City University, London in 1998, followed by a fully-funded PhD at the UK Defence Academy, Cranfield University, completed in 2005, specialising in Guidance and Navigation of Anti-air Missile Systems. At Nanyang Technological University, Singapore, he conducted postdoctoral research from 2008 to 2011 on guidance, navigation and control of small-scale UAVs, contributing to two UAV development projects: a stabilisation system for a mini vertical take-off and landing UAV, and a 7kg fuel-cell powered UAV. From 2011 to 2014 he was a Contract Senior Lecturer at Universiti Putra Malaysia, focusing on agricultural applications of UAVs, including a multi-rotor UAV programme for oil palm plantations, before joining the University of Salford as Lecturer in Aircraft Design.",
+        email: "", wtId: "", photo: "",
+        expertise: ["Aircraft Design", "UAV Systems", "Guidance and Navigation", "Aeronautical Engineering"], isProfessor: false, isDirector: false, unverified: true
+      },
+      {
+        slug: "walid-jouri", name: "Walid Jouri", initials: "WJ",
+        title: "Senior Lecturer in Mechanical Engineering", bio: "Dr Walid Jouri became Head of the School of Engineering and Manufacture at University College Salford before becoming a Senior Lecturer in the School of Computing, Science & Engineering at the University of Salford. His main research activities involve the testing and analysis of the mechanical properties of metals, polymers, advanced composites and rubbers. He specialises in the design and production of instrumented testing machines for determining material properties, and has been involved in numerous prototype testing and type qualification projects for the nuclear, automotive, railway, gas and chemical industries, with research interests including structural integrity, impact, nano-materials, and corrosion.",
+        email: "w.s.jouri@salford.ac.uk", wtId: "", photo: "",
+        expertise: ["Structural Integrity", "Mechanical Testing", "Composites", "Corrosion", "Nano-materials"], isProfessor: false, isDirector: false, unverified: true
+      },
+      {
+        slug: "wei-yao", name: "Wei Yao", initials: "WY",
+        title: "Professor of Healthcare Robotics", bio: "Professor Wei Yao is a healthcare robotics expert at the University of Salford and a key figure within NERIC, the North England Robotics Innovation Centre, a £17 million all-electric facility for robotics and automation research. He has presented at the University's London Alumni Lecture series on the future of robotics, where he discussed how his research is paving the way for robots to deliver less invasive, life-altering surgery, relieving pressure on surgeons, shortening patient waiting lists, and improving recovery times and outcomes for patients. His teaching includes leading modules on Automation and Robotics, including kinematics, control and simulation of industrial robots.",
+        email: "", wtId: "", photo: "",
+        expertise: ["Healthcare Robotics", "Surgical Robotics", "Automation", "Robotics", "Industrial Robotics"], isProfessor: true, isDirector: false, unverified: true
+      },
+    ]
+  },
+  "civil-engineering": {
+    label: "Civil Engineering",
+    short: "CE",
+    desc: "Structures, geotechnics, water, and sustainable construction.",
+    people: [
+      {
+        slug: "alireza-ahangar-asr", name: "Alireza Ahangar Asr", initials: "AA",
+        title: "Head of Civil Engineering; Senior Lecturer", bio: "Dr Alireza Ahangar Asr is the Head of Civil Engineering at the University of Salford, leading a dynamic academic team and overseeing strategic development of undergraduate and postgraduate programmes. With over 15 years of experience in teaching, research, and academic leadership, he holds a PhD in Geotechnical Engineering and a PGCE in Higher Education. He is a Fellow of the Higher Education Academy (FHEA), Member of the Institution of Engineering and Technology (MIET), and the Institution of Civil Engineers (GMICE). He has implemented innovative teaching methods including problem-based flipped learning and research-led instruction. An active researcher, he has published over 70 peer-reviewed papers in geotechnical engineering, computational modelling, and soil mechanics. He serves on international journal editorial boards and contributes to programme accreditation and curriculum development.",
+        email: "a.ahangarasr@salford.ac.uk", wtId: "1167388", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1167388.jpg",
+        expertise: ["Geotechnical Engineering", "Computational Modelling", "Soil Mechanics", "Civil Engineering Education", "Academic Leadership"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "suhad-almuktar", name: "Suhad Almuktar", initials: "SA",
+        title: "Lecturer in Civil/Environmental Engineering", bio: "Dr Suhad Almuktar is a Lecturer in Civil and Environmental Engineering at the University of Salford. Her research focuses on constructed wetlands and sustainable wastewater treatment, contributing to environmental engineering and water management research.",
+        email: "s.almuktar@salford.ac.uk", wtId: "4040927", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/4040927.jpg",
+        expertise: ["Environmental Engineering", "Wastewater Treatment", "Constructed Wetlands", "Water Management"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "levingshan-augusthus-nelson", name: "Levingshan Augusthus Nelson", initials: "LN",
+        title: "Lecturer in Civil Engineering", bio: "Dr Levingshan Augusthus Nelson is a Lecturer in Civil Engineering at the University of Salford, contributing to teaching and research in structural engineering and civil engineering design within the Faculty of Science, Engineering and Environment.",
+        email: "l.augusthusnelson@salford.ac.uk", wtId: "1163488", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1163488.jpg",
+        expertise: ["Structural Engineering", "Civil Engineering", "Construction Materials"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "neil-currie", name: "Neil Currie", initials: "NC",
+        title: "Lecturer in Civil Engineering", bio: "Neil Currie is a Lecturer in Civil Engineering at the University of Salford, contributing to teaching in construction, structural analysis and civil engineering design programmes at undergraduate and postgraduate levels.",
+        email: "n.currie@salford.ac.uk", wtId: "1162956", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1162956.jpg",
+        expertise: ["Civil Engineering", "Structural Analysis", "Construction Engineering"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "grainne-gordon", name: "Grainne Gordon", initials: "GG",
+        title: "Lecturer in Civil Engineering", bio: "Dr Grainne Gordon is a Lecturer in Civil Engineering at the University of Salford, contributing to teaching and research in civil and structural engineering within the Faculty of Science, Engineering and Environment.",
+        email: "g.gordon@salford.ac.uk", wtId: "1171711", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1171711.jpg",
+        expertise: ["Civil Engineering", "Structural Engineering", "Engineering Education"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "bruce-haynes", name: "Bruce Haynes", initials: "BH",
+        title: "Senior Lecturer in Civil Engineering", bio: "Dr Bruce Haynes is a Senior Lecturer in Civil Engineering at the University of Salford, with expertise in geotechnical engineering and civil engineering practice. He contributes to teaching and research in the Civil Engineering discipline group.",
+        email: "b.haynes@salford.ac.uk", wtId: "1159744", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1159744.jpg",
+        expertise: ["Geotechnical Engineering", "Civil Engineering", "Ground Engineering"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "kateryna-kryshkevych", name: "Kateryna Kryshkevych", initials: "KK",
+        title: "Lecturer in Transport Engineering and Planning", bio: "Kateryna Kryshkevych joined the University of Salford in 2022 as a Lecturer in Transport Engineering and Planning. She teaches on two Level 7 postgraduate programmes: Transport Engineering and Planning and Sustainable Air Transport. She is a module leader for four postgraduate modules focusing on transport planning policy and principles, forecasting and appraisal techniques. She is a Chartered Transport Planner and full member of the Chartered Institution of Highways and Transportation (CIHT), currently serving as a Technical Champion. In 2025 she was awarded a Fellowship of Advance HE for her commitment to excellence in teaching. Before academia she worked at leading UK consulting firms including WSP, Capita, and Royal HaskoningDHV since 2014, with expertise spanning transport business cases, economic appraisals, and urban regeneration.",
+        email: "k.kryshkevych@salford.ac.uk", wtId: "1178978", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1178978.jpg",
+        expertise: ["Transport Engineering", "Transport Planning", "Sustainable Air Transport", "Economic Appraisal", "Urban Regeneration"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "cung-nguyen", name: "Cung Nguyen", initials: "CN",
+        title: "Lecturer in Civil Engineering", bio: "Dr Cung Nguyen is a Lecturer in Civil Engineering at the University of Salford and a member of the Centre for Engineering the Future research group. He contributes to teaching and research in civil and structural engineering.",
+        email: "c.nguyen@salford.ac.uk", wtId: "1177867", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1177867.jpg",
+        expertise: ["Civil Engineering", "Structural Engineering", "Engineering Analysis"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "vincent-uzomah", name: "Vincent Uzomah", initials: "VU",
+        title: "Lecturer in Civil/Environmental Engineering", bio: "Dr Vincent Uzomah is a Lecturer in Civil and Environmental Engineering at the University of Salford, with research interests in water engineering, hydrology, and sustainable water management. He contributes to teaching in the Civil Engineering discipline group.",
+        email: "v.uzomah@salford.ac.uk", wtId: "1169317", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1169317.jpg",
+        expertise: ["Water Engineering", "Hydrology", "Environmental Engineering", "Sustainable Water Management"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "yu-wang", name: "Yu Wang", initials: "YW",
+        title: "Lecturer in Civil Engineering", bio: "Dr Yu Wang is a Lecturer in Civil Engineering at the University of Salford, contributing to teaching and research in civil and structural engineering.",
+        email: "y.wang@salford.ac.uk", wtId: "1159986", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1159986.jpg",
+        expertise: ["Civil Engineering", "Structural Engineering", "Engineering Design"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "gareth-whittleston", name: "Gareth Whittleston", initials: "GW",
+        title: "Lecturer in Civil/Environmental Engineering", bio: "Dr Gareth Whittleston is a Lecturer in Civil and Environmental Engineering at the University of Salford, with expertise in environmental remediation, contaminated land, and bioremediation. He contributes to teaching and research in the Civil Engineering discipline group.",
+        email: "g.whittleston@salford.ac.uk", wtId: "1171538", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1171538.jpg",
+        expertise: ["Environmental Remediation", "Contaminated Land", "Bioremediation", "Environmental Engineering"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "saad-yousif", name: "Saad Yousif", initials: "SY",
+        title: "Lecturer in Civil Engineering", bio: "Dr Saad Yousif is a Lecturer in Civil Engineering at the University of Salford, contributing to teaching and research in civil and infrastructure engineering.",
+        email: "s.yousif@salford.ac.uk", wtId: "1154212", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1154212.jpg",
+        expertise: ["Civil Engineering", "Infrastructure Engineering", "Structural Engineering"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "ahmed-naggasa", name: "Ahmed Naggasa", initials: "AN",
+        title: "Lecturer in Civil Engineering", bio: "Dr Ahmed Naggasa is a Lecturer in the Department of Civil and Structural Engineering at the University of Salford. His research focuses on the structural behaviour of masonry arches, including their performance under foundation movement such as settlement, sliding, and rotation. His work involves advanced finite element analysis, including 3D micro-modelling techniques that capture the brittle nature of masonry, addressing the long-term assessment of UK bridge infrastructure, much of which is over a century old.",
+        email: "a.naggasa@salford.ac.uk", wtId: "", photo: "",
+        expertise: ["Masonry Structures", "Finite Element Analysis", "Structural Assessment", "Bridge Engineering", "Civil Engineering"], isProfessor: false, isDirector: false, unverified: true
+      },
+      {
+        slug: "akram-karimian", name: "Akram Karimian", initials: "AK",
+        title: "Lecturer in Civil Engineering", bio: "Dr Akram Karimian has contributed to research and teaching within the Civil Engineering discipline at the University of Salford, with seven research outputs recorded in the University's repository.",
+        email: "", wtId: "", photo: "",
+        expertise: ["Civil Engineering"], isProfessor: false, isDirector: false, unverified: true
+      },
+      {
+        slug: "devi-tumula", name: "Devi Tumula", initials: "DT",
+        title: "Lecturer in Civil Engineering (Water Resources)", bio: "Dr Devi Prasad Tumula is a Civil Engineer specialising in Water Resources Engineering at the University of Salford, with more than fifteen years of experience across industry, academia and research. He has taught undergraduate and graduate courses in England, Scotland, India, Ethiopia and South Korea. His research spans the planning and design of water distribution systems, steady-state and transient analysis of pipe networks, calibration and leak detection in water supply networks, water quality analysis, rainfall-runoff modelling, and the design of stable canals using sediment transport concepts. His current research focuses on managing water distribution networks for water quality and source apportionment of urban diffuse pollution.",
+        email: "d.p.tumula@salford.ac.uk", wtId: "", photo: "",
+        expertise: ["Water Resources Engineering", "Water Distribution Systems", "Hydrology", "Civil Engineering", "Water Quality"], isProfessor: false, isDirector: false, unverified: true
+      },
+      {
+        slug: "mohammad-hajsadeghi", name: "Mohammad Hajsadeghi", initials: "MH",
+        title: "Lecturer in Civil Engineering", bio: "Dr Mohammad Hajsadeghi is a Lecturer in Civil Engineering at the University of Salford. His research and academic collaborations span structural engineering topics, with verified academic links to researchers at the University of Exeter, University of Cambridge, and other institutions across structural and civil engineering disciplines.",
+        email: "m.hajsadeghi@salford.ac.uk", wtId: "", photo: "",
+        expertise: ["Civil Engineering", "Structural Engineering"], isProfessor: false, isDirector: false, unverified: true
+      },
+      {
+        slug: "philip-leach", name: "Philip Leach", initials: "PL",
+        title: "Lecturer in Civil Engineering", bio: "Philip Leach holds a first degree from Leeds University, an MSc in Steel Design from Imperial College, and a PhD, alongside professional memberships including MICE, MIStructE and CEng. His career has spanned Assistant Engineer at Travers Morgan & Partners, Site Engineer at Trollope & Colls, Testing Engineer at Salford Civil Engineering Ltd, and Director of Property Tectonics, alongside lecturing roles at the University of Salford. His teaching covers Structures, Steel Design, Building Envelope & Structure, and Integrated Design Exercise, with research interests in Light Gauge Steel Structures and Sandwich Panel Construction.",
+        email: "p.leach@salford.ac.uk", wtId: "", photo: "",
+        expertise: ["Steel Design", "Structures", "Light Gauge Steel", "Building Envelope Design", "Civil Engineering"], isProfessor: false, isDirector: false, unverified: true
+      },
+      {
+        slug: "tahsin-toma-sabbagh", name: "Tahsin Toma Sabbagh", initials: "TS",
+        title: "Lecturer in Civil Engineering", bio: "Dr Tahsin Toma-Sabbagh graduated in 1979 from Baghdad University with a BSc in Civil Engineering, ranked 11th amongst 185 graduates, followed by an MSc in Geotechnical Engineering in 1984. She worked as a lecturer within higher education before completing her PhD in Geotechnical Engineering at Heriot-Watt University, Edinburgh in 1990. She is a Member of the Chartered Institute of Building (CIOB). Her teaching spans Design & Construction Management, Construction Processes, Civil Engineering Surveying, Fluid Mechanics, Water Resources, Analysis of Structures, Soil Mechanics and Foundation Engineering, and her main research interest is Geotechnical Engineering, including the response of single piles and pile groups subjected to soil movement.",
+        email: "t.toma@salford.ac.uk", wtId: "", photo: "",
+        expertise: ["Geotechnical Engineering", "Soil Mechanics", "Foundation Engineering", "Construction Management", "Civil Engineering"], isProfessor: false, isDirector: false, unverified: true
+      },
+      {
+        slug: "laurence-weekes", name: "Laurence Weekes", initials: "LW",
+        title: "Senior Lecturer, Programme Leader MSc Structural Engineering", bio: "Dr Laurence Weekes obtained his BEng and PhD in Structural Engineering from the University of Southampton in 1994, before working as a Research Assistant on Masonry Jack Arches at the University of Salford under EPSRC funding from 1994 to 1997. He then worked as a Senior Engineer in Seismic Nuclear Safety at NNC Ltd from 1997 to 2000, before returning to the University of Salford as a Lecturer and later Senior Lecturer, where he is Programme Leader for the MSc in Structural Engineering. His teaching covers Finite Element Analysis, Structural Analysis and Design, and Seismic Design, with research interests in seismic mitigation techniques and light gauge steel projects, including extensive recent work on the progressive collapse of reinforced concrete structures.",
+        email: "l.weekes@salford.ac.uk", wtId: "", photo: "",
+        expertise: ["Structural Engineering", "Seismic Design", "Progressive Collapse", "Steel Structures", "Finite Element Analysis"], isProfessor: false, isDirector: false, unverified: true
+      },
+    ]
+  },
+  "physics-acoustics": {
+    label: "Engineering Physics & Acoustics",
+    short: "EPA",
+    desc: "Acoustics, photonics, quantum technologies and applied physics.",
+    people: [
+      {
+        slug: "deepak-akiwate", name: "Deepak Akiwate", initials: "DA",
+        title: "University Fellow in Acoustics", bio: "Dr Deepak Akiwate is a University Fellow in Acoustics at the University of Salford, contributing to research and teaching in the Engineering Physics and Acoustics discipline group. He is a member of the Acoustics Research Centre with expertise in acoustic engineering and signal processing.",
+        email: "d.c.akiwate@salford.ac.uk", wtId: "2028207", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/2028207.jpg",
+        expertise: ["Acoustics", "Acoustic Engineering", "Signal Processing"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "rabab-al-zaidi", name: "Rabab Al Zaidi", initials: "RZ",
+        title: "Lecturer in Computer Networking / Acoustics", bio: "Dr Rabab Al Zaidi is a Lecturer in Computer Networking at the University of Salford, contributing to teaching and research in the Engineering Physics and Acoustics discipline group. She has expertise in signal processing, networking, and acoustic systems.",
+        email: "r.alzaidi@salford.ac.uk", wtId: "1179312", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1179312.jpg",
+        expertise: ["Computer Networking", "Signal Processing", "Acoustic Systems"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "omar-alani", name: "Omar Alani", initials: "OA",
+        title: "Reader in Electronic Engineering", bio: "Dr Omar Alani is a Reader in Electronic Engineering at the University of Salford with research expertise in wireless communications, networking, and signal processing. He contributes to research and teaching in the Engineering Physics and Acoustics discipline group.",
+        email: "o.alani@salford.ac.uk", wtId: "1162284", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1162284.jpg",
+        expertise: ["Wireless Communications", "Networking", "Signal Processing", "Electronic Engineering"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "rosa-arrigo", name: "Rosa Arrigo", initials: "RA",
+        title: "Lecturer in Physics", bio: "Dr Rosa Arrigo is a Lecturer in Physics at the University of Salford with research interests in physical chemistry, surface science, and materials characterisation. She contributes to teaching and research in the Engineering Physics and Acoustics discipline group.",
+        email: "r.arrigo@salford.ac.uk", wtId: "1172973", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1172973.jpg",
+        expertise: ["Physical Chemistry", "Surface Science", "Materials Science", "Physics"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "daniel-bull", name: "Daniel Bull", initials: "DB",
+        title: "Lecturer in Engineering Physics", bio: "Dr Daniel Bull is a Lecturer in Engineering Physics at the University of Salford, contributing to teaching and research in the Engineering Physics and Acoustics discipline group, with expertise in materials science and physical engineering.",
+        email: "d.bull@salford.ac.uk", wtId: "1156312", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1156312.jpg",
+        expertise: ["Engineering Physics", "Materials Science", "Structural Integrity", "Non-Destructive Testing"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "james-christian", name: "James Christian", initials: "JC",
+        title: "Lecturer in Physics/Acoustics", bio: "Dr James Christian is a Lecturer in Physics at the University of Salford with expertise in nonlinear acoustics, wave physics, and mathematical modelling. He contributes to teaching and research in the Engineering Physics and Acoustics discipline group.",
+        email: "j.christian@salford.ac.uk", wtId: "1159335", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1159335.jpg",
+        expertise: ["Nonlinear Acoustics", "Wave Physics", "Mathematical Physics", "Nonlinear Science"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "stephen-church", name: "Stephen Church", initials: "SC",
+        title: "Lecturer in Engineering Physics", bio: "Dr Stephen Church is a Lecturer in Engineering Physics at the University of Salford, contributing to teaching and research in physics and engineering within the Engineering Physics and Acoustics discipline group.",
+        email: "s.church@salford.ac.uk", wtId: "4573783", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/4573783.jpg",
+        expertise: ["Engineering Physics", "Physical Science", "Applied Physics"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "trevor-cox", name: "Trevor Cox", initials: "TC",
+        title: "Professor of Acoustic Engineering", bio: "Trevor Cox is Professor of Acoustic Engineering at the University of Salford. He is a past President of the UK's Institute of Acoustics and was awarded the IoA Tyndall Medal. His research covers architectural acoustics, psychoacoustics and audio. He has been PI/CI on 10 EPSRC projects on built environment acoustics; current EPSRC projects include two on machine learning challenges to improve hearing aids. Trevor co-wrote the definitive text Acoustic Absorbers and Diffusers (CRC Press). He was an EPSRC Senior Media Fellow and has presented 26 documentaries for BBC radio including The Physicist's Guide to the Orchestra. He won an ASA Science Writing Award for his popular science book Sonic Wonderland, which describes the oil tank where he broke the Guinness World Record for the longest echo.",
+        email: "t.j.cox@salford.ac.uk", wtId: "1154144", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1154144.jpg",
+        expertise: ["Architectural Acoustics", "Psychoacoustics", "Audio Engineering", "Acoustic Diffusers", "Science Communication"], isProfessor: true, isDirector: false, unverified: false
+      },
+      {
+        slug: "william-davies", name: "William Davies", initials: "WD",
+        title: "Professor of Acoustics and Perception", bio: "Professor William Davies is a Professor of Acoustics and Perception at the University of Salford and a leading member of the Acoustics Research Centre. His research focuses on soundscapes, environmental acoustics, human response to sound, and machine learning applications in acoustics. He contributes to teaching and research in the Engineering Physics and Acoustics discipline group.",
+        email: "w.j.davies@salford.ac.uk", wtId: "1154156", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1154156.jpg",
+        expertise: ["Soundscapes", "Environmental Acoustics", "Human Response to Sound", "Psychoacoustics", "Machine Learning in Acoustics"], isProfessor: true, isDirector: false, unverified: false
+      },
+      {
+        slug: "mayri-diaz-de-rienzo", name: "Mayri Diaz De Rienzo", initials: "MR",
+        title: "Lecturer in Microbiology/Biosciences", bio: "Dr Mayri Diaz De Rienzo is a Lecturer at the University of Salford in the Faculty of Science, Engineering and Environment. She has research expertise in microbiology, biosurfactants, and environmental microbiology, contributing to the interdisciplinary portfolio of the Engineering Physics and Acoustics discipline group.",
+        email: "m.diazde-rienzo@salford.ac.uk", wtId: "1178548", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1178548.jpg",
+        expertise: ["Microbiology", "Biosurfactants", "Environmental Microbiology", "Biosciences"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "bruno-fazenda", name: "Bruno Fazenda", initials: "BF",
+        title: "Reader (Associate Professor) in Acoustics", bio: "Dr Bruno Fazenda is a Reader (Associate Professor) at the Acoustics Research Centre, University of Salford. His research interests span room acoustics, sound reproduction and psychoacoustics, particularly the assessment of how an acoustic environment, technology or psychological state impacts the perception of sound quality. He is a researcher on a number of research council funded projects and is also a keen student of aspects of human evolution, perception and brain function.",
+        email: "b.m.fazenda@salford.ac.uk", wtId: "1162305", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1162305.jpg",
+        expertise: ["Room Acoustics", "Sound Reproduction", "Psychoacoustics", "Sound Quality Assessment", "Perceptual Acoustics"], isProfessor: true, isDirector: false, unverified: false
+      },
+      {
+        slug: "natalie-ferry", name: "Natalie Ferry", initials: "NF",
+        title: "Lecturer in Engineering Physics", bio: "Dr Natalie Ferry is a Lecturer in Engineering Physics at the University of Salford with expertise in materials science, polymer chemistry, and nanotechnology. She contributes to teaching and research in the Engineering Physics and Acoustics discipline group.",
+        email: "n.ferry@salford.ac.uk", wtId: "1162158", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1162158.jpg",
+        expertise: ["Materials Science", "Polymer Chemistry", "Nanotechnology", "Engineering Physics"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "jonathan-hargreaves", name: "Jonathan Hargreaves", initials: "JH",
+        title: "Lecturer in Acoustic and Audio Engineering", bio: "Dr Jonathan Hargreaves was awarded an MEng in Engineering & Computing Science from the University of Oxford in 2000 and a PhD in Acoustic Engineering from the University of Salford in 2007, where he remains as a Lecturer in Acoustic and Audio Engineering. He is best known for his research on novel computational acoustic algorithms, with strong interests in loudspeaker design and characterisation, material characterisation, and microphone arrays. He is a member of the IOA Research Coordination Committee and the UK Acoustics Network Special Interest Group for Computational Acoustics. He has been involved in a wide variety of public engagement activities, including TV appearances, and is passionate about performing, engineering and enjoying live music. He was awarded the UK Institute of Acoustics' Tyndall Medal for outstanding contribution to acoustics research and education in September 2016.",
+        email: "j.a.hargreaves@salford.ac.uk", wtId: "1159647", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1159647.jpg",
+        expertise: ["Computational Acoustics", "Acoustic Algorithms", "Loudspeaker Design", "Material Characterisation", "Microphone Arrays"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "ivan-holmes", name: "Ivan Holmes", initials: "IH",
+        title: "Lecturer in Engineering Physics", bio: "Dr Ivan Holmes is a Lecturer in Engineering Physics at the University of Salford with expertise in nonlinear acoustics, ultrasonics, and acoustic sensing. He contributes to teaching and research in the Engineering Physics and Acoustics discipline group.",
+        email: "i.holmes@salford.ac.uk", wtId: "1178063", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1178063.jpg",
+        expertise: ["Nonlinear Acoustics", "Ultrasonics", "Acoustic Sensing", "Engineering Physics"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "mark-hughes", name: "Mark Hughes", initials: "MH",
+        title: "Lecturer in Acoustics", bio: "Dr Mark Hughes is a Lecturer in Acoustics at the University of Salford, contributing to teaching and research in the Acoustics Research Centre and the Engineering Physics and Acoustics discipline group. He has expertise in human response to sound and vibration, environmental acoustics, and residential noise.",
+        email: "m.hughes@salford.ac.uk", wtId: "1167577", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1167577.jpg",
+        expertise: ["Human Response to Sound", "Environmental Acoustics", "Residential Acoustics", "Vibration"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "marina-leontiadou", name: "Marina Leontiadou", initials: "ML",
+        title: "Lecturer in Engineering Physics", bio: "Dr Marina Leontiadou is a Lecturer in Engineering Physics at the University of Salford, contributing to teaching and research in physics and engineering within the Engineering Physics and Acoustics discipline group.",
+        email: "m.leontiadou@salford.ac.uk", wtId: "1171969", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1171969.jpg",
+        expertise: ["Engineering Physics", "Semiconductor Physics", "Materials Science", "Electronic Devices"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "graham-mcdonald", name: "Graham McDonald", initials: "GM",
+        title: "Lecturer in Acoustics", bio: "Dr Graham McDonald is a Lecturer in Acoustics at the University of Salford with expertise in nonlinear wave physics, mathematical acoustics, and laser physics. He contributes to teaching and research in the Engineering Physics and Acoustics discipline group.",
+        email: "g.mcdonald@salford.ac.uk", wtId: "1153825", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1153825.jpg",
+        expertise: ["Nonlinear Wave Physics", "Mathematical Acoustics", "Laser Physics", "Optical Instabilities"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "joshua-meggitt", name: "Joshua Meggitt", initials: "JM",
+        title: "Lecturer in Acoustics", bio: "Dr Joshua Meggitt is a Lecturer in Acoustics at the University of Salford and recipient of the Institute of Acoustics Tyndall Medal (2023). His research focuses on structural dynamics, vibration, experimental mechanics, and acoustic measurement. He contributes to both the Acoustics Research Centre and the Engineering Physics and Acoustics discipline group.",
+        email: "j.meggitt@salford.ac.uk", wtId: "1173096", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1173096.jpg",
+        expertise: ["Structural Dynamics", "Vibration", "Experimental Mechanics", "Acoustic Measurement", "Substructuring"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "ian-morrison", name: "Ian Morrison", initials: "IM",
+        title: "Lecturer in Engineering Physics", bio: "Dr Ian Morrison is a Lecturer in Engineering Physics at the University of Salford, contributing to teaching and research in physics and engineering science within the Engineering Physics and Acoustics discipline group.",
+        email: "i.morrison@salford.ac.uk", wtId: "1161087", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1161087.jpg",
+        expertise: ["Engineering Physics", "Photonics", "Optics", "Physical Science"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "maziar-nezhad", name: "Maziar Nezhad", initials: "MN",
+        title: "Senior Lecturer in Engineering Physics", bio: "Dr Maziar Nezhad is a Senior Lecturer in Engineering Physics at the University of Salford with expertise in nanophotonics, silicon photonics, and optical engineering. He contributes to teaching and research in the Engineering Physics and Acoustics discipline group.",
+        email: "m.nezhad@salford.ac.uk", wtId: "1479898", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1479898.jpg",
+        expertise: ["Nanophotonics", "Silicon Photonics", "Optical Engineering", "Nanotechnology"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "john-proctor", name: "John Proctor", initials: "JP",
+        title: "Professor of Materials Science", bio: "Professor John Proctor is a Professor of Materials Science at the University of Salford with expertise in condensed matter physics, high-pressure science, and nano-materials. He contributes to teaching and research in the Engineering Physics and Acoustics discipline group and is a leading figure in the Centre for Engineering the Future.",
+        email: "j.proctor@salford.ac.uk", wtId: "1166788", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1166788.jpg",
+        expertise: ["Condensed Matter Physics", "High-Pressure Science", "Nano-Materials", "Materials Characterisation"], isProfessor: true, isDirector: false, unverified: false
+      },
+      {
+        slug: "tiehan-shen", name: "Tiehan Shen", initials: "TS",
+        title: "Lecturer in Engineering Physics", bio: "Dr Tiehan Shen is a Lecturer in Engineering Physics at the University of Salford, contributing to teaching and research in the Engineering Physics and Acoustics discipline group.",
+        email: "t.shen@salford.ac.uk", wtId: "1153989", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1153989.jpg",
+        expertise: ["Engineering Physics", "Electronic Engineering", "Wireless Communications"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "ben-shirley", name: "Ben Shirley", initials: "BS",
+        title: "Associate Professor in Audio Technology (Reader)", bio: "Dr Ben Shirley is an Associate Professor in Audio Technology at the Acoustics Research Centre, University of Salford. He received his MSc from Keele University in 2000 and his PhD from the University of Salford in 2013. His doctoral thesis investigated methods for improving TV sound for people with hearing impairments. His research interests include spatial audio and audio-related accessibility solutions, with current activity around personalisation of object-based audio for both accessibility and engagement. Dr Shirley is also co-founder and Director of Salsa Sound Ltd, developing multi-award winning AI audio solutions for live sports broadcast automation.",
+        email: "b.shirley@salford.ac.uk", wtId: "1152493", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1152493.jpg",
+        expertise: ["Audio Technology", "Spatial Audio", "Audio Accessibility", "Object-Based Audio", "AI Audio"], isProfessor: true, isDirector: false, unverified: false
+      },
+      {
+        slug: "arunachalam-sundaram", name: "Arunachalam Sundaram", initials: "AS",
+        title: "Lecturer in Engineering Physics", bio: "Dr Arunachalam Sundaram is a Lecturer in Engineering Physics at the University of Salford, contributing to teaching and research in the Engineering Physics and Acoustics discipline group.",
+        email: "a.sundaram@salford.ac.uk", wtId: "2677562", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/2677562.jpg",
+        expertise: ["Engineering Physics", "Electrical Engineering", "Signal Processing"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "haifa-takruri", name: "Haifa Takruri", initials: "HT",
+        title: "Lecturer in Engineering Physics/Acoustics", bio: "Dr Haifa Takruri is a Lecturer in Engineering Physics at the University of Salford, contributing to teaching and research in the Engineering Physics and Acoustics discipline group.",
+        email: "h.takruri@salford.ac.uk", wtId: "1152459", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1152459.jpg",
+        expertise: ["Signal Processing", "Engineering Physics", "Acoustics", "Machine Learning"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "antonio-torija-martinez", name: "Antonio Torija Martinez", initials: "AM",
+        title: "Professor of Acoustic Engineering and Psychoacoustics", bio: "Professor Antonio Torija Martinez is a Professor in Acoustic Engineering and Psychoacoustics at the University of Salford. He obtained his PhD in Environmental Acoustics from the University of Granada, Spain in 2010, and in 2012 was awarded a prestigious Marie Curie EU Postdoctoral Fellowship. He is internationally recognised for his research on Perception-Driven Engineering tools addressing noise issues of e-mobility and decarbonisation, and has been recognised as the world's most relevant author on drone noise. He has published in world-leading journals including Nature. Since joining Salford in 2019, he has secured over £12M in research grants from UKRI and Horizon Europe. He has received several awards including the John Connell Award, and holds five awards for excellence in acoustics research.",
+        email: "a.j.torijamartinez@salford.ac.uk", wtId: "1174635", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1174635.jpg",
+        expertise: ["Acoustic Engineering", "Psychoacoustics", "Drone Noise", "e-Mobility Noise", "Environmental Acoustics"], isProfessor: true, isDirector: false, unverified: false
+      },
+      {
+        slug: "rebecca-vos", name: "Rebecca Vos", initials: "RV",
+        title: "Lecturer in Acoustics", bio: "Dr Rebecca Vos is a Lecturer in Acoustics at the University of Salford with research interests in room acoustics, psychoacoustics, auditory attention, archaeoacoustics, multimodal perception, and audio in virtual reality. She contributes to teaching and research in the Acoustics Research Centre.",
+        email: "r.vos@salford.ac.uk", wtId: "1178616", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1178616.jpg",
+        expertise: ["Room Acoustics", "Psychoacoustics", "Archaeoacoustics", "Virtual Reality Audio", "Auditory Attention"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "david-waddington", name: "David Waddington", initials: "DW",
+        title: "Professor of Environmental Acoustics; President, Institute of Acoustics; Director, Acoustics Research Centre", bio: "Professor David Waddington is Professor of Environmental Acoustics and Director of the Acoustics Research Centre at the University of Salford. He was appointed President of the Institute of Acoustics (IOA) in 2024, at the 50th IOA Conference in Manchester. His research focuses on human response to environmental noise, community noise impact, and noise-health relationships. As IOA President, he aims to strengthen the connection between academic research and industry practice, with a focus on sustainability in acoustics, and plans to oversee integration of the EPSRC-funded UK Acoustics Network (UKAN+) into the IOA structure. His appointment will enhance the profile of Salford's new Acoustics Building, positioning it as a national and international centre of excellence.",
+        email: "d.c.waddington@salford.ac.uk", wtId: "1154241", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1154241.jpg",
+        expertise: ["Environmental Acoustics", "Human Response to Noise", "Community Noise", "Noise & Health", "Soundscapes"], isProfessor: true, isDirector: false, unverified: false
+      },
+      {
+        slug: "duncan-williams", name: "Duncan Williams", initials: "DW",
+        title: "Lecturer in Acoustics", bio: "Dr Duncan Williams is a Lecturer in Acoustics at the University of Salford with research interests in soundscape, psychoacoustics, spatial audio, room acoustics, and environmental noise. He contributes to teaching and research in the Acoustics Research Centre.",
+        email: "d.williams@salford.ac.uk", wtId: "1174587", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1174587.jpg",
+        expertise: ["Soundscape", "Psychoacoustics", "Spatial Audio", "Room Acoustics", "Environmental Noise"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "antonia-vlachou", name: "Antonia Vlachou", initials: "AV",
+        title: "Academic Staff, Engineering Physics & Acoustics", bio: "Antonia Vlachou is part of the academic community within the Engineering Physics & Acoustics discipline group at the University of Salford.",
+        email: "", wtId: "", photo: "",
+        expertise: ["Engineering Physics", "Acoustics"], isProfessor: false, isDirector: false, unverified: true
+      },
+      {
+        slug: "david-tolan", name: "David Tolan", initials: "DT",
+        title: "Teaching Fellow in Audio Production", bio: "David Tolan is a part-time Teaching Fellow and module leader at the University of Salford, lecturing in Audio Production. He brings extensive industry background to the Studio Engineering & Production course, having worked over 25 years as a music producer, recording engineer and session musician in Manchester, working alongside artists including The Charlatans, Tori Amos, Johnny Marr, Primal Scream, Tears for Fears and Patti Smith. He has over 12 years of experience in teaching, designing and developing course literature.",
+        email: "", wtId: "", photo: "",
+        expertise: ["Audio Production", "Music Production", "Recording Engineering", "Studio Engineering"], isProfessor: false, isDirector: false, unverified: true
+      },
+      {
+        slug: "francis-li", name: "Francis Li", initials: "FL",
+        title: "Senior Lecturer in Audio Engineering and Acoustical Signal Processing", bio: "Francis Li began his academic career at Shanghai University in 1986, teaching electronics and computer engineering and leading a Teaching and Research Group of 13 academic staff. He instigated the audio and lighting engineering programme there and authored a textbook on audio engineering. He was appointed Senior Lecturer in Computing at Manchester Metropolitan University in 2001, before joining the University of Salford in 2006 as Senior Lecturer in Audio Engineering and Acoustical Signal Processing. He leads the Institute of Acoustics Diploma programme in acoustics and noise control at Salford Learning Centre and has led research projects funded by EPSRC, the EU, the Leverhulme Trust, the BBC and HMGCC. His expertise spans audio engineering, architectural and building acoustics, signal processing, artificial intelligence, and machine audition.",
+        email: "f.f.li@salford.ac.uk", wtId: "", photo: "",
+        expertise: ["Audio Engineering", "Acoustical Signal Processing", "Artificial Intelligence", "Architectural Acoustics", "Machine Audition"], isProfessor: false, isDirector: false, unverified: true
+      },
+      {
+        slug: "jonathan-hirst", name: "Jos Hirst", initials: "JH",
+        title: "Senior Lecturer in Spatial Audio", bio: "Dr Jos Hirst is a Senior Lecturer specialising in Spatial Audio at the University of Salford's Acoustics Research Centre. His research has focused on the subjective evaluation of 3D surround sound systems, including investigations into how the addition of height channels in surround systems affects localisation accuracy and listener envelopment, drawing on computer simulations and listening tests of 2D and 3D surround configurations.",
+        email: "j.hirst@salford.ac.uk", wtId: "", photo: "",
+        expertise: ["Spatial Audio", "Surround Sound", "Acoustics", "Audio Engineering"], isProfessor: false, isDirector: false, unverified: true
+      },
+    ]
+  },
+};
+</script>
+<script>
+function escapeHtml(s){
+  return (s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+// ============ nav toggle ============
+const navToggle = document.getElementById('navToggle');
+const mainNav = document.getElementById('mainNav');
+navToggle.addEventListener('click', () => {
+  const open = mainNav.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', open ? 'true':'false');
+});
+
+// ============ derived stats ============
+const DISC_KEYS = Object.keys(DISCIPLINES);
+const ALL_PEOPLE = DISC_KEYS.flatMap(k => DISCIPLINES[k].people.map(p => ({...p, discKey:k})));
+const TOTAL_STAFF = ALL_PEOPLE.length;
+const TOTAL_PROF = ALL_PEOPLE.filter(p => p.isProfessor).length;
+
+document.getElementById('topbarCount').textContent = TOTAL_STAFF;
+document.getElementById('consoleStaffCount').textContent = TOTAL_STAFF;
+document.getElementById('consoleProfCount').textContent = TOTAL_PROF;
+document.getElementById('statStaff').textContent = TOTAL_STAFF;
+document.getElementById('statProf').textContent = TOTAL_PROF;
+
+// ============ discipline grid (landing) ============
+const DISC_IMAGES = {
+  'computer-science': 'https://www.salford.ac.uk/sites/default/files/2021-02/SEE%20Accordion%20Computer%20Science.jpg',
+  'aeromech': 'https://www.salford.ac.uk/sites/default/files/2021-02/SEE%20Accordion%20Mechanical%20Engineering%20Students.jpg',
+  'civil-engineering': 'https://www.salford.ac.uk/sites/default/files/2021-02/SEE%20Accordian%20Civil%20Engineering%20Constructionarium.jpg',
+  'physics-acoustics': 'https://www.salford.ac.uk/sites/default/files/2021-02/SEE%20Accordian%20Acoustical%20Engineering.jpg'
+};
+function renderDiscGrid(){
+  const grid = document.getElementById('discGrid');
+  grid.innerHTML = DISC_KEYS.map(key => {
+    const d = DISCIPLINES[key];
+    const profCount = d.people.filter(p => p.isProfessor).length;
+    return `
+    <div class="disc-card" onclick="openDiscipline('${key}')">
+      <img src="${DISC_IMAGES[key]}" alt="" loading="lazy">
+      <div class="disc-mark">${d.short}</div>
+      <h4>${escapeHtml(d.label)}</h4>
+      <p>${escapeHtml(d.desc)}</p>
+      <div class="disc-count">${d.people.length} academics &middot; ${profCount} professors &rarr;</div>
+    </div>`;
+  }).join('');
+}
+
+// ============ research themes (real UoS content) ============
+const THEME_ICONS = {
+  prosperity: `<svg viewBox="0 0 64 64"><rect x="8" y="38" width="9" height="18" rx="1.5" fill="var(--red)" opacity=".55"><animate attributeName="height" values="18;30;18" dur="2.4s" repeatCount="indefinite"/><animate attributeName="y" values="38;26;38" dur="2.4s" repeatCount="indefinite"/></rect><rect x="22" y="26" width="9" height="30" rx="1.5" fill="var(--red)" opacity=".75"><animate attributeName="height" values="30;42;30" dur="2.4s" begin=".2s" repeatCount="indefinite"/><animate attributeName="y" values="26;14;26" dur="2.4s" begin=".2s" repeatCount="indefinite"/></rect><rect x="36" y="16" width="9" height="40" rx="1.5" fill="var(--red)"><animate attributeName="height" values="40;50;40" dur="2.4s" begin=".4s" repeatCount="indefinite"/><animate attributeName="y" values="16;6;16" dur="2.4s" begin=".4s" repeatCount="indefinite"/></rect><circle cx="50" cy="14" r="4" fill="var(--circuit)"><animate attributeName="cy" values="14;8;14" dur="2.4s" begin=".4s" repeatCount="indefinite"/></circle></svg>`,
+  health: `<svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="22" fill="none" stroke="var(--red)" stroke-width="2" opacity=".25"/><circle cx="32" cy="32" r="22" fill="none" stroke="var(--red)" stroke-width="2" opacity=".7"><animate attributeName="r" values="14;24;14" dur="2.2s" repeatCount="indefinite"/><animate attributeName="opacity" values=".7;0;.7" dur="2.2s" repeatCount="indefinite"/></circle><path d="M16 32 L24 32 L28 20 L34 44 L38 32 L48 32" fill="none" stroke="var(--ink)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><animate attributeName="stroke" values="var(--ink);var(--circuit);var(--ink)" dur="2.2s" repeatCount="indefinite"/></path></svg>`,
+  sustainability: `<svg viewBox="0 0 64 64"><g><animateTransform attributeName="transform" type="rotate" from="0 32 36" to="360 32 36" dur="6s" repeatCount="indefinite"/><path d="M32 36 L32 14 Q40 18 38 26 Q32 28 32 36" fill="var(--circuit)" opacity=".85"/><path d="M32 36 L32 14 Q40 18 38 26 Q32 28 32 36" fill="var(--circuit)" opacity=".55" transform="rotate(120 32 36)"/><path d="M32 36 L32 14 Q40 18 38 26 Q32 28 32 36" fill="var(--circuit)" opacity=".3" transform="rotate(240 32 36)"/></g><circle cx="32" cy="36" r="4" fill="var(--ink)"/><line x1="32" y1="40" x2="32" y2="54" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"/></svg>`,
+  creativity: `<svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="3" fill="var(--red)"/><circle cx="16" cy="20" r="3.5" fill="var(--circuit)"><animate attributeName="cy" values="20;16;20" dur="2.4s" repeatCount="indefinite"/></circle><circle cx="48" cy="20" r="3.5" fill="var(--amber)"><animate attributeName="cy" values="20;16;20" dur="2.4s" begin=".3s" repeatCount="indefinite"/></circle><circle cx="16" cy="46" r="3.5" fill="var(--amber)"><animate attributeName="cy" values="46;50;46" dur="2.4s" begin=".6s" repeatCount="indefinite"/></circle><circle cx="48" cy="46" r="3.5" fill="var(--circuit)"><animate attributeName="cy" values="46;50;46" dur="2.4s" begin=".9s" repeatCount="indefinite"/></circle><line x1="32" y1="32" x2="16" y2="20" stroke="var(--steel-lt)" stroke-width="1"><animate attributeName="opacity" values=".3;1;.3" dur="2.4s" repeatCount="indefinite"/></line><line x1="32" y1="32" x2="48" y2="20" stroke="var(--steel-lt)" stroke-width="1"><animate attributeName="opacity" values=".3;1;.3" dur="2.4s" begin=".3s" repeatCount="indefinite"/></line><line x1="32" y1="32" x2="16" y2="46" stroke="var(--steel-lt)" stroke-width="1"><animate attributeName="opacity" values=".3;1;.3" dur="2.4s" begin=".6s" repeatCount="indefinite"/></line><line x1="32" y1="32" x2="48" y2="46" stroke="var(--steel-lt)" stroke-width="1"><animate attributeName="opacity" values=".3;1;.3" dur="2.4s" begin=".9s" repeatCount="indefinite"/></line></svg>`
+};
+const THEMES = [
+  { n:'01', icon:'prosperity', title:'Building Prosperity & Equity', desc:'We explore the mechanisms driving the success and wellbeing of individuals, organisations and society, drawing on our long history of working with businesses and policymakers on economic development.', url:'https://www.salford.ac.uk/research/building-prosperity-equity-and-community' },
+  { n:'02', icon:'health', title:'Enabling Healthier Living', desc:'We support a society where individuals can thrive in good health by exploring a wide range of issues linked to physical, mental, and social wellbeing.', url:'https://www.salford.ac.uk/research/enabling-healthier-living' },
+  { n:'03', icon:'sustainability', title:'Improving Sustainability', desc:'We address environmental challenges and work toward a sustainable future, developing strategies for a resilient and balanced coexistence between humanity and the natural world.', url:'https://www.salford.ac.uk/research/improving-environment-and-sustainability' },
+  { n:'04', icon:'creativity', title:'Developing Creativity & Innovation', desc:'We enable communities to navigate challenges and flourish through creative problem-solving, co-creating innovative research agendas that lead to collaborative solutions.', url:'https://www.salford.ac.uk/research/developing-cutting-edge-creativity-and-innovative-practice' },
+];
+function renderThemes(){
+  const grid = document.getElementById('themeGrid');
+  grid.innerHTML = THEMES.map(t => `
+    <div class="theme-card">
+      <div class="theme-icon">${THEME_ICONS[t.icon]}</div>
+      <span class="theme-num">${t.n}</span>
+      <h4>${escapeHtml(t.title)}</h4>
+      <p>${escapeHtml(t.desc)}</p>
+      <a href="${t.url}" target="_blank" rel="noopener">Read more on salford.ac.uk &rarr;</a>
+    </div>`).join('');
+}
+
+// ============ labs ============
+const LABS = [
+  {
+    id:'gmiot', name:'GMIoT — Greater Manchester Institute of Technology',
+    desc:'A £14.3m, two-storey, 1,840m² building on Peel Park campus offering digital labs, VR spaces, a prototyping workshop and ICT studios, delivered with partners including GCHQ, Siemens, Laing O\u2019Rourke and the BBC. Completing December 2025.',
+    badge:'new', badgeLabel:'New', featured:true, tags:['Digital Skills','VR Labs','Industry Partners'],
+    img:'https://www.salford.ac.uk/sites/default/files/styles/16x9_medium/public/2025-10/IMG_5686_0.JPG'
+  },
+  {
+    id:'neric', name:'NERIC — North of England Robotics Innovation Centre',
+    desc:'A £16 million all-electric facility for robotics and automation, with collaborative robots, autonomous mobile robots, CNC machining and optical metrology, led in part by Professor Wei Yao.',
+    badge:'flagship', badgeLabel:'Flagship', featured:true, tags:['Robotics','Automation','Healthcare Tech'],
+    img:'https://www.salford.ac.uk/sites/default/files/2024-02/International-robotics.jpg'
+  },
+  {
+    id:'acoustics', name:'Acoustics Research Centre & Anechoic Chamber',
+    desc:'One of the largest acoustics research groups in the world, with a UKAS-accredited anechoic chamber, reverberation rooms and listening labs used by Dyson, the BBC and the Royal Albert Hall.',
+    badge:'flagship', badgeLabel:'Flagship', featured:true, tags:['Acoustics','Audio Engineering','UKAS Accredited'],
+    img:'https://www.salford.ac.uk/sites/default/files/2021-02/SEE%20Accordian%20Acoustical%20Engineering.jpg'
+  },
+  {
+    id:'dsai', name:'DSAI Hub — Data Science & AI',
+    desc:'A cross-disciplinary hub for applied machine learning, NLP and big data research within Computer Science & Engineering, led by Prof. Mo Saraee.',
+    badge:'flagship', badgeLabel:'Flagship', tags:['AI','Machine Learning','Data Science'],
+    img:'https://www.salford.ac.uk/sites/default/files/2021-07/AI%20Foundry.jpg'
+  },
+  {
+    id:'cyber', name:'Cybersecurity & Networks Lab',
+    desc:'Hands-on facility for penetration testing, network defence and resilient AI research.',
+    badge:'research', badgeLabel:'Research', tags:['Cybersecurity','Networks'],
+    img:'https://www.salford.ac.uk/sites/default/files/2021-04/Cyber%20Security%20Block%20Image.jpg'
+  },
+  {
+    id:'vision', name:'Computer Vision & Pattern Recognition Lab',
+    desc:'Imaging and document-analysis research supporting OCR, scene understanding and visual AI.',
+    badge:'research', badgeLabel:'Research', tags:['Computer Vision','OCR','Pattern Recognition'],
+    img:'https://www.salford.ac.uk/sites/default/files/2021-02/SEE%20Accordion%20Computer%20Science.jpg'
+  },
+  {
+    id:'civil', name:'Civil & Structural Engineering Labs',
+    desc:'Materials testing, structural loading rigs and geotechnical facilities for Civil Engineering research and teaching, including the Constructionarium.',
+    badge:'research', badgeLabel:'Research', tags:['Structures','Geotechnics','Constructionarium'],
+    img:'https://www.salford.ac.uk/sites/default/files/2021-02/SEE%20Accordian%20Civil%20Engineering%20Constructionarium.jpg'
+  },
+  {
+    id:'aero', name:'Aeronautical & Mechanical Workshops',
+    desc:'Wind tunnel, fabrication workshops and design studios supporting aerospace and mechanical engineering projects.',
+    badge:'research', badgeLabel:'Research', tags:['Aerospace','Wind Tunnel','Fabrication'],
+    img:'https://www.salford.ac.uk/sites/default/files/2021-02/SEE%20Accordion%20Mechanical%20Engineering%20Students.jpg'
+  },
+  {
+    id:'energy', name:'Energy House 2.0',
+    desc:'The world\u2019s largest test and research facility of its kind, housing two full-size houses inside an environmental chamber to research low-carbon homes and retrofit technologies.',
+    badge:'research', badgeLabel:'Research', tags:['Net Zero','Sustainability','Retrofit'],
+    img:'https://www.salford.ac.uk/sites/default/files/2022-03/Energy%20House%202.0%20Mar22.jpg'
+  }
+];
+function renderLabs(){
+  document.getElementById('labsRack').innerHTML = LABS.map(l => `
+    <div class="lab-card ${l.featured ? 'featured' : ''}">
+      <img src="${l.img}" alt="" loading="lazy">
+      <span class="lab-badge ${l.badge}">${escapeHtml(l.badgeLabel)}</span>
+      <div class="lab-overlay">
+        <h4>${escapeHtml(l.name)}</h4>
+        <p>${escapeHtml(l.desc)}</p>
+        <div class="lab-tag-row">${l.tags.map(t => `<span class="lab-tag">${escapeHtml(t)}</span>`).join('')}</div>
+      </div>
+    </div>`).join('');
+}
+
+// ============ courses ============
+const COURSES = [
+  { level:'Foundation Year', title:'Engineering & Computing (with Foundation Year)', desc:'A foundation pathway into our CS&E degrees for students without standard entry qualifications.' },
+  { level:'BSc (Hons)', title:'Computer Science', desc:'Programming, algorithms, AI, and software engineering.' },
+  { level:'BSc (Hons)', title:'Cyber Security', desc:'Network defence, ethical hacking, and security engineering.' },
+  { level:'BEng (Hons)', title:'Aerospace Engineering', desc:'Aircraft structures, propulsion, and aerodynamics.' },
+  { level:'BEng (Hons)', title:'Civil Engineering', desc:'Structures, geotechnics, and sustainable construction.' },
+  { level:'BEng/MEng', title:'Acoustics', desc:'Architectural, environmental, and audio acoustics.' },
+  { level:'MSc', title:'Data Science', desc:'Statistical learning, big data engineering, and applied analytics.' },
+  { level:'MSc', title:'Robotics & Autonomous Systems', desc:'Robotics, control systems, and automation, linked to NERIC.' },
+  { level:'PhD', title:'Computer Science & Engineering', desc:'Doctoral research across all four CS&E disciplines.' }
+];
+function renderCourses(){
+  document.getElementById('courseGrid').innerHTML = COURSES.map(c => `
+    <div class="course-card">
+      <span class="course-level">${escapeHtml(c.level)}</span>
+      <h4>${escapeHtml(c.title)}</h4>
+      <p>${escapeHtml(c.desc)}</p>
+    </div>`).join('');
+}
+
+// ============ routing ============
+function goHome(){
+  document.getElementById('page-home').classList.add('active');
+  document.getElementById('page-discipline').classList.remove('active');
+  document.getElementById('discSubnav').style.display = 'none';
+  mainNav.classList.remove('open');
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+function navSection(id){
+  goHome();
+  setTimeout(() => {
+    const el = document.getElementById(id);
+    if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+  }, 50);
+}
+
+let currentDisc = null;
+function openDiscipline(key){
+  currentDisc = key;
+  document.getElementById('page-home').classList.remove('active');
+  document.getElementById('page-discipline').classList.add('active');
+  mainNav.classList.remove('open');
+
+  // sub-nav
+  const subnav = document.getElementById('discSubnav');
+  const inner = document.getElementById('discSubnavInner');
+  subnav.style.display = 'block';
+  inner.innerHTML = DISC_KEYS.map(k => {
+    const d = DISCIPLINES[k];
+    return `<a href="javascript:void(0)" class="${k===key?'active':''}" onclick="openDiscipline('${k}')">${escapeHtml(d.short)} &middot; ${escapeHtml(d.label)}</a>`;
+  }).join('');
+
+  const d = DISCIPLINES[key];
+  const profCount = d.people.filter(p=>p.isProfessor).length;
+  document.getElementById('discHeader').innerHTML = `
+    <div class="disc-hero-banner" style="background-image:url('${DISC_IMAGES[key]}')">
+      <div class="disc-hero-overlay">
+        <span class="section-eyebrow">${escapeHtml(d.short)} Discipline</span>
+        <h2>${escapeHtml(d.label)}</h2>
+        <p>${escapeHtml(d.desc)} &mdash; ${d.people.length} academics, ${profCount} at professor level.</p>
+      </div>
+    </div>
+  `;
+  document.getElementById('discSearch').value = '';
+  renderDisciplineStaff(key);
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function openDirector(){
+  openDiscipline('computer-science');
+  setTimeout(() => openProfile('computer-science', 'mo-saraee'), 60);
+}
+
+// ============ staff rendering (within discipline) ============
+function staffCardHtml(p){
+  const hasPhoto = p.photo && p.photo.length > 0;
+  return `
+    <div class="staff-card ${p.isDirector?'featured':''}" data-slug="${p.slug}" data-disc="${p.discKey}" tabindex="0" role="button" aria-label="View profile for ${escapeHtml(p.name)}">
+      <div class="staff-photo-box" data-zoom="${p.slug}" data-zoomdisc="${p.discKey}" style="position:relative">
+        ${hasPhoto ? `<img src="${p.photo}" alt="" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">` : ''}
+        <div class="staff-photo-fallback" style="${hasPhoto ? 'display:none' : 'display:flex'}">${p.initials}</div>
+        ${hasPhoto ? `<div class="staff-zoom-hint">&#x1F50D;</div>` : ''}
+        <div class="staff-card-flags">
+          ${p.isDirector ? '<span class="staff-director-flag">Director</span>' : ''}
+          ${p.isProfessor && !p.isDirector ? '<span class="staff-prof-flag">Prof</span>' : ''}
+          ${p.unverified ? '<span class="staff-unverified-dot" title="Sourced from salford.ac.uk — Worktribe ID not yet verified"></span>' : ''}
+        </div>
+      </div>
+      <div class="staff-info">
+        <h5>${escapeHtml(p.name)}</h5>
+        <div class="role">${escapeHtml(p.title)}</div>
+        <div class="exp">${escapeHtml(p.expertise.slice(0,2).join(' · '))}</div>
+      </div>
+    </div>`;
+}
+
+function attachCardHandlers(container){
+  container.querySelectorAll('.staff-card').forEach(card => {
+    const open = () => openProfile(card.dataset.disc, card.dataset.slug);
+    card.addEventListener('click', (e) => {
+      const zoomEl = e.target.closest('[data-zoom]');
+      if(zoomEl){
+        e.stopPropagation();
+        openLightbox(zoomEl.dataset.zoomdisc, zoomEl.dataset.zoom);
+        return;
+      }
+      open();
+    });
+    card.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' '){ e.preventDefault(); open(); } });
+  });
+}
+
+function renderDisciplineStaff(key){
+  const container = document.getElementById('discStaffContainer');
+  const countEl = document.getElementById('discStaffCount');
+  const q = document.getElementById('discSearch').value.trim().toLowerCase();
+
+  let people = DISCIPLINES[key].people.map(p => ({...p, discKey:key}));
+  if(q){
+    people = people.filter(p =>
+      p.name.toLowerCase().includes(q) ||
+      p.title.toLowerCase().includes(q) ||
+      p.expertise.some(e => e.toLowerCase().includes(q))
+    );
+  }
+  countEl.textContent = `${people.length} academic${people.length===1?'':'s'}`;
+
+  if(people.length === 0){
+    container.innerHTML = `<div class="staff-grid"><div class="staff-empty">No academics match that search.</div></div>`;
+    return;
+  }
+
+  // featured (director + professors) shown first in own band, rest below
+  const featured = people.filter(p => p.isDirector || p.isProfessor);
+  const rest = people.filter(p => !p.isDirector && !p.isProfessor);
+
+  let html = '';
+  if(featured.length){
+    html += `<div class="staff-section-label">Director &amp; Professors</div><div class="staff-grid">${featured.map(staffCardHtml).join('')}</div>`;
+  }
+  if(rest.length){
+    html += `<div class="staff-section-label">Academic Staff</div><div class="staff-grid">${rest.map(staffCardHtml).join('')}</div>`;
+  }
+  container.innerHTML = html;
+  attachCardHandlers(container);
+}
+document.getElementById('discSearch').addEventListener('input', () => { if(currentDisc) renderDisciplineStaff(currentDisc); });
+
+// ============ photo lightbox ============
+const lightboxOverlay = document.getElementById('lightboxOverlay');
+const lightboxContent = document.getElementById('lightboxContent');
+function openLightbox(discKey, slug){
+  const p = DISCIPLINES[discKey].people.find(x => x.slug === slug);
+  if(!p || !p.photo) return;
+  lightboxContent.innerHTML = `
+    <img src="${p.photo}" alt="${escapeHtml(p.name)}">
+    <div class="lb-name">${escapeHtml(p.name)}</div>
+    <div class="lb-role">${escapeHtml(p.title)}</div>
+  `;
+  lightboxOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox(){
+  lightboxOverlay.classList.remove('open');
+  document.body.style.overflow = overlay.classList.contains('open') ? 'hidden' : '';
+}
+document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+lightboxOverlay.addEventListener('click', e => { if(e.target === lightboxOverlay) closeLightbox(); });
+document.addEventListener('keydown', e => { if(e.key === 'Escape' && lightboxOverlay.classList.contains('open')) closeLightbox(); });
+
+// ============ modal ============
+const overlay = document.getElementById('modalOverlay');
+const modalBox = document.getElementById('modalBox');
+
+function openProfile(discKey, slug){
+  const p = DISCIPLINES[discKey].people.find(x => x.slug === slug);
+  if(!p) return;
+  const wtUrl = (p.wtId && !p.unverified) ? `https://salford-repository.worktribe.com/person/${p.wtId}/${slug}` : null;
+  const liveUrl = `https://www.salford.ac.uk/our-staff/${slug}`;
+  const hasPhoto = p.photo && p.photo.length > 0;
+  modalBox.innerHTML = `
+    <button class="modal-close" id="modalCloseBtn" aria-label="Close profile">&times;</button>
+    <div class="modal-head">
+      <div class="modal-photo" ${hasPhoto ? `data-zoom="${p.slug}" data-zoomdisc="${discKey}"` : ''}>
+        ${hasPhoto ? `<img src="${p.photo}" alt="" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">` : ''}
+        <div class="fallback" style="${hasPhoto ? 'display:none' : 'display:flex'}">${p.initials}</div>
+        ${hasPhoto ? `<div class="modal-photo-hint">&#x1F50D;</div>` : ''}
+      </div>
+      <div>
+        <h3>${escapeHtml(p.name)}</h3>
+        <div class="role">${escapeHtml(p.title)}</div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <p class="bio">${escapeHtml(p.bio)}</p>
+      <span class="modal-section-label">Research &amp; Expertise</span>
+      <div class="modal-tags">${p.expertise.map(e => `<span class="tag">${escapeHtml(e)}</span>`).join('')}</div>
+      <span class="modal-section-label">Discipline</span>
+      <div class="modal-tags" style="margin-bottom:0">
+        <span class="tag" style="background:var(--red-lt); color:var(--red); border-color:var(--red-lt)">${escapeHtml(DISCIPLINES[discKey].label)}</span>
+        ${p.isDirector ? '<span class="tag" style="background:var(--ink); color:var(--circuit); border-color:var(--ink)">Director, CS&E</span>' : ''}
+        ${p.isProfessor ? '<span class="tag" style="background:var(--ink); color:#fff; border-color:var(--ink)">Professor</span>' : ''}
+      </div>
+      ${p.unverified ? `<p style="font-family:var(--mono); font-size:.72rem; color:var(--steel-lt); margin-top:18px; padding-top:14px; border-top:1px solid var(--line)">Profile content sourced from salford.ac.uk. A verified Worktribe ID was not available for this person at time of publishing.</p>` : ''}
+      <div class="modal-foot">
+        ${wtUrl ? `<a href="${wtUrl}" target="_blank" rel="noopener" class="btn btn-primary">View full Worktribe profile &rarr;</a>` : ''}
+        <a href="${liveUrl}" target="_blank" rel="noopener" class="btn btn-ghost" style="color:var(--ink); background:var(--paper-dk); border-color:var(--line)">View on salford.ac.uk &rarr;</a>
+        ${p.email ? `<a href="mailto:${p.email}" class="btn btn-ghost" style="color:var(--ink); background:var(--paper-dk); border-color:var(--line)">${p.email}</a>` : ''}
+      </div>
+    </div>
+  `;
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('modalCloseBtn').addEventListener('click', closeProfile);
+  const modalPhotoEl = modalBox.querySelector('.modal-photo[data-zoom]');
+  if(modalPhotoEl){
+    modalPhotoEl.addEventListener('click', () => openLightbox(modalPhotoEl.dataset.zoomdisc, modalPhotoEl.dataset.zoom));
+  }
+}
+function closeProfile(){ overlay.classList.remove('open'); document.body.style.overflow = ''; }
+overlay.addEventListener('click', e => { if(e.target === overlay) closeProfile(); });
+document.addEventListener('keydown', e => { if(e.key === 'Escape' && overlay.classList.contains('open')) closeProfile(); });
+
+// ============ reveal ============
+function initReveal(){
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+}
+
+// ============ building gallery ============
+const BLDG_GALLERY = [
+  { img:'https://www.salford.ac.uk/sites/default/files/styles/large_video/public/2025-03/SEE%20building_imresizer.jpg', cap:'SEE Building, Peel Park Campus' },
+  { img:'https://www.salford.ac.uk/sites/default/files/2021-02/SEE%20Accordion%20Architecture%20Students%20Group.jpg', cap:'Student project work' },
+  { img:'https://www.salford.ac.uk/sites/default/files/2021-04/AI%20Foundry.jpg'.replace('2021-04','2021-07'), cap:'AI Foundry' },
+  { img:'https://www.salford.ac.uk/sites/default/files/2024-02/International-robotics.jpg', cap:'Robotics research' }
+];
+function renderBldgGallery(){
+  const el = document.getElementById('bldgGallery');
+  if(!el) return;
+  el.innerHTML = BLDG_GALLERY.map(g => `
+    <div class="bldg-gallery-item">
+      <img src="${g.img}" alt="" loading="lazy">
+      <div class="cap">${escapeHtml(g.cap)}</div>
+    </div>`).join('');
+}
+
+// ============ GMIoT gallery ============
+const GMIOT_GALLERY = [
+  { img:'https://www.salford.ac.uk/sites/default/files/styles/16x9_medium/public/2025-10/IMG_5686_0.JPG', cap:'GMIoT building exterior' },
+  { img:'https://www.salford.ac.uk/sites/default/files/2025-10/IMG_5693.JPG', cap:'Roof-mounted solar panels' },
+  { img:'https://www.salford.ac.uk/sites/default/files/2025-10/IMG_5689.JPG', cap:'Interior under construction' },
+  { img:'https://www.salford.ac.uk/sites/default/files/2025-10/IMG_0269.jpg', cap:'Exterior shingle cladding detail' }
+];
+function renderGmiotGallery(){
+  const el = document.getElementById('gmiotGallery');
+  if(!el) return;
+  el.innerHTML = GMIOT_GALLERY.map((g,i) => `
+    <div class="gmiot-gallery-item" data-gmiot-idx="${i}">
+      <img src="${g.img}" alt="" loading="lazy">
+      <div class="cap">${escapeHtml(g.cap)}</div>
+    </div>`).join('');
+  el.querySelectorAll('.gmiot-gallery-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const g = GMIOT_GALLERY[item.dataset.gmiotIdx];
+      lightboxContent.innerHTML = `<img src="${g.img}" alt=""><div class="lb-name">${escapeHtml(g.cap)}</div><div class="lb-role">GMIoT &mdash; Greater Manchester Institute of Technology</div>`;
+      lightboxOverlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+}
+
+// ============ init ============
+renderDiscGrid();
+renderThemes();
+renderLabs();
+renderCourses();
+renderBldgGallery();
+renderGmiotGallery();
+initReveal();
+
+</script>
+</body>
+</html>
