@@ -446,7 +446,7 @@ footer{background:var(--ink); color:#C7CEDB; padding:60px 0 28px}
       <a href="https://www.salford.ac.uk/school-of-science-engineering-and-environment" target="_blank" rel="noopener">SEE Faculty</a>
       <a href="https://www.salford.ac.uk/courses/postgraduate" target="_blank" rel="noopener">Postgraduate</a>
     </div>
-    <div class="topbar-status"><span class="dot"></span> <span id="topbarCount">97</span> academic staff</div>
+    <div class="topbar-status"><span class="dot"></span> <span id="topbarCount">131</span> academic staff</div>
   </div>
 </div>
 
@@ -499,7 +499,7 @@ footer{background:var(--ink); color:#C7CEDB; padding:60px 0 28px}
           <div class="console-bar"><div class="dots"><span></span><span></span><span></span></div> directorate.status</div>
           <div class="console-body">
             <div class="console-row"><span class="k">Disciplines</span><span class="v accent">4</span></div>
-            <div class="console-row"><span class="k">Academic staff</span><span class="v" id="consoleStaffCount">97</span></div>
+            <div class="console-row"><span class="k">Academic staff</span><span class="v" id="consoleStaffCount">131</span></div>
             <div class="console-row"><span class="k">Home building</span><span class="v">SEE Building, Peel Park</span></div>
             <div class="console-row"><span class="k">Flagship facilities</span><span class="v accent">NERIC &middot; DSAI Hub</span></div>
           </div>
@@ -522,7 +522,7 @@ footer{background:var(--ink); color:#C7CEDB; padding:60px 0 28px}
     <div class="wrap" style="padding:52px 32px">
       <div class="stats">
         <div class="stat"><div class="num">4</div><div class="label">Disciplines</div></div>
-        <div class="stat"><div class="num" id="statStaff">97</div><div class="label">Academic Staff</div></div>
+        <div class="stat"><div class="num" id="statStaff">131</div><div class="label">Academic Staff</div></div>
         <div class="stat"><div class="num">3</div><div class="label">Flagship Labs &amp; Hubs</div></div>
       </div>
     </div>
@@ -991,12 +991,6 @@ const DISCIPLINES = {
         expertise: ["Computer Science", "Data Analytics", "Computing"], isProfessor: false, isDirector: false, unverified: false
       },
         {
-        slug: "olga-umnova", name: "Prof Olga Umnova", initials: "OU",
-        title: "Reader in Theoretical Acoustics", bio: "Dr Olga Umnova is a Reader in Theoretical Acoustics at the University of Salford. She holds a degree in Applied Physics and Mathematics from the Moscow Institute of Physics and Technology and a PhD in Acoustics from the General Physics Institute, Russian Academy of Science (1994). She has been a research fellow at the Open University and University of Hull, and has been an academic at Salford since 2004. She was awarded the prestigious IoA Tyndall Medal in 2010 for her contributions to acoustics. Her research covers scattering problems in acoustics, nonlinear acoustics, acoustic metamaterials, sonic crystals and porous materials. She serves as associate editor of the Journal of Applied Acoustics and the Journal of ACTA Acoustica.",
-        email: "o.umnova@salford.ac.uk", wtId: "1157544", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1157544.jpg",
-        expertise: ["Acoustic Metamaterials", "Porous Media Acoustics", "Nonlinear Acoustics", "Sonic Crystals", "Scattering Problems"], isProfessor: true, isDirector: false, unverified: false
-      },
-        {
         slug: "sabine-von-hunerbein", name: "Dr Sabine Von-Hunerbein", initials: "SV",
         title: "Lecturer in Computer Science / Acoustics", bio: "Dr Sabine Von-Hunerbein is a Lecturer at the University of Salford with expertise spanning Computer Science and Acoustics. Her research interests include psychoacoustics, auditory perception, and signal processing, contributing to the interdisciplinary research culture at the Acoustics Research Centre.",
         email: "s.vonhunerbein@salford.ac.uk", wtId: "1154559", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1154559.jpg",
@@ -1032,193 +1026,6 @@ const DISCIPLINES = {
         title: "Researcher, Computer Science", bio: "Maira Alamgir is affiliated with the Faculty of Science, Engineering & Environment (SEE) at the University of Salford, with published research in computer vision approaches to multi-lingual sentiment analysis, including work on handwritten text sentiment analysis across English and Kannada scripts, conducted alongside Professor Shivakumara Palaiahnakote.",
         email: "", wtId: "", photo: "",
         expertise: ["Computer Vision", "Sentiment Analysis", "Multi-lingual NLP"], isProfessor: false, isDirector: false, unverified: true
-      },
-        {
-        slug: "nigel-blackie", name: "Dr Nigel Blackie", initials: "NB",
-        title: "Director of ADMAE&TC", bio: "Dr Nigel Blackie has served as Director of ADMAE&TC at the University of Salford and was a full member of the Computer Networking & Telecommunications Research Centre. His teaching has included Web Content Creation, Web Technologies, Real Time Networks, and Research Methods and Project Management.",
-        email: "n.m.blackie@salford.ac.uk", wtId: "", photo: "",
-        expertise: ["Web Technologies", "Computer Networking", "Real Time Networks"], isProfessor: false, isDirector: false, unverified: true
-      }
-      ]
-  },
-  "aeromech": {
-    label: "Aeronautical & Mechanical Engineering",
-    short: "AM",
-    desc: "Aerospace structures, robotics, fluid dynamics and mechanical systems.",
-    people: [
-      {
-        slug: "usman-ali", name: "Dr Usman Ali", initials: "UA",
-        title: "Teaching Fellow in Aeronautical Engineering", bio: "Dr Usman Ali is a Teaching Fellow in Aeronautical Engineering at the University of Salford, where he contributes to teaching, research, and curriculum development. He is a Fellow of the Higher Education Academy (FHEA). Dr Ali's research interests are centred on computational modelling and simulation, with a particular focus on Computational Fluid Dynamics (CFD) applied to practical engineering problems. His work encompasses numerical optimisation, active and passive flow control, experimental aerodynamics, Finite Element Analysis (FEA), and Fluid Structure Interaction (FSI). His PhD research at the University of Salford involved developing a novel optimised slot design to enhance the high-lift performance and lateral flow control of Unmanned Combat Aerial Vehicles (UCAVs). Before his current appointment, Dr Ali was a Lecturer in Mechanical Engineering at the University of Bolton. In his prior industrial role as a Design and Simulation Engineer at Unilever, Dr Ali led digital transformation projects within the R&D department.",
-        email: "u.ali@salford.ac.uk", wtId: "3604191", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/3604191.jpg",
-        expertise: ["Computational Fluid Dynamics", "Aerodynamics", "FEA", "Fluid-Structure Interaction", "Unmanned Aerial Vehicles"], isProfessor: false, isDirector: false, unverified: false
-      },
-      {
-        slug: "salem-ameen", name: "Dr Salem Ameen", initials: "SA",
-        title: "Lecturer in Artificial Intelligence, Robotics and Automation", bio: "Dr Salem Ameen is a Lecturer in Artificial Intelligence, Robotics and Automation at the University of Salford. His research focuses on efficient, robust and practically deployable artificial intelligence for robotics, perception, and real-world decision-making. He completed his PhD at the University of Salford in 2017, specialising in optimising deep learning networks using multi-armed bandit methods. His current interests span modern deep learning, computer vision, multimodal AI, robotics, and intelligent autonomous systems, including transformer-based learning, vision-language and multimodal reasoning, robot perception in challenging environments, embodied AI, and physically grounded common-sense reasoning. He welcomes postgraduate researchers interested in robotics, perception, multimodal intelligence, healthcare AI, and autonomous systems.",
-        email: "s.ameen@salford.ac.uk", wtId: "1175069", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1175069.jpg",
-        expertise: ["Deep Learning", "Computer Vision", "Robotics", "Autonomous Systems", "Multimodal AI"], isProfessor: false, isDirector: false, unverified: false
-      },
-      {
-        slug: "ali-bahr-ennil", name: "Dr Ali Bahr Ennil", initials: "AE",
-        title: "Lecturer in Aircraft Propulsion and Gas Turbine Engines", bio: "Dr Ali Bahr Ennil is a Lecturer of Aircraft Propulsion and Gas Turbine Engines at the University of Salford. He completed his bachelor's degree in Aeronautical Engineering from Engineering Academy Tajoura, Libya in 2003, a first-class MSc (Hons) in Mechanical Engineering from Military Technical College, Egypt in 2011, and a PhD in Mechanical Engineering from the University of Birmingham in 2016. His PhD thesis was 'Design Optimization of Small Axial Gas Turbine for Power Systems'. He is a Fellow of the UK Higher Education Academy (FHEA).",
-        email: "a.bahrennil@salford.ac.uk", wtId: "1949766", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1949766.jpg",
-        expertise: ["Aircraft Propulsion", "Gas Turbine Engines", "Aeronautical Engineering", "Design Optimisation"], isProfessor: false, isDirector: false, unverified: false
-      },
-      {
-        slug: "osman-beg", name: "Prof Osman Beg", initials: "OB",
-        title: "Professor of Multi-Physical Fluid Mechanics", bio: "Professor Osman Beg is Director of the Multi-Physical Engineering Sciences Research Group (Corrosion Lab) at the University of Salford. The group spans simulation in biomedical, renewable energy, manufacturing, propulsion, marine and environmental applications. He has been UK editor for the Journal of Mechanics in Medicine and Biology (Singapore/USA) since 2010 and has co-edited a special volume, Modelling and Simulation in Engineering Sciences (2016). He has published 10 invited book chapters and 660 journal papers in leading journals including Physics of Fluids, Int. J. Hydrogen Energy, and ASME J. Biomedical Engineering. His work covers computational bio-nano-fluid dynamics and multi-physical electro-magnetic propulsion fluid dynamics.",
-        email: "o.beg@salford.ac.uk", wtId: "1168833", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1168833.jpg",
-        expertise: ["Multi-Physics Fluid Mechanics", "Computational Fluid Dynamics", "Bio-Fluid Dynamics", "Nanofluids", "Corrosion Engineering"], isProfessor: true, isDirector: false, unverified: false
-      },
-      {
-        slug: "martin-burby", name: "Dr Martin Burby", initials: "MB",
-        title: "Senior Lecturer; Programme Leader MSc Aerospace Engineering & Autonomous Systems", bio: "Dr Martin Burby is a Senior Lecturer in the Faculty of Science, Engineering and Environment, and Programme Leader for the Masters programmes in Aerospace Engineering and Autonomous Systems. His areas of expertise cover both experimental and computational analysis across fluid flow, combustion technology, industrial and commercial application of sprays, petroleum and gas technology, and aerospace assembly. He has undertaken management consultancy and research work for blue-chip companies in new product design, developing and embedding innovation, testing products to standards, and health and safety advice in oil and gas.",
-        email: "m.burby@salford.ac.uk", wtId: "1159716", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1159716.jpg",
-        expertise: ["Fluid Mechanics", "Combustion Technology", "Aerospace Engineering", "Autonomous Systems", "Petroleum & Gas Technology"], isProfessor: false, isDirector: false, unverified: false
-      },
-      {
-        slug: "marta-camps-santasmasas", name: "Dr Marta Camps Santasmasas", initials: "MS",
-        title: "Lecturer in Aeronautical Engineering; Co-lead MSc Aerospace Engineering", bio: "Dr Marta Camps Santasmasas is a Lecturer in Aeronautical Engineering at the University of Salford, co-leading the MSc Aerospace Engineering programme. She develops computer simulations that help understand how air moves through cities and around structures, supporting applications from wind energy to urban safety. She specialises in computational fluid dynamics (CFD) using advanced simulation methods to study airflow around aircraft components, buildings and wind turbines. She leads the development of GASCANS, a high-performance CFD tool built to run on GPUs, enabling fast and accurate simulations of turbulent flows. She draws on her background in video game programming to create interactive and visually rich CFD tools. She has worked in both academic and industrial environments since 2010, including roles in wind farm design and urban air quality modelling. She serves on the UK Turbulence Consortium Committee and acts as an evaluator for the European Commission.",
-        email: "m.campssantasmasas@salford.ac.uk", wtId: "2030635", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/2030635.jpg",
-        expertise: ["Computational Fluid Dynamics", "GPU Computing", "Wind Energy", "Turbulence Modelling", "Urban Air Quality"], isProfessor: false, isDirector: false, unverified: false
-      },
-      {
-        slug: "godpower-enyi", name: "Mr Godpower Enyi", initials: "GE",
-        title: "Lecturer; Programme Leader, Mechanical Engineering (BEng/MEng)", bio: "Dr Godpower Enyi is a Lecturer at the University of Salford, where he received his PhD in Gas Engineering and was employed in 2012. He is Programme Leader for Mechanical Engineering (BEng and MEng) and was the pioneer Programme Leader of BEng Petroleum and Gas Engineering from 2012 to 2021. He teaches Energy Utilisation and Sustainability, Energy and Power, and Engineering Methodology. Prior to academia, he worked at Indorama Petrochemical Complex as Plant Superintendent and at the National Fertiliser Company of Nigeria as Plant Shift Superintendent and Deputy Materials Manager. He has over 16 years of industrial experience in chemical and gas plant operations. His current research covers New Energy Sources, Green/Blue Hydrogen, and Carbon Capture, Utilisation and Sequestration.",
-        email: "g.enyi@salford.ac.uk", wtId: "1163845", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1163845.jpg",
-        expertise: ["Gas Engineering", "Energy Utilisation", "Green/Blue Hydrogen", "Carbon Capture", "Petrochemical Engineering"], isProfessor: false, isDirector: false, unverified: false
-      },
-      {
-        slug: "yunus-govdeli", name: "Dr Yunus Govdeli", initials: "YG",
-        title: "Lecturer in Aeronautical Engineering", bio: "Dr Yunus Govdeli is a Lecturer in Aeronautical Engineering at the University of Salford. He previously held a Post-Doctoral research position in the Department of Aeronautics at Imperial College London. His research expertise spans aeronautical engineering, and he contributes to undergraduate and postgraduate teaching in the AeroMech discipline group.",
-        email: "y.govdeli@salford.ac.uk", wtId: "1179905", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1179905.jpg",
-        expertise: ["Aeronautical Engineering", "Aerodynamics", "Autonomous Systems"], isProfessor: false, isDirector: false, unverified: false
-      },
-      {
-        slug: "paul-hampson", name: "Dr Paul Hampson", initials: "PH",
-        title: "Lecturer in Aeronautical Engineering", bio: "Paul Hampson is a Lecturer in Aeronautical Engineering at the University of Salford. He is a Chartered Engineer (CEng), Senior Fellow of the Higher Education Academy (SFHEA), Member of the Institution of Engineering and Technology (MIET), and Member of the Royal Aeronautical Society (MRAeS).",
-        email: "p.hampson@salford.ac.uk", wtId: "1790796", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1790796.jpg",
-        expertise: ["Aeronautical Engineering", "Engineering Education"], isProfessor: false, isDirector: false, unverified: false
-      },
-      {
-        slug: "mary-he", name: "Prof Mary He", initials: "MH",
-        title: "Lecturer in Mechanical Engineering", bio: "Dr Mary He is a Lecturer in Mechanical Engineering at the University of Salford, contributing to teaching and research in the AeroMech discipline group within the Faculty of Science, Engineering and Environment.",
-        email: "m.he@salford.ac.uk", wtId: "1179439", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1179439.jpg",
-        expertise: ["Mechanical Engineering", "Engineering Science"], isProfessor: true, isDirector: false, unverified: false
-      },
-      {
-        slug: "william-holderbaum", name: "Prof William Holderbaum", initials: "WH",
-        title: "Professor of Control Engineering", bio: "Professor William Holderbaum is Professor of Control Engineering at the University of Salford, and a leading member of the Centre for Engineering the Future research group. He has strong expertise in control systems, energy harvesting, and engineering systems design. Professor Holderbaum was previously at the University of Reading and has an extensive publication record in control theory and electrical engineering applications.",
-        email: "w.holderbaum@salford.ac.uk", wtId: "1176271", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1176271.jpg",
-        expertise: ["Control Engineering", "Energy Systems", "Engineering Systems Design", "Control Theory"], isProfessor: true, isDirector: false, unverified: false
-      },
-      {
-        slug: "ali-kadir", name: "Dr Ali Kadir", initials: "AK",
-        title: "Reader in High Temperature Corrosion and Coating Engineering", bio: "Dr Ali Kadir is a Reader in High Temperature Corrosion and Coating Engineering at the University of Salford. His expertise spans FEA, structural analysis, smart materials, and fire dynamics. He is a senior member of the Multi-Physical Engineering Sciences Research Group led by Professor Osman Beg, with a significant publication record in corrosion engineering and materials science.",
-        email: "a.kadir@salford.ac.uk", wtId: "1152176", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1152176.jpg",
-        expertise: ["High Temperature Corrosion", "Coating Engineering", "FEA", "Smart Materials", "Fire Dynamics"], isProfessor: false, isDirector: false, unverified: false
-      },
-      {
-        slug: "andreea-koreanschi", name: "Dr Andreea Koreanschi", initials: "AK",
-        title: "Senior Lecturer in Aeronautical Engineering; Aircraft Design & Aerodynamics", bio: "Dr Andreea Koreanschi is a Senior Lecturer specialised in Aircraft Design and Aerodynamics at the University of Salford, with a focus on conventional and morphing technologies. She obtained her PhD from Ecole de Technologie Superieure in Montreal, Canada, with a thesis on Numerical and Experimental Validation of Optimisation Methodologies for a Wing-Tip Structure Equipped with Conventional and Morphing Ailerons. During her PhD she conducted research in collaboration with Bombardier Canada, Thales Canada, Alenia Aeronautica and University of Napoli for the design, manufacturing and testing of an active morphing wing and aileron system. She has served as programme leader for BEng/MEng Aeronautical Engineering and BEng/MEng Aircraft Engineering with Pilot Studies, contributing to their Royal Aeronautical Society accreditation. She serves on the board of the Engineering Professors' Council and is Chair of its Aerospace Community.",
-        email: "a.koreanschi@salford.ac.uk", wtId: "1171290", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1171290.jpg",
-        expertise: ["Aircraft Design", "Aerodynamics", "Wing Morphing Technologies", "Aeronautical Engineering", "Royal Aeronautical Society Accreditation"], isProfessor: false, isDirector: false, unverified: false
-      },
-      {
-        slug: "sireetorn-kuharat", name: "Ms Sireetorn Kuharat", initials: "SK",
-        title: "Lecturer in Aeronautical Engineering", bio: "Dr Sireetorn Kuharat is a Lecturer in Aeronautical Engineering at the University of Salford with expertise in fluid-structure interaction, nanofluids, blood flow, FEA and multi-physics MHD modelling. She was awarded a prestigious Amelia Earhart Fellowship, recognising exceptional contributions by women to aerospace engineering. She is a member of the Multi-Physical Engineering Sciences Research Group and has published extensively in high-impact journals.",
-        email: "s.kuharat@salford.ac.uk", wtId: "1173872", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1173872.jpg",
-        expertise: ["Fluid-Structure Interaction", "Nanofluids", "FEA", "Multi-Physics MHD", "CFD"], isProfessor: false, isDirector: false, unverified: false
-      },
-      {
-        slug: "henry-leonard", name: "Dr Henry Leonard", initials: "HL",
-        title: "Lecturer in Thermodynamics and Renewable Energy", bio: "Dr Henry Leonard is a Lecturer at the University of Salford with expertise in thermodynamics, renewable energy and fuel cells. He is a member of the Multi-Physical Engineering Sciences Research Group, contributing to research in energy systems and sustainable engineering.",
-        email: "h.leonard@salford.ac.uk", wtId: "1152091", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1152091.jpg",
-        expertise: ["Thermodynamics", "Renewable Energy", "Fuel Cells", "Energy Systems"], isProfessor: false, isDirector: false, unverified: false
-      },
-      {
-        slug: "saber-mahboubi-heydarabad", name: "Mr Saber Mahboubi Heydarabad", initials: "SH",
-        title: "Lecturer in Robotics and Automation", bio: "Dr Saber Mahboubi is a Robotics and Automation Lecturer at the University of Salford. He holds a Marie Curie-funded PhD in Robotics from the University of Salford. He was involved in several research and industrial projects funded by the EU, EPSRC, and Innovate UK for the design of autonomous self-driving control systems, as well as innovative grasping technologies with applications in in-space non-cooperative manipulation and industrial robotic pick-and-place. He has more than eight years of industrial experience and is skilled in Robotic Manipulation, Artificial Intelligence and Machine Learning, Deep Learning, robust and nonlinear control systems, Industrial Automation, Autonomous Self-driving vehicles, CAD/CAM, and multi-body dynamic modelling.",
-        email: "s.mahboubiheydarabad@salford.ac.uk", wtId: "1166439", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1166439.jpg",
-        expertise: ["Robotic Manipulation", "Autonomous Vehicles", "Machine Learning", "Nonlinear Control Systems", "Industrial Automation"], isProfessor: false, isDirector: false, unverified: false
-      },
-      {
-        slug: "larisa-malysheva", name: "Dr Larisa Malysheva", initials: "LM",
-        title: "Lecturer in Aeronautical/Mechanical Engineering", bio: "Dr Larisa Malysheva is a Lecturer in the Faculty of Science, Engineering and Environment at the University of Salford, contributing to the Centre for Engineering the Future research group.",
-        email: "l.malysheva@salford.ac.uk", wtId: "1168201", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1168201.jpg",
-        expertise: ["Aeronautical Engineering", "Mechanical Engineering"], isProfessor: false, isDirector: false, unverified: false
-      },
-      {
-        slug: "tian-xiang-mei", name: "Prof TX Mei", initials: "TM",
-        title: "Professor of Control Engineering", bio: "Professor Tian Xiang Mei is a Professor in the Faculty of Science, Engineering and Environment at the University of Salford and a prominent member of the Centre for Engineering the Future research group. He has expertise in control engineering, intelligent systems, and mechanical engineering applications. Professor Mei has an extensive research and publication record in control theory and mechatronics.",
-        email: "tx.mei@salford.ac.uk", wtId: "1168296", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1168296.jpg",
-        expertise: ["Control Engineering", "Intelligent Systems", "Mechatronics", "Vehicle Dynamics Control"], isProfessor: true, isDirector: false, unverified: false
-      },
-      {
-        slug: "amir-nourian", name: "Dr Amir Nourian", initials: "AN",
-        title: "Head of Aeronautical & Mechanical Engineering; Reader (Associate Professor) in Mechanical Engineering", bio: "Dr Amir Nourian is a Reader (Associate Professor) in Mechanical Engineering at the University of Salford. He received his MSc (2010) and PhD (2013) from the University of Salford. His PhD research was part of winning the prestigious award 'Outstanding Contribution to Innovation and Technology' from Times Higher Education (THE), and contributed to a Technology Transfer scheme for developing a start-up company. His PhD involved designing and developing an eco-friendly valving arrangement for domestic aerosol sprays utilising 'clean air' propellant such as nitrogen, replacing harmful LPG. He joined the University of Salford as a full-time academic in 2013. His core research covers spraying systems, CFD in thermal management and fluid mechanics, energy, environmental and air quality, and new product development. He is the Academic Lead of Research and Knowledge Exchange within SEE for the CSE Directorate, and Subject Head for Aeronautical and Mechanical Engineering.",
-        email: "a.nourian@salford.ac.uk", wtId: "1163989", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1163989.jpg",
-        expertise: ["Spraying Systems", "CFD", "Thermal Management", "Energy & Air Quality", "New Product Development"], isProfessor: true, isDirector: true, isHead: true, unverified: false
-      },
-      {
-        slug: "amir-roohi", name: "Dr Amir H. Roohi", initials: "AR",
-        title: "Lecturer in Aeronautical Engineering", bio: "Dr Amir Roohi is a Lecturer in the Faculty of Science, Engineering and Environment at the University of Salford, contributing to teaching and research in the AeroMech discipline group.",
-        email: "a.roohi@salford.ac.uk", wtId: "2449374", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/2449374.jpg",
-        expertise: ["Aeronautical Engineering", "Fluid Mechanics", "Engineering Science"], isProfessor: false, isDirector: false, unverified: false
-      },
-      {
-        slug: "oliviu-sugar-gabor", name: "Dr Oliviu Sugar-Gabor", initials: "OS",
-        title: "Senior Lecturer in Aerodynamics", bio: "Dr Oliviu Sugar-Gabor is a Senior Lecturer in Aerodynamics at the University of Salford. He obtained his BEng and MSc degrees from the Polytechnic University of Bucharest, Romania. After working as a research engineer at the National Institute of Aerospace Research in Bucharest, he obtained his PhD in Aerodynamics from the University of Quebec in Montreal, Canada. He has been at the University of Salford since 2016. His research interests include applied aerodynamics, computational fluid dynamics, aerodynamic shape optimisation techniques, aircraft design and novel aircraft concepts, and non-intrusive reduced order modelling.",
-        email: "o.sugargabor@salford.ac.uk", wtId: "1169461", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1169461.jpg",
-        expertise: ["Aerodynamics", "CFD", "Aerodynamic Shape Optimisation", "Aircraft Design", "Reduced Order Modelling"], isProfessor: false, isDirector: false, unverified: false
-      },
-      {
-        slug: "theodoros-theodoridis", name: "Dr Theodoros Theodoridis", initials: "TT",
-        title: "Lecturer in Mechanical/Aeronautical Engineering", bio: "Dr Theodoros Theodoridis is a Lecturer in the Faculty of Science, Engineering and Environment at the University of Salford, contributing to research and teaching in the Centre for Engineering the Future, with expertise in robotics, autonomous systems and mechanical engineering.",
-        email: "t.theodoridis@salford.ac.uk", wtId: "1166777", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1166777.jpg",
-        expertise: ["Robotics", "Autonomous Systems", "Mechanical Engineering", "Control Systems"], isProfessor: false, isDirector: false, unverified: false
-      },
-      {
-        slug: "guowu-wei", name: "Prof Guowu Wei", initials: "GW",
-        title: "Reader in Robotics", bio: "Dr Guowu Wei is a Reader in Robotics in the Faculty of Science, Engineering and Environment at the University of Salford. He has more than 160 peer-reviewed publications and more than 20 patents. His research has been funded by EPSRC, EU-FP7, ICUK, NSFC, and the Royal Academy of Engineering. He is a Topic Editor and Associate Editor for several journals and conferences including Robotica and the Journal of Mechanical Engineering Science, and serves as Associate Editor for ICRA and IROS. He is currently the Deputy Chair of IFToMM MO UK. His research interests include bio-robotics, assistive robotics, rehabilitation and prosthetics, manipulation and grasping, and reconfigurable mechanisms and robotics. He has supervised and co-supervised 30 PhDs and 12 PDRAs. He has received 17 awards from academic bodies, international conferences, and journals.",
-        email: "g.wei@salford.ac.uk", wtId: "1167168", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1167168.jpg",
-        expertise: ["Robotics", "Bio-Robotics", "Rehabilitation & Prosthetics", "Manipulation & Grasping", "Reconfigurable Mechanisms"], isProfessor: true, isDirector: false, unverified: false
-      },
-      {
-        slug: "robert-weighman", name: "Dr Robert Weighman", initials: "RW",
-        title: "Lecturer in Aeronautical Engineering", bio: "Robert Weighman is a Lecturer in the Faculty of Science, Engineering and Environment at the University of Salford, contributing to teaching in the AeroMech discipline group.",
-        email: "r.weighman@salford.ac.uk", wtId: "2099707", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/2099707.jpg",
-        expertise: ["Aeronautical Engineering", "Engineering Education"], isProfessor: false, isDirector: false, unverified: false
-      },
-      {
-        slug: "farhad-zahedi-hosseini", name: "Dr Farhad Zahedi-Hosseini", initials: "FZ",
-        title: "Lecturer in Aeronautical/Mechanical Engineering", bio: "Dr Farhad Zahedi-Hosseini is a Lecturer in the Faculty of Science, Engineering and Environment at the University of Salford, contributing to teaching and research in the AeroMech discipline group.",
-        email: "f.zahedihosseini@salford.ac.uk", wtId: "1152731", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1152731.jpg",
-        expertise: ["Aeronautical Engineering", "Mechanical Engineering", "Engineering Dynamics"], isProfessor: false, isDirector: false, unverified: false
-      },
-      {
-        slug: "frances-wolff", name: "Miss Frances Wolff", initials: "FW",
-        title: "Teaching Fellow in Aeronautical Engineering", bio: "Frances Wolff is a Teaching Fellow in Aeronautical Engineering at the University of Salford. She has extensive experience in the aviation industry as a Flight Examiner and Flight Instructor, conducting flight tests and teaching for the issue of Private Pilots' Licences. Her background includes Air Charter Operations, Cabin Crew work, and a period as an Airline Pilot. She joined the University of Salford in September 2009 as a part-time lecturer before being appointed full-time in August 2021, teaching aviation-based modules at all levels.",
-        email: "f.r.wolff@salford.ac.uk", wtId: "", photo: "",
-        expertise: ["Aviation", "Flight Instruction", "Aeronautical Engineering"], isProfessor: false, isDirector: false, unverified: true
-      },
-      {
-        slug: "omar-ariff", name: "Dr Omar Kassim Ariff", initials: "OA",
-        title: "Lecturer in Aircraft Design", bio: "Dr Omar Kassim Ariff completed his Bachelor's degree in Aeronautical Engineering (2nd class upper honours) from City University, London in 1998, followed by a fully-funded PhD at the UK Defence Academy, Cranfield University, completed in 2005, specialising in Guidance and Navigation of Anti-air Missile Systems. At Nanyang Technological University, Singapore, he conducted postdoctoral research from 2008 to 2011 on guidance, navigation and control of small-scale UAVs, contributing to two UAV development projects: a stabilisation system for a mini vertical take-off and landing UAV, and a 7kg fuel-cell powered UAV. From 2011 to 2014 he was a Contract Senior Lecturer at Universiti Putra Malaysia, focusing on agricultural applications of UAVs, including a multi-rotor UAV programme for oil palm plantations, before joining the University of Salford as Lecturer in Aircraft Design.",
-        email: "", wtId: "", photo: "",
-        expertise: ["Aircraft Design", "UAV Systems", "Guidance and Navigation", "Aeronautical Engineering"], isProfessor: false, isDirector: false, unverified: true
-      },
-      {
-        slug: "walid-jouri", name: "Dr Walid Jouri", initials: "WJ",
-        title: "Senior Lecturer in Mechanical Engineering", bio: "Dr Walid Jouri became Head of the School of Engineering and Manufacture at University College Salford before becoming a Senior Lecturer in the School of Computing, Science & Engineering at the University of Salford. His main research activities involve the testing and analysis of the mechanical properties of metals, polymers, advanced composites and rubbers. He specialises in the design and production of instrumented testing machines for determining material properties, and has been involved in numerous prototype testing and type qualification projects for the nuclear, automotive, railway, gas and chemical industries, with research interests including structural integrity, impact, nano-materials, and corrosion.",
-        email: "w.s.jouri@salford.ac.uk", wtId: "", photo: "",
-        expertise: ["Structural Integrity", "Mechanical Testing", "Composites", "Corrosion", "Nano-materials"], isProfessor: false, isDirector: false, unverified: true
-      },
-      {
-        slug: "wei-yao", name: "Dr Wei Yao", initials: "WY",
-        title: "Professor of Healthcare Robotics", bio: "Professor Wei Yao is a healthcare robotics expert at the University of Salford and a key figure within NERIC, the North England Robotics Innovation Centre, a £17 million all-electric facility for robotics and automation research. He has presented at the University's London Alumni Lecture series on the future of robotics, where he discussed how his research is paving the way for robots to deliver less invasive, life-altering surgery, relieving pressure on surgeons, shortening patient waiting lists, and improving recovery times and outcomes for patients. His teaching includes leading modules on Automation and Robotics, including kinematics, control and simulation of industrial robots.",
-        email: "", wtId: "", photo: "",
-        expertise: ["Healthcare Robotics", "Surgical Robotics", "Automation", "Robotics", "Industrial Robotics"], isProfessor: true, isDirector: false, unverified: true
       },
     ]
   },
@@ -1340,6 +1147,12 @@ const DISCIPLINES = {
         title: "Senior Lecturer, Programme Leader MSc Structural Engineering", bio: "Dr Laurence Weekes obtained his BEng and PhD in Structural Engineering from the University of Southampton in 1994, before working as a Research Assistant on Masonry Jack Arches at the University of Salford under EPSRC funding from 1994 to 1997. He then worked as a Senior Engineer in Seismic Nuclear Safety at NNC Ltd from 1997 to 2000, before returning to the University of Salford as a Lecturer and later Senior Lecturer, where he is Programme Leader for the MSc in Structural Engineering. His teaching covers Finite Element Analysis, Structural Analysis and Design, and Seismic Design, with research interests in seismic mitigation techniques and light gauge steel projects, including extensive recent work on the progressive collapse of reinforced concrete structures.",
         email: "l.weekes@salford.ac.uk", wtId: "", photo: "",
         expertise: ["Structural Engineering", "Seismic Design", "Progressive Collapse", "Steel Structures", "Finite Element Analysis"], isProfessor: false, isDirector: false, unverified: true
+      },
+      {
+        slug: "fadi-shayya", name: "Dr Fadi Shayya", initials: "FS",
+        title: "Lecturer in Architecture & Urbanism", bio: "Dr Fadi Shayya is a Lecturer in Architecture and Urbanism at the University of Salford. His research engages the politics of survivability and how cities are made and unmade under militarisation, infrastructural strain, and spatial uncertainty. He investigates conflict, inhabitation, and the social and political lives of buildings, infrastructures, and landscapes, drawing on Science and Technology Studies, pragmatist philosophy, and Actor-Network Theory. His current work includes a monograph on militarised space and survivability, a project on haunting as a method for spatial politics, and collaborative projects on urban transformation in Gaza, healthcare in armed conflict, and political violence in Lebanon.",
+        email: "f.shayya1@salford.ac.uk", wtId: "1179116", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1179116.jpg",
+        expertise: ["Architecture & Urbanism", "Conflict & Space", "Political Geography", "Infrastructure Studies", "Urban Studies"], isProfessor: false, isDirector: false, unverified: false
       },
     ]
   },
@@ -1545,13 +1358,230 @@ const DISCIPLINES = {
         title: "Senior Lecturer in Audio Engineering and Acoustical Signal Processing", bio: "Francis Li began his academic career at Shanghai University in 1986, teaching electronics and computer engineering and leading a Teaching and Research Group of 13 academic staff. He instigated the audio and lighting engineering programme there and authored a textbook on audio engineering. He was appointed Senior Lecturer in Computing at Manchester Metropolitan University in 2001, before joining the University of Salford in 2006 as Senior Lecturer in Audio Engineering and Acoustical Signal Processing. He leads the Institute of Acoustics Diploma programme in acoustics and noise control at Salford Learning Centre and has led research projects funded by EPSRC, the EU, the Leverhulme Trust, the BBC and HMGCC. His expertise spans audio engineering, architectural and building acoustics, signal processing, artificial intelligence, and machine audition.",
         email: "f.f.li@salford.ac.uk", wtId: "", photo: "",
         expertise: ["Audio Engineering", "Acoustical Signal Processing", "Artificial Intelligence", "Architectural Acoustics", "Machine Audition"], isProfessor: false, isDirector: false, unverified: true
+},
+      {
+        slug: "henry-leonard", name: "Dr Henry Leonard", initials: "HL",
+        title: "Lecturer in Thermodynamics and Renewable Energy", bio: "Dr Henry Leonard is a Lecturer at the University of Salford with expertise in thermodynamics, renewable energy and fuel cells. He is a member of the Multi-Physical Engineering Sciences Research Group, contributing to research in energy systems and sustainable engineering.",
+        email: "h.leonard@salford.ac.uk", wtId: "1152091", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1152091.jpg",
+        expertise: ["Thermodynamics", "Renewable Energy", "Fuel Cells", "Energy Systems"], isProfessor: false, isDirector: false, unverified: false
+      },
+        {
+        slug: "nigel-blackie", name: "Dr Nigel Blackie", initials: "NB",
+        title: "Director of ADMAE&TC", bio: "Dr Nigel Blackie has served as Director of ADMAE&TC at the University of Salford and was a full member of the Computer Networking & Telecommunications Research Centre. His teaching has included Web Content Creation, Web Technologies, Real Time Networks, and Research Methods and Project Management.",
+        email: "n.m.blackie@salford.ac.uk", wtId: "", photo: "",
+        expertise: ["Web Technologies", "Computer Networking", "Real Time Networks"], isProfessor: false, isDirector: false, unverified: true
+      },
+        {
+        slug: "olga-umnova", name: "Prof Olga Umnova", initials: "OU",
+        title: "Reader in Theoretical Acoustics", bio: "Dr Olga Umnova is a Reader in Theoretical Acoustics at the University of Salford. She holds a degree in Applied Physics and Mathematics from the Moscow Institute of Physics and Technology and a PhD in Acoustics from the General Physics Institute, Russian Academy of Science (1994). She has been a research fellow at the Open University and University of Hull, and has been an academic at Salford since 2004. She was awarded the prestigious IoA Tyndall Medal in 2010 for her contributions to acoustics. Her research covers scattering problems in acoustics, nonlinear acoustics, acoustic metamaterials, sonic crystals and porous materials. She serves as associate editor of the Journal of Applied Acoustics and the Journal of ACTA Acoustica.",
+        email: "o.umnova@salford.ac.uk", wtId: "1157544", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1157544.jpg",
+        expertise: ["Acoustic Metamaterials", "Porous Media Acoustics", "Nonlinear Acoustics", "Sonic Crystals", "Scattering Problems"], isProfessor: true, isDirector: false, unverified: false
+      },
+      {
+        slug: "volkan-acun", name: "Dr Volkan Acun", initials: "VA",
+        title: "Postdoctoral Research Fellow", bio: "Dr Volkan Acun is a Postdoctoral Research Fellow in the Acoustics Research Centre at the University of Salford. His research focuses on soundscapes and environmental acoustics, investigating how acoustic environments affect human experience and wellbeing in urban and natural settings.",
+        email: "v.acun@salford.ac.uk", wtId: "1970823", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1970823.jpg",
+        expertise: ["Soundscapes", "Environmental Acoustics", "Psychoacoustics", "Urban Acoustics"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "carlos-ramos-romero", name: "Dr Carlos Ramos Romero", initials: "CR",
+        title: "Postdoctoral Research Fellow in Acoustics", bio: "Dr Carlos Andrés Ramos Romero is a Postdoctoral Research Fellow in Acoustics at the Acoustics Research Centre, University of Salford. His research spans acoustics, digital signal processing, noise measurements, auralisation, psychoacoustics, and environmental noise assessment.",
+        email: "c.a.ramosromero@salford.ac.uk", wtId: "1178141", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1178141.jpg",
+        expertise: ["Acoustics", "Digital Signal Processing", "Environmental Noise", "Auralisation", "Psychoacoustics"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "seyed-morteza-hoseyni", name: "Dr Seyed Morteza Hoseyni", initials: "MH",
+        title: "Postdoctoral Research Fellow", bio: "Dr Seyed Morteza Hoseyni is a Postdoctoral Research Fellow at the University of Salford, affiliated with the School of Science, Engineering and Environment. He contributes to research within the Engineering Physics and Acoustics discipline group.",
+        email: "s.m.hoseyni@salford.ac.uk", wtId: "", photo: "",
+        expertise: ["Engineering Physics", "Acoustics", "Applied Physics"], isProfessor: false, isDirector: false, unverified: true
+      },
+      ]
+  },
+  "aeromech": {
+    label: "Aeronautical & Mechanical Engineering",
+    short: "AM",
+    desc: "Aerospace structures, robotics, fluid dynamics and mechanical systems.",
+    people: [
+      {
+        slug: "usman-ali", name: "Dr Usman Ali", initials: "UA",
+        title: "Teaching Fellow in Aeronautical Engineering", bio: "Dr Usman Ali is a Teaching Fellow in Aeronautical Engineering at the University of Salford, where he contributes to teaching, research, and curriculum development. He is a Fellow of the Higher Education Academy (FHEA). Dr Ali's research interests are centred on computational modelling and simulation, with a particular focus on Computational Fluid Dynamics (CFD) applied to practical engineering problems. His work encompasses numerical optimisation, active and passive flow control, experimental aerodynamics, Finite Element Analysis (FEA), and Fluid Structure Interaction (FSI). His PhD research at the University of Salford involved developing a novel optimised slot design to enhance the high-lift performance and lateral flow control of Unmanned Combat Aerial Vehicles (UCAVs). Before his current appointment, Dr Ali was a Lecturer in Mechanical Engineering at the University of Bolton. In his prior industrial role as a Design and Simulation Engineer at Unilever, Dr Ali led digital transformation projects within the R&D department.",
+        email: "u.ali@salford.ac.uk", wtId: "3604191", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/3604191.jpg",
+        expertise: ["Computational Fluid Dynamics", "Aerodynamics", "FEA", "Fluid-Structure Interaction", "Unmanned Aerial Vehicles"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "salem-ameen", name: "Dr Salem Ameen", initials: "SA",
+        title: "Lecturer in Artificial Intelligence, Robotics and Automation", bio: "Dr Salem Ameen is a Lecturer in Artificial Intelligence, Robotics and Automation at the University of Salford. His research focuses on efficient, robust and practically deployable artificial intelligence for robotics, perception, and real-world decision-making. He completed his PhD at the University of Salford in 2017, specialising in optimising deep learning networks using multi-armed bandit methods. His current interests span modern deep learning, computer vision, multimodal AI, robotics, and intelligent autonomous systems, including transformer-based learning, vision-language and multimodal reasoning, robot perception in challenging environments, embodied AI, and physically grounded common-sense reasoning. He welcomes postgraduate researchers interested in robotics, perception, multimodal intelligence, healthcare AI, and autonomous systems.",
+        email: "s.ameen@salford.ac.uk", wtId: "1175069", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1175069.jpg",
+        expertise: ["Deep Learning", "Computer Vision", "Robotics", "Autonomous Systems", "Multimodal AI"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "ali-bahr-ennil", name: "Dr Ali Bahr Ennil", initials: "AE",
+        title: "Lecturer in Aircraft Propulsion and Gas Turbine Engines", bio: "Dr Ali Bahr Ennil is a Lecturer of Aircraft Propulsion and Gas Turbine Engines at the University of Salford. He completed his bachelor's degree in Aeronautical Engineering from Engineering Academy Tajoura, Libya in 2003, a first-class MSc (Hons) in Mechanical Engineering from Military Technical College, Egypt in 2011, and a PhD in Mechanical Engineering from the University of Birmingham in 2016. His PhD thesis was 'Design Optimization of Small Axial Gas Turbine for Power Systems'. He is a Fellow of the UK Higher Education Academy (FHEA).",
+        email: "a.bahrennil@salford.ac.uk", wtId: "1949766", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1949766.jpg",
+        expertise: ["Aircraft Propulsion", "Gas Turbine Engines", "Aeronautical Engineering", "Design Optimisation"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "osman-beg", name: "Prof Osman Beg", initials: "OB",
+        title: "Professor of Multi-Physical Fluid Mechanics", bio: "Professor Osman Beg is Director of the Multi-Physical Engineering Sciences Research Group (Corrosion Lab) at the University of Salford. The group spans simulation in biomedical, renewable energy, manufacturing, propulsion, marine and environmental applications. He has been UK editor for the Journal of Mechanics in Medicine and Biology (Singapore/USA) since 2010 and has co-edited a special volume, Modelling and Simulation in Engineering Sciences (2016). He has published 10 invited book chapters and 660 journal papers in leading journals including Physics of Fluids, Int. J. Hydrogen Energy, and ASME J. Biomedical Engineering. His work covers computational bio-nano-fluid dynamics and multi-physical electro-magnetic propulsion fluid dynamics.",
+        email: "o.beg@salford.ac.uk", wtId: "1168833", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1168833.jpg",
+        expertise: ["Multi-Physics Fluid Mechanics", "Computational Fluid Dynamics", "Bio-Fluid Dynamics", "Nanofluids", "Corrosion Engineering"], isProfessor: true, isDirector: false, unverified: false
+      },
+      {
+        slug: "martin-burby", name: "Dr Martin Burby", initials: "MB",
+        title: "Senior Lecturer; Programme Leader MSc Aerospace Engineering & Autonomous Systems", bio: "Dr Martin Burby is a Senior Lecturer in the Faculty of Science, Engineering and Environment, and Programme Leader for the Masters programmes in Aerospace Engineering and Autonomous Systems. His areas of expertise cover both experimental and computational analysis across fluid flow, combustion technology, industrial and commercial application of sprays, petroleum and gas technology, and aerospace assembly. He has undertaken management consultancy and research work for blue-chip companies in new product design, developing and embedding innovation, testing products to standards, and health and safety advice in oil and gas.",
+        email: "m.burby@salford.ac.uk", wtId: "1159716", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1159716.jpg",
+        expertise: ["Fluid Mechanics", "Combustion Technology", "Aerospace Engineering", "Autonomous Systems", "Petroleum & Gas Technology"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "marta-camps-santasmasas", name: "Dr Marta Camps Santasmasas", initials: "MS",
+        title: "Lecturer in Aeronautical Engineering; Co-lead MSc Aerospace Engineering", bio: "Dr Marta Camps Santasmasas is a Lecturer in Aeronautical Engineering at the University of Salford, co-leading the MSc Aerospace Engineering programme. She develops computer simulations that help understand how air moves through cities and around structures, supporting applications from wind energy to urban safety. She specialises in computational fluid dynamics (CFD) using advanced simulation methods to study airflow around aircraft components, buildings and wind turbines. She leads the development of GASCANS, a high-performance CFD tool built to run on GPUs, enabling fast and accurate simulations of turbulent flows. She draws on her background in video game programming to create interactive and visually rich CFD tools. She has worked in both academic and industrial environments since 2010, including roles in wind farm design and urban air quality modelling. She serves on the UK Turbulence Consortium Committee and acts as an evaluator for the European Commission.",
+        email: "m.campssantasmasas@salford.ac.uk", wtId: "2030635", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/2030635.jpg",
+        expertise: ["Computational Fluid Dynamics", "GPU Computing", "Wind Energy", "Turbulence Modelling", "Urban Air Quality"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "godpower-enyi", name: "Mr Godpower Enyi", initials: "GE",
+        title: "Lecturer; Programme Leader, Mechanical Engineering (BEng/MEng)", bio: "Dr Godpower Enyi is a Lecturer at the University of Salford, where he received his PhD in Gas Engineering and was employed in 2012. He is Programme Leader for Mechanical Engineering (BEng and MEng) and was the pioneer Programme Leader of BEng Petroleum and Gas Engineering from 2012 to 2021. He teaches Energy Utilisation and Sustainability, Energy and Power, and Engineering Methodology. Prior to academia, he worked at Indorama Petrochemical Complex as Plant Superintendent and at the National Fertiliser Company of Nigeria as Plant Shift Superintendent and Deputy Materials Manager. He has over 16 years of industrial experience in chemical and gas plant operations. His current research covers New Energy Sources, Green/Blue Hydrogen, and Carbon Capture, Utilisation and Sequestration.",
+        email: "g.enyi@salford.ac.uk", wtId: "1163845", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1163845.jpg",
+        expertise: ["Gas Engineering", "Energy Utilisation", "Green/Blue Hydrogen", "Carbon Capture", "Petrochemical Engineering"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "yunus-govdeli", name: "Dr Yunus Govdeli", initials: "YG",
+        title: "Lecturer in Aeronautical Engineering", bio: "Dr Yunus Govdeli is a Lecturer in Aeronautical Engineering at the University of Salford. He previously held a Post-Doctoral research position in the Department of Aeronautics at Imperial College London. His research expertise spans aeronautical engineering, and he contributes to undergraduate and postgraduate teaching in the AeroMech discipline group.",
+        email: "y.govdeli@salford.ac.uk", wtId: "1179905", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1179905.jpg",
+        expertise: ["Aeronautical Engineering", "Aerodynamics", "Autonomous Systems"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "paul-hampson", name: "Dr Paul Hampson", initials: "PH",
+        title: "Lecturer in Aeronautical Engineering", bio: "Paul Hampson is a Lecturer in Aeronautical Engineering at the University of Salford. He is a Chartered Engineer (CEng), Senior Fellow of the Higher Education Academy (SFHEA), Member of the Institution of Engineering and Technology (MIET), and Member of the Royal Aeronautical Society (MRAeS).",
+        email: "p.hampson@salford.ac.uk", wtId: "1790796", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1790796.jpg",
+        expertise: ["Aeronautical Engineering", "Engineering Education"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "mary-he", name: "Prof Mary He", initials: "MH",
+        title: "Lecturer in Mechanical Engineering", bio: "Dr Mary He is a Lecturer in Mechanical Engineering at the University of Salford, contributing to teaching and research in the AeroMech discipline group within the Faculty of Science, Engineering and Environment.",
+        email: "m.he@salford.ac.uk", wtId: "1179439", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1179439.jpg",
+        expertise: ["Mechanical Engineering", "Engineering Science"], isProfessor: true, isDirector: false, unverified: false
+      },
+      {
+        slug: "william-holderbaum", name: "Prof William Holderbaum", initials: "WH",
+        title: "Professor of Control Engineering", bio: "Professor William Holderbaum is Professor of Control Engineering at the University of Salford, and a leading member of the Centre for Engineering the Future research group. He has strong expertise in control systems, energy harvesting, and engineering systems design. Professor Holderbaum was previously at the University of Reading and has an extensive publication record in control theory and electrical engineering applications.",
+        email: "w.holderbaum@salford.ac.uk", wtId: "1176271", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1176271.jpg",
+        expertise: ["Control Engineering", "Energy Systems", "Engineering Systems Design", "Control Theory"], isProfessor: true, isDirector: false, unverified: false
+      },
+      {
+        slug: "ali-kadir", name: "Dr Ali Kadir", initials: "AK",
+        title: "Reader in High Temperature Corrosion and Coating Engineering", bio: "Dr Ali Kadir is a Reader in High Temperature Corrosion and Coating Engineering at the University of Salford. His expertise spans FEA, structural analysis, smart materials, and fire dynamics. He is a senior member of the Multi-Physical Engineering Sciences Research Group led by Professor Osman Beg, with a significant publication record in corrosion engineering and materials science.",
+        email: "a.kadir@salford.ac.uk", wtId: "1152176", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1152176.jpg",
+        expertise: ["High Temperature Corrosion", "Coating Engineering", "FEA", "Smart Materials", "Fire Dynamics"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "andreea-koreanschi", name: "Dr Andreea Koreanschi", initials: "AK",
+        title: "Senior Lecturer in Aeronautical Engineering; Aircraft Design & Aerodynamics", bio: "Dr Andreea Koreanschi is a Senior Lecturer specialised in Aircraft Design and Aerodynamics at the University of Salford, with a focus on conventional and morphing technologies. She obtained her PhD from Ecole de Technologie Superieure in Montreal, Canada, with a thesis on Numerical and Experimental Validation of Optimisation Methodologies for a Wing-Tip Structure Equipped with Conventional and Morphing Ailerons. During her PhD she conducted research in collaboration with Bombardier Canada, Thales Canada, Alenia Aeronautica and University of Napoli for the design, manufacturing and testing of an active morphing wing and aileron system. She has served as programme leader for BEng/MEng Aeronautical Engineering and BEng/MEng Aircraft Engineering with Pilot Studies, contributing to their Royal Aeronautical Society accreditation. She serves on the board of the Engineering Professors' Council and is Chair of its Aerospace Community.",
+        email: "a.koreanschi@salford.ac.uk", wtId: "1171290", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1171290.jpg",
+        expertise: ["Aircraft Design", "Aerodynamics", "Wing Morphing Technologies", "Aeronautical Engineering", "Royal Aeronautical Society Accreditation"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "sireetorn-kuharat", name: "Ms Sireetorn Kuharat", initials: "SK",
+        title: "Lecturer in Aeronautical Engineering", bio: "Dr Sireetorn Kuharat is a Lecturer in Aeronautical Engineering at the University of Salford with expertise in fluid-structure interaction, nanofluids, blood flow, FEA and multi-physics MHD modelling. She was awarded a prestigious Amelia Earhart Fellowship, recognising exceptional contributions by women to aerospace engineering. She is a member of the Multi-Physical Engineering Sciences Research Group and has published extensively in high-impact journals.",
+        email: "s.kuharat@salford.ac.uk", wtId: "1173872", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1173872.jpg",
+        expertise: ["Fluid-Structure Interaction", "Nanofluids", "FEA", "Multi-Physics MHD", "CFD"], isProfessor: false, isDirector: false, unverified: false
       },
         {
         slug: "jonathan-hirst", name: "Dr Jos Hirst", initials: "JH",
         title: "Senior Lecturer in Spatial Audio", bio: "Dr Jos Hirst is a Senior Lecturer specialising in Spatial Audio at the University of Salford's Acoustics Research Centre. His research has focused on the subjective evaluation of 3D surround sound systems, including investigations into how the addition of height channels in surround systems affects localisation accuracy and listener envelopment, drawing on computer simulations and listening tests of 2D and 3D surround configurations.",
         email: "j.hirst@salford.ac.uk", wtId: "", photo: "",
         expertise: ["Spatial Audio", "Surround Sound", "Acoustics", "Audio Engineering"], isProfessor: false, isDirector: false, unverified: true
-      }
+      },
+      {
+        slug: "amir-nourian", name: "Dr Amir Nourian", initials: "AN",
+        title: "Head of Aeronautical & Mechanical Engineering; Reader (Associate Professor) in Mechanical Engineering", bio: "Dr Amir Nourian is a Reader (Associate Professor) in Mechanical Engineering at the University of Salford. He received his MSc (2010) and PhD (2013) from the University of Salford. His PhD research was part of winning the prestigious award 'Outstanding Contribution to Innovation and Technology' from Times Higher Education (THE), and contributed to a Technology Transfer scheme for developing a start-up company. His PhD involved designing and developing an eco-friendly valving arrangement for domestic aerosol sprays utilising 'clean air' propellant such as nitrogen, replacing harmful LPG. He joined the University of Salford as a full-time academic in 2013. His core research covers spraying systems, CFD in thermal management and fluid mechanics, energy, environmental and air quality, and new product development. He is the Academic Lead of Research and Knowledge Exchange within SEE for the CSE Directorate, and Subject Head for Aeronautical and Mechanical Engineering.",
+        email: "a.nourian@salford.ac.uk", wtId: "1163989", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1163989.jpg",
+        expertise: ["Spraying Systems", "CFD", "Thermal Management", "Energy & Air Quality", "New Product Development"], isProfessor: true, isDirector: true, isHead: true, unverified: false
+      },
+      {
+        slug: "amir-roohi", name: "Dr Amir H. Roohi", initials: "AR",
+        title: "Lecturer in Aeronautical Engineering", bio: "Dr Amir Roohi is a Lecturer in the Faculty of Science, Engineering and Environment at the University of Salford, contributing to teaching and research in the AeroMech discipline group.",
+        email: "a.roohi@salford.ac.uk", wtId: "2449374", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/2449374.jpg",
+        expertise: ["Aeronautical Engineering", "Fluid Mechanics", "Engineering Science"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "farhad-zahedi-hosseini", name: "Dr Farhad Zahedi-Hosseini", initials: "FZ",
+        title: "Lecturer in Aeronautical/Mechanical Engineering", bio: "Dr Farhad Zahedi-Hosseini is a Lecturer in the Faculty of Science, Engineering and Environment at the University of Salford, contributing to teaching and research in the AeroMech discipline group.",
+        email: "f.zahedihosseini@salford.ac.uk", wtId: "1152731", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1152731.jpg",
+        expertise: ["Aeronautical Engineering", "Mechanical Engineering", "Engineering Dynamics"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "frances-wolff", name: "Miss Frances Wolff", initials: "FW",
+        title: "Teaching Fellow in Aeronautical Engineering", bio: "Frances Wolff is a Teaching Fellow in Aeronautical Engineering at the University of Salford. She has extensive experience in the aviation industry as a Flight Examiner and Flight Instructor, conducting flight tests and teaching for the issue of Private Pilots' Licences. Her background includes Air Charter Operations, Cabin Crew work, and a period as an Airline Pilot. She joined the University of Salford in September 2009 as a part-time lecturer before being appointed full-time in August 2021, teaching aviation-based modules at all levels.",
+        email: "f.r.wolff@salford.ac.uk", wtId: "", photo: "",
+        expertise: ["Aviation", "Flight Instruction", "Aeronautical Engineering"], isProfessor: false, isDirector: false, unverified: true
+      },
+      {
+        slug: "ghasem-nasr", name: "Prof Ghasem Nasr", initials: "GN",
+        title: "Professor of Engineering", bio: "Professor Ghasem Nasr is a Professor in the Faculty of Science, Engineering and Environment at the University of Salford. He is an internationally recognised expert in combustion, energy systems, and fluid atomisation. His research encompasses combustion engineering, spray and atomisation technology, pollution control, and natural gas engineering and safety. He has authored and co-authored several books including Natural Gas Engineering and Safety Challenges and Engineering and Technology of Atomisation. He is a prominent member of the Centre for Engineering the Future research group and has supervised numerous PhD students and research fellows.",
+        email: "g.g.nasr@salford.ac.uk", wtId: "1154192", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1154192.jpg",
+        expertise: ["Combustion Engineering", "Spray & Atomisation", "Energy Systems", "Pollution Control", "Natural Gas Engineering"], isProfessor: true, isDirector: false, unverified: false
+      },
+      {
+        slug: "guowu-wei", name: "Prof Guowu Wei", initials: "GW",
+        title: "Reader in Robotics", bio: "Dr Guowu Wei is a Reader in Robotics in the Faculty of Science, Engineering and Environment at the University of Salford. He has more than 160 peer-reviewed publications and more than 20 patents. His research has been funded by EPSRC, EU-FP7, ICUK, NSFC, and the Royal Academy of Engineering. He is a Topic Editor and Associate Editor for several journals and conferences including Robotica and the Journal of Mechanical Engineering Science, and serves as Associate Editor for ICRA and IROS. He is currently the Deputy Chair of IFToMM MO UK. His research interests include bio-robotics, assistive robotics, rehabilitation and prosthetics, manipulation and grasping, and reconfigurable mechanisms and robotics. He has supervised and co-supervised 30 PhDs and 12 PDRAs. He has received 17 awards from academic bodies, international conferences, and journals.",
+        email: "g.wei@salford.ac.uk", wtId: "1167168", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1167168.jpg",
+        expertise: ["Robotics", "Bio-Robotics", "Rehabilitation & Prosthetics", "Manipulation & Grasping", "Reconfigurable Mechanisms"], isProfessor: true, isDirector: false, unverified: false
+      },
+      {
+        slug: "larisa-malysheva", name: "Dr Larisa Malysheva", initials: "LM",
+        title: "Lecturer in Aeronautical/Mechanical Engineering", bio: "Dr Larisa Malysheva is a Lecturer in the Faculty of Science, Engineering and Environment at the University of Salford, contributing to the Centre for Engineering the Future research group.",
+        email: "l.malysheva@salford.ac.uk", wtId: "1168201", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1168201.jpg",
+        expertise: ["Aeronautical Engineering", "Mechanical Engineering"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "oliviu-sugar-gabor", name: "Dr Oliviu Sugar-Gabor", initials: "OS",
+        title: "Senior Lecturer in Aerodynamics", bio: "Dr Oliviu Sugar-Gabor is a Senior Lecturer in Aerodynamics at the University of Salford. He obtained his BEng and MSc degrees from the Polytechnic University of Bucharest, Romania. After working as a research engineer at the National Institute of Aerospace Research in Bucharest, he obtained his PhD in Aerodynamics from the University of Quebec in Montreal, Canada. He has been at the University of Salford since 2016. His research interests include applied aerodynamics, computational fluid dynamics, aerodynamic shape optimisation techniques, aircraft design and novel aircraft concepts, and non-intrusive reduced order modelling.",
+        email: "o.sugargabor@salford.ac.uk", wtId: "1169461", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1169461.jpg",
+        expertise: ["Aerodynamics", "CFD", "Aerodynamic Shape Optimisation", "Aircraft Design", "Reduced Order Modelling"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "omar-ariff", name: "Dr Omar Kassim Ariff", initials: "OA",
+        title: "Lecturer in Aircraft Design", bio: "Dr Omar Kassim Ariff completed his Bachelor's degree in Aeronautical Engineering (2nd class upper honours) from City University, London in 1998, followed by a fully-funded PhD at the UK Defence Academy, Cranfield University, completed in 2005, specialising in Guidance and Navigation of Anti-air Missile Systems. At Nanyang Technological University, Singapore, he conducted postdoctoral research from 2008 to 2011 on guidance, navigation and control of small-scale UAVs, contributing to two UAV development projects: a stabilisation system for a mini vertical take-off and landing UAV, and a 7kg fuel-cell powered UAV. From 2011 to 2014 he was a Contract Senior Lecturer at Universiti Putra Malaysia, focusing on agricultural applications of UAVs, including a multi-rotor UAV programme for oil palm plantations, before joining the University of Salford as Lecturer in Aircraft Design.",
+        email: "", wtId: "", photo: "",
+        expertise: ["Aircraft Design", "UAV Systems", "Guidance and Navigation", "Aeronautical Engineering"], isProfessor: false, isDirector: false, unverified: true
+      },
+      {
+        slug: "robert-weighman", name: "Dr Robert Weighman", initials: "RW",
+        title: "Lecturer in Aeronautical Engineering", bio: "Robert Weighman is a Lecturer in the Faculty of Science, Engineering and Environment at the University of Salford, contributing to teaching in the AeroMech discipline group.",
+        email: "r.weighman@salford.ac.uk", wtId: "2099707", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/2099707.jpg",
+        expertise: ["Aeronautical Engineering", "Engineering Education"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "saber-mahboubi-heydarabad", name: "Mr Saber Mahboubi Heydarabad", initials: "SH",
+        title: "Lecturer in Robotics and Automation", bio: "Dr Saber Mahboubi is a Robotics and Automation Lecturer at the University of Salford. He holds a Marie Curie-funded PhD in Robotics from the University of Salford. He was involved in several research and industrial projects funded by the EU, EPSRC, and Innovate UK for the design of autonomous self-driving control systems, as well as innovative grasping technologies with applications in in-space non-cooperative manipulation and industrial robotic pick-and-place. He has more than eight years of industrial experience and is skilled in Robotic Manipulation, Artificial Intelligence and Machine Learning, Deep Learning, robust and nonlinear control systems, Industrial Automation, Autonomous Self-driving vehicles, CAD/CAM, and multi-body dynamic modelling.",
+        email: "s.mahboubiheydarabad@salford.ac.uk", wtId: "1166439", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1166439.jpg",
+        expertise: ["Robotic Manipulation", "Autonomous Vehicles", "Machine Learning", "Nonlinear Control Systems", "Industrial Automation"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "theodoros-theodoridis", name: "Dr Theodoros Theodoridis", initials: "TT",
+        title: "Lecturer in Mechanical/Aeronautical Engineering", bio: "Dr Theodoros Theodoridis is a Lecturer in the Faculty of Science, Engineering and Environment at the University of Salford, contributing to research and teaching in the Centre for Engineering the Future, with expertise in robotics, autonomous systems and mechanical engineering.",
+        email: "t.theodoridis@salford.ac.uk", wtId: "1166777", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1166777.jpg",
+        expertise: ["Robotics", "Autonomous Systems", "Mechanical Engineering", "Control Systems"], isProfessor: false, isDirector: false, unverified: false
+      },
+      {
+        slug: "tian-xiang-mei", name: "Prof TX Mei", initials: "TM",
+        title: "Professor of Control Engineering", bio: "Professor Tian Xiang Mei is a Professor in the Faculty of Science, Engineering and Environment at the University of Salford and a prominent member of the Centre for Engineering the Future research group. He has expertise in control engineering, intelligent systems, and mechanical engineering applications. Professor Mei has an extensive research and publication record in control theory and mechatronics.",
+        email: "tx.mei@salford.ac.uk", wtId: "1168296", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/1168296.jpg",
+        expertise: ["Control Engineering", "Intelligent Systems", "Mechatronics", "Vehicle Dynamics Control"], isProfessor: true, isDirector: false, unverified: false
+      },
+      {
+        slug: "walid-jouri", name: "Dr Walid Jouri", initials: "WJ",
+        title: "Senior Lecturer in Mechanical Engineering", bio: "Dr Walid Jouri became Head of the School of Engineering and Manufacture at University College Salford before becoming a Senior Lecturer in the School of Computing, Science & Engineering at the University of Salford. His main research activities involve the testing and analysis of the mechanical properties of metals, polymers, advanced composites and rubbers. He specialises in the design and production of instrumented testing machines for determining material properties, and has been involved in numerous prototype testing and type qualification projects for the nuclear, automotive, railway, gas and chemical industries, with research interests including structural integrity, impact, nano-materials, and corrosion.",
+        email: "w.s.jouri@salford.ac.uk", wtId: "", photo: "",
+        expertise: ["Structural Integrity", "Mechanical Testing", "Composites", "Corrosion", "Nano-materials"], isProfessor: false, isDirector: false, unverified: true
+      },
+      {
+        slug: "wei-yao", name: "Dr Wei Yao", initials: "WY",
+        title: "Professor of Healthcare Robotics", bio: "Professor Wei Yao is a healthcare robotics expert at the University of Salford and a key figure within NERIC, the North England Robotics Innovation Centre, a £17 million all-electric facility for robotics and automation research. He has presented at the University's London Alumni Lecture series on the future of robotics, where he discussed how his research is paving the way for robots to deliver less invasive, life-altering surgery, relieving pressure on surgeons, shortening patient waiting lists, and improving recovery times and outcomes for patients. His teaching includes leading modules on Automation and Robotics, including kinematics, control and simulation of industrial robots.",
+        email: "", wtId: "", photo: "",
+        expertise: ["Healthcare Robotics", "Surgical Robotics", "Automation", "Robotics", "Industrial Robotics"], isProfessor: true, isDirector: false, unverified: true
+      },
       ]
   },
 };
@@ -2000,20 +2030,46 @@ initReveal();
     if(!p) return;
     const imgSrc = p.photo || (p.wtId ? `https://www.salford.ac.uk/sites/default/files/staff-profiles/${p.wtId}.jpg` : '');
     const initials = p.initials || p.name.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
-    const imgHtml = imgSrc
-      ? `<img src="${imgSrc}" alt="${escapeHtml(p.name)}" style="width:100%; height:100%; object-fit:cover; border-radius:50%;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
-      : '';
-    const fallback = `<div style="display:${imgSrc?'none':'flex'}; width:100%; height:100%; border-radius:50%; background:var(--red); color:#fff; align-items:center; justify-content:center; font-family:var(--mono); font-size:1rem; font-weight:700">${initials}</div>`;
     const shortName = p.name.replace(/^(Prof|Dr|Mr|Ms|Miss)\s+/i,'').split(' ').slice(0,2).join(' ');
     const honorific = p.name.match(/^(Prof|Dr|Mr|Ms|Miss)/i)?.[0] || '';
-    grid.insertAdjacentHTML('beforeend', `
-      <div style="display:flex; flex-direction:column; align-items:center; text-align:center; gap:8px; cursor:pointer" title="View profile" onclick="event.preventDefault();navSection('disciplines');setTimeout(()=>{renderDisciplineStaff('${disc}');setTimeout(()=>openProfile('${disc}','${slug}'),120);},120);">
-        <div style="width:72px; height:72px; border-radius:50%; overflow:hidden; flex-shrink:0; border:2px solid var(--line)">${imgHtml}${fallback}</div>
-        <div>
-          <div style="font-size:.78rem; font-weight:600; color:var(--ink); line-height:1.3">${honorific ? `<span style="opacity:.6; font-size:.7rem">${escapeHtml(honorific)} </span>` : ''}${escapeHtml(shortName)}</div>
-          <div style="font-size:.7rem; color:var(--red); font-family:var(--mono); margin-top:2px; line-height:1.3">${escapeHtml(role)}</div>
-        </div>
-      </div>`);
+
+    // Build DOM nodes directly to avoid truncation of large data URIs in innerHTML
+    const card = document.createElement('div');
+    card.style.cssText = 'display:flex; flex-direction:column; align-items:center; text-align:center; gap:8px; cursor:pointer';
+    card.title = 'View profile';
+    card.addEventListener('click', () => {
+      navSection('disciplines');
+      setTimeout(() => { renderDisciplineStaff(disc); setTimeout(() => openProfile(disc, slug), 120); }, 120);
+    });
+
+    const circle = document.createElement('div');
+    circle.style.cssText = 'width:72px; height:72px; border-radius:50%; overflow:hidden; flex-shrink:0; border:2px solid var(--line); background:var(--red); display:flex; align-items:center; justify-content:center;';
+
+    if(imgSrc) {
+      const img = document.createElement('img');
+      img.alt = p.name;
+      img.style.cssText = 'width:100%; height:100%; object-fit:cover; border-radius:50%;';
+      img.onerror = () => { img.style.display='none'; fallbackDiv.style.display='flex'; };
+      const fallbackDiv = document.createElement('div');
+      fallbackDiv.style.cssText = 'display:none; width:100%; height:100%; border-radius:50%; background:var(--red); color:#fff; align-items:center; justify-content:center; font-family:var(--mono); font-size:1rem; font-weight:700;';
+      fallbackDiv.textContent = initials;
+      circle.appendChild(img);
+      circle.appendChild(fallbackDiv);
+      img.src = imgSrc; // set src AFTER appending so onerror fires correctly
+    } else {
+      circle.style.color = '#fff';
+      circle.style.fontFamily = 'var(--mono)';
+      circle.style.fontSize = '1rem';
+      circle.style.fontWeight = '700';
+      circle.textContent = initials;
+    }
+
+    const textDiv = document.createElement('div');
+    textDiv.innerHTML = `<div style="font-size:.78rem; font-weight:600; color:var(--ink); line-height:1.3">${honorific ? `<span style="opacity:.6; font-size:.7rem">${escapeHtml(honorific)} </span>` : ''}${escapeHtml(shortName)}</div><div style="font-size:.7rem; color:var(--red); font-family:var(--mono); margin-top:2px; line-height:1.3">${escapeHtml(role)}</div>`;
+
+    card.appendChild(circle);
+    card.appendChild(textDiv);
+    grid.appendChild(card);
   });
 })();
 
