@@ -227,7 +227,7 @@ section{padding:80px 0}
 /* WORK WITH US */
 /* NEWS */
 .news-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:20px}
-@media (max-width:860px){.news-grid{grid-template-columns:1fr}}
+@media (max-width:860px){.news-grid{grid-template-columns:1fr} #news-roles-grid{grid-template-columns:repeat(3,1fr) !important}}
 .news-card{background:var(--white); border:1px solid var(--line); border-radius:var(--r-lg); padding:28px 28px 24px; display:flex; flex-direction:column; gap:10px; transition:box-shadow var(--trans), transform var(--trans)}
 .news-card:hover{box-shadow:var(--shadow-lg); transform:translateY(-2px)}
 .news-card--featured{border-color:var(--red); border-width:1.5px; background:linear-gradient(135deg, #fff7f8 0%, #fff 60%)}
@@ -578,11 +578,12 @@ footer{background:var(--ink); color:#C7CEDB; padding:60px 0 28px}
           <a class="news-card-link" href="https://www.salford.ac.uk/news" target="_blank" rel="noopener">Read the full University announcement &rarr;</a>
         </div>
 
-        <div class="news-card">
+        <div class="news-card" style="grid-column: 1 / -1;">
           <div class="news-card-tag">New Responsibilities</div>
           <h3 class="news-card-title">Additional Responsibilities</h3>
-          <div class="news-card-body">
-            <table style="width:100%; border-collapse:collapse; font-size:.85rem; line-height:1.6">
+          <div class="news-card-body" style="margin-top:4px">
+            <div id="news-roles-grid" style="display:grid; grid-template-columns:repeat(6,1fr); gap:14px; margin-top:8px"></div>
+            <table id="news-roles-table" style="width:100%; border-collapse:collapse; font-size:.85rem; line-height:1.6; margin-top:18px">
               <thead>
                 <tr>
                   <th style="text-align:left; padding:4px 8px 6px 0; border-bottom:1px solid var(--line); color:var(--ink); font-weight:600">Academic Staff</th>
@@ -1979,6 +1980,68 @@ renderCourses();
 renderBldgGallery();
 renderGmiotGallery();
 initReveal();
+
+// Render Additional Responsibilities photo grid in news section
+(function renderNewsRoles(){
+  const roles = [
+    { slug: "azadeh-mohammadi",   disc: "computer-science", role: "EDI Lead" },
+    { slug: "henry-madubuike",    disc: "computer-science", role: "Academic Quality Lead" },
+    { slug: "stefan-pletschacher",disc: "computer-science", role: "Student Experience Lead" },
+    { slug: "ali-alameer",        disc: "computer-science", role: "SEE Faculty Wellbeing Lead" },
+    { slug: "christian-clausner", disc: "computer-science", role: "SEE Faculty Wellbeing Lead" },
+    { slug: "omar-alani",         disc: "physics-acoustics", role: "Lead International for Engineering" }
+  ];
+  const grid = document.getElementById('news-roles-grid');
+  if(!grid) return;
+  roles.forEach(({ slug, disc, role }) => {
+    const discData = DISCIPLINES[disc];
+    if(!discData) return;
+    const p = discData.people.find(x => x.slug === slug);
+    if(!p) return;
+    const imgSrc = p.photo || (p.wtId ? `https://www.salford.ac.uk/sites/default/files/staff-profiles/${p.wtId}.jpg` : '');
+    const initials = p.initials || p.name.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
+    const shortName = p.name.replace(/^(Prof|Dr|Mr|Ms|Miss)\s+/i,'').split(' ').slice(0,2).join(' ');
+    const honorific = p.name.match(/^(Prof|Dr|Mr|Ms|Miss)/i)?.[0] || '';
+
+    // Build DOM nodes directly to avoid truncation of large data URIs in innerHTML
+    const card = document.createElement('div');
+    card.style.cssText = 'display:flex; flex-direction:column; align-items:center; text-align:center; gap:8px; cursor:pointer';
+    card.title = 'View profile';
+    card.addEventListener('click', () => {
+      navSection('disciplines');
+      setTimeout(() => { renderDisciplineStaff(disc); setTimeout(() => openProfile(disc, slug), 120); }, 120);
+    });
+
+    const circle = document.createElement('div');
+    circle.style.cssText = 'width:72px; height:72px; border-radius:50%; overflow:hidden; flex-shrink:0; border:2px solid var(--line); background:var(--red); display:flex; align-items:center; justify-content:center;';
+
+    if(imgSrc) {
+      const img = document.createElement('img');
+      img.alt = p.name;
+      img.style.cssText = 'width:100%; height:100%; object-fit:cover; border-radius:50%;';
+      img.onerror = () => { img.style.display='none'; fallbackDiv.style.display='flex'; };
+      const fallbackDiv = document.createElement('div');
+      fallbackDiv.style.cssText = 'display:none; width:100%; height:100%; border-radius:50%; background:var(--red); color:#fff; align-items:center; justify-content:center; font-family:var(--mono); font-size:1rem; font-weight:700;';
+      fallbackDiv.textContent = initials;
+      circle.appendChild(img);
+      circle.appendChild(fallbackDiv);
+      img.src = imgSrc; // set src AFTER appending so onerror fires correctly
+    } else {
+      circle.style.color = '#fff';
+      circle.style.fontFamily = 'var(--mono)';
+      circle.style.fontSize = '1rem';
+      circle.style.fontWeight = '700';
+      circle.textContent = initials;
+    }
+
+    const textDiv = document.createElement('div');
+    textDiv.innerHTML = `<div style="font-size:.78rem; font-weight:600; color:var(--ink); line-height:1.3">${honorific ? `<span style="opacity:.6; font-size:.7rem">${escapeHtml(honorific)} </span>` : ''}${escapeHtml(shortName)}</div><div style="font-size:.7rem; color:var(--red); font-family:var(--mono); margin-top:2px; line-height:1.3">${escapeHtml(role)}</div>`;
+
+    card.appendChild(circle);
+    card.appendChild(textDiv);
+    grid.appendChild(card);
+  });
+})();
 
 </script>
 </body>
