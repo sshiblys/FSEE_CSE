@@ -55,10 +55,10 @@ header.site{background:var(--white); border-bottom:1px solid var(--line); positi
 .brand-text .b1{font-family:var(--serif); font-weight:600; font-size:1.1rem; letter-spacing:-.01em; color:var(--ink)}
 .brand-text .b2{font-family:var(--mono); font-size:.62rem; color:var(--steel); letter-spacing:.04em; text-transform:uppercase}
 nav.main{display:flex; align-items:center; gap:2px}
-nav.main a, nav.main button.navlink{font-size:.9rem; font-weight:500; color:var(--ink-soft); padding:10px 13px; border-radius:8px; transition:all var(--trans); position:relative}
+nav.main a, nav.main button.navlink{font-size:.9rem; font-weight:500; color:var(--ink-soft); padding:10px 13px; border-radius:8px; transition:all var(--trans); position:relative; line-height:1}
 nav.main a:hover, nav.main button.navlink:hover{background:var(--paper-dk); color:var(--red)}
-.nav-cta{background:var(--red); color:#fff !important; padding:10px 18px; border-radius:8px; font-weight:600; font-size:.86rem; transition:background var(--trans)}
-.nav-cta:hover{background:var(--red-dk)}
+.nav-cta{background:var(--red); color:#fff !important; padding:10px 20px; border-radius:8px; font-weight:600; font-size:.86rem; transition:background var(--trans); margin-left:10px; display:inline-flex; align-items:center; line-height:1; white-space:nowrap}
+.nav-cta:hover{background:var(--red-dk); transform:translateY(-1px)}
 .nav-toggle{display:none; flex-direction:column; gap:5px; width:28px; padding:8px}
 .nav-toggle span{display:block; height:2px; background:var(--ink); border-radius:2px; transition:var(--trans)}
 @media (max-width:1080px){
@@ -69,14 +69,17 @@ nav.main a:hover, nav.main button.navlink:hover{background:var(--paper-dk); colo
 }
 
 /* discipline sub-nav */
-.subnav{background:var(--ink); border-bottom:1px solid rgba(255,255,255,.08)}
-.subnav .wrap{display:flex; gap:4px; overflow-x:auto; padding:10px 32px}
+.subnav{background:var(--ink); border-bottom:1px solid rgba(255,255,255,.08); position:sticky; top:76px; z-index:90}
+.subnav .wrap{display:flex; gap:4px; overflow-x:auto; padding:10px 32px; scrollbar-width:none}
+.subnav .wrap::-webkit-scrollbar{display:none}
 .subnav a{
   font-family:var(--mono); font-size:.74rem; color:var(--steel-lt); padding:8px 14px; border-radius:7px;
   white-space:nowrap; transition:all var(--trans); border:1px solid transparent;
+  display:inline-flex; align-items:center; gap:7px;
 }
 .subnav a:hover{color:#fff; background:rgba(255,255,255,.06)}
 .subnav a.active{color:var(--circuit); border-color:rgba(0,217,163,.3); background:rgba(0,217,163,.08)}
+.subnav-count{background:rgba(0,217,163,.15); color:var(--circuit); border-radius:99px; padding:1px 7px; font-size:.65rem; font-weight:700}
 
 /* HERO (landing) */
 .hero{background:var(--ink); color:#fff; position:relative; overflow:hidden}
@@ -135,9 +138,9 @@ nav.main a:hover, nav.main button.navlink:hover{background:var(--paper-dk); colo
 .console-video-label .vl-sub{font-family:var(--mono); font-size:.62rem; color:#C7CEDB; letter-spacing:.02em}
 
 /* SECTION SCAFFOLDING */
-section{padding:80px 0}
-@media (max-width:720px){section{padding:52px 0}}
-.section-head{display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin-bottom:40px; flex-wrap:wrap}
+section{padding:56px 0}
+@media (max-width:720px){section{padding:36px 0}}
+.section-head{display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin-bottom:32px; flex-wrap:wrap}
 .section-head h2{font-family:var(--serif); font-weight:600; font-size:clamp(1.5rem,3vw,2.2rem); letter-spacing:-.015em; color:var(--ink)}
 .section-head p{color:var(--steel); max-width:480px; margin-top:8px}
 .section-eyebrow{font-family:var(--mono); font-size:.7rem; letter-spacing:.08em; text-transform:uppercase; color:var(--red); margin-bottom:10px; display:block}
@@ -226,8 +229,29 @@ section{padding:80px 0}
 
 /* WORK WITH US */
 /* NEWS */
+.maker-zones{display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-bottom:40px}
+@media (max-width:860px){.maker-zones{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:500px){.maker-zones{grid-template-columns:1fr}}
+.maker-zone-card{border-radius:var(--r-lg); overflow:hidden; background:var(--white); border:1px solid var(--line); display:flex; flex-direction:column; transition:box-shadow var(--trans), transform var(--trans)}
+.maker-zone-card:hover{box-shadow:var(--shadow-lg); transform:translateY(-4px)}
+.maker-zone-card img{width:100%; height:190px; object-fit:cover; display:block; transition:transform .4s ease}
+.maker-zone-card:hover img{transform:scale(1.04)}
+.maker-zone-body{padding:22px 24px 24px; flex:1; display:flex; flex-direction:column; gap:8px}
+.maker-zone-name{font-family:var(--serif); font-size:1.08rem; font-weight:600; color:var(--ink); margin-bottom:2px}
+.maker-zone-desc{font-size:.84rem; color:var(--steel); line-height:1.65; flex:1}
+.maker-zone-tags{display:flex; flex-wrap:wrap; gap:5px; margin-top:10px}
+.maker-zone-tag{font-family:var(--mono); font-size:.63rem; letter-spacing:.04em; text-transform:uppercase; background:var(--paper); color:var(--steel); border:1px solid var(--line); border-radius:5px; padding:3px 8px}
+.maker-intro{display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; margin-bottom:56px}
+@media (max-width:760px){.maker-intro{grid-template-columns:1fr}}
+.maker-intro img{width:100%; border-radius:var(--r-lg); object-fit:cover; height:360px; box-shadow:var(--shadow-lg)}
+.maker-intro-text h3{font-family:var(--serif); font-size:1.35rem; font-weight:600; color:var(--ink); margin-bottom:16px; line-height:1.3}
+.maker-intro-text p{font-size:.93rem; color:var(--steel); line-height:1.75; margin-bottom:14px}
+.maker-contact{display:flex; gap:12px; flex-wrap:wrap; margin-top:22px}
+.maker-contact a{font-family:var(--mono); font-size:.78rem; color:var(--red); font-weight:600; border:1.5px solid var(--red); border-radius:7px; padding:9px 16px; text-decoration:none; transition:background var(--trans), color var(--trans)}
+.maker-contact a:hover{background:var(--red); color:#fff}
 .news-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:20px}
 @media (max-width:860px){.news-grid{grid-template-columns:1fr} #news-roles-grid{grid-template-columns:repeat(3,1fr) !important}}
+@media (max-width:600px){#news-roles-grid{grid-template-columns:repeat(2,1fr) !important}}
 .news-card{background:var(--white); border:1px solid var(--line); border-radius:var(--r-lg); padding:28px 28px 24px; display:flex; flex-direction:column; gap:10px; transition:box-shadow var(--trans), transform var(--trans)}
 .news-card:hover{box-shadow:var(--shadow-lg); transform:translateY(-2px)}
 .news-card--featured{border-color:var(--red); border-width:1.5px; background:linear-gradient(135deg, #fff7f8 0%, #fff 60%)}
@@ -465,6 +489,7 @@ footer{background:var(--ink); color:#C7CEDB; padding:60px 0 28px}
       <button class="navlink" onclick="navSection('disciplines')">Academics</button>
       <button class="navlink" onclick="navSection('research')">Research</button>
       <button class="navlink" onclick="navSection('labs')">Labs</button>
+      <button class="navlink" onclick="navSection('maker-space')">Maker Space</button>
       <button class="navlink" onclick="navSection('news')">News</button>
       <button class="navlink" onclick="navSection('study')">Study</button>
       <button class="navlink" onclick="navSection('work-with-us')">Work with us</button>
@@ -501,7 +526,7 @@ footer{background:var(--ink); color:#C7CEDB; padding:60px 0 28px}
             <div class="console-row"><span class="k">Disciplines</span><span class="v accent">4</span></div>
             <div class="console-row"><span class="k">Academic staff</span><span class="v" id="consoleStaffCount">131</span></div>
             <div class="console-row"><span class="k">Home building</span><span class="v">SEE Building, Peel Park</span></div>
-            <div class="console-row"><span class="k">Flagship facilities</span><span class="v accent">NERIC &middot; DSAI Hub</span></div>
+            <div class="console-row"><span class="k">Flagship facilities</span><span class="v accent">NERIC &middot; DSAI Hub &middot; Morson Maker Space</span></div>
           </div>
         </div>
         <a class="console-video" href="https://www.youtube.com/watch?v=3GSawMhWN0I" target="_blank" rel="noopener" aria-label="Watch: Discover NERIC on YouTube">
@@ -550,7 +575,7 @@ footer{background:var(--ink); color:#C7CEDB; padding:60px 0 28px}
     </div>
   </section>
 
-  <section class="sec-white" id="labs">
+  <section class="sec-paper" id="labs">
     <div class="wrap">
       <span class="section-eyebrow">Facilities</span>
       <div class="section-head">
@@ -561,7 +586,120 @@ footer{background:var(--ink); color:#C7CEDB; padding:60px 0 28px}
     </div>
   </section>
 
-  <section class="sec-white" id="news">
+  <section class="sec-white" id="maker-space" style="border-top:1px solid var(--line)">
+    <div class="wrap">
+      <span class="section-eyebrow">Facilities</span>
+      <div class="section-head">
+        <h2>Morson Maker Space</h2>
+        <p>An open, inclusive digital fabrication facility powered by Morson Group &mdash; where students turn ideas into real objects using industry-grade equipment.</p>
+      </div>
+
+      <div class="maker-intro">
+        <img src="https://www.salford.ac.uk/sites/default/files/2023-09/Untitled%20design.png" alt="Student making a project in the Morson Maker Space, University of Salford" loading="lazy">
+        <div class="maker-intro-text">
+          <h3>Open to every student, every course</h3>
+          <p>The Maker Space is an open, inclusive facility where students can pursue their interests and coursework by building practical digital fabrication skills &mdash; from 3D printing and CAD design to laser cutting and CNC milling.</p>
+          <p>Set up in partnership with <strong>Morson Group</strong>, a Salford-based engineering recruitment company, the space aims to inspire students to pursue STEM careers by teaching real-world fabrication skills. Students of any school or course can attend Maker Space workshops to learn or improve a skill.</p>
+          <p>Activities run throughout the year. Full details of workshops and programmes are on the Maker Space website.</p>
+          <div class="maker-contact">
+            <a href="https://makerspace.salford.ac.uk" target="_blank" rel="noopener">Visit Maker Space website &rarr;</a>
+            <a href="https://www.eventbrite.co.uk/o/make-in-salford-17506878274" target="_blank" rel="noopener">Upcoming events on Eventbrite &rarr;</a>
+            <a href="mailto:makerspace@salford.ac.uk">makerspace@salford.ac.uk</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="maker-zones">
+        <div class="maker-zone-card" style="border-top:3px solid #C8102E">
+          <img src="https://www.salford.ac.uk/sites/default/files/2022-10/Maker%20space%20accordion%20-%201200%20x%20400%20Engine%20Room.jpg" alt="Engine Room in the Morson Maker Space" loading="lazy">
+          <div class="maker-zone-body">
+            <div class="maker-zone-name">Morson Engine Room</div>
+            <div class="maker-zone-desc">Heavy-duty machining for metals, composites, and large-format materials. Home to the most powerful fabrication tools in the space.</div>
+            <div class="maker-zone-tags">
+              <span class="maker-zone-tag">Waterjet cutting (Omax 1515 5-axis)</span>
+              <span class="maker-zone-tag">CNC milling (Haas UMC-500 5-axis)</span>
+              <span class="maker-zone-tag">Flatbed CNC router (2.4 &times; 1.2m)</span>
+              <span class="maker-zone-tag">CNC lathe</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="maker-zone-card" style="border-top:3px solid #00D9A3">
+          <img src="https://www.salford.ac.uk/sites/default/files/2022-10/Maker%20space%20accordion%20-%201200%20x%20400%20Print%20Hive.jpg" alt="Print Hive in the Morson Maker Space" loading="lazy">
+          <div class="maker-zone-body">
+            <div class="maker-zone-name">Print Hive</div>
+            <div class="maker-zone-desc">A full suite of additive manufacturing technologies, from plastic filament printing through to resin and metal additive manufacturing.</div>
+            <div class="maker-zone-tags">
+              <span class="maker-zone-tag">Fused Filament Fabrication (FFF)</span>
+              <span class="maker-zone-tag">Stereolithography (SLA)</span>
+              <span class="maker-zone-tag">Metal additive manufacturing</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="maker-zone-card" style="border-top:3px solid #F59E0B">
+          <img src="https://www.salford.ac.uk/sites/default/files/2022-10/Maker%20space%20accordion%20-%201200%20x%20400%20Laser%20cutting.jpg" alt="Laser cutting in the Morson Maker Space" loading="lazy">
+          <div class="maker-zone-body">
+            <div class="maker-zone-name">Laser Cutting Zone</div>
+            <div class="maker-zone-desc">Professional CO2 and fibre laser systems capable of cutting and engraving a wide range of materials including timber, acrylic, leather, and metals.</div>
+            <div class="maker-zone-tags">
+              <span class="maker-zone-tag">Epilog Fusion Pro</span>
+              <span class="maker-zone-tag">Epilog Fusion Edge</span>
+              <span class="maker-zone-tag">Epilog Zing</span>
+              <span class="maker-zone-tag">Gravograph LS 900</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="maker-zone-card" style="border-top:3px solid #3B82F6">
+          <img src="https://www.salford.ac.uk/sites/default/files/2022-10/Maker%20space%20accordion%20-%201200%20x%20400%20clean%20room.jpg" alt="Clean Room in the Morson Maker Space" loading="lazy">
+          <div class="maker-zone-body">
+            <div class="maker-zone-name">Clean Room</div>
+            <div class="maker-zone-desc">A precision measurement and electronics development environment with optical instruments and a laser scanning arm for quality inspection and metrology.</div>
+            <div class="maker-zone-tags">
+              <span class="maker-zone-tag">Digital &amp; optical microscopes</span>
+              <span class="maker-zone-tag">Laser scanning arm</span>
+              <span class="maker-zone-tag">Electronics development area</span>
+              <span class="maker-zone-tag">Metrology instruments</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="maker-zone-card" style="border-top:3px solid #8B5CF6">
+          <img src="https://www.salford.ac.uk/sites/default/files/2022-10/Maker%20space%20accordion%20-%201200%20x%20400%20cad%20suite.jpg" alt="CAD Suite in the Morson Maker Space" loading="lazy">
+          <div class="maker-zone-body">
+            <div class="maker-zone-name">CAD Suite</div>
+            <div class="maker-zone-desc">20 dedicated workstations loaded with industry-standard 2D and 3D design software, ready to take designs straight to fabrication.</div>
+            <div class="maker-zone-tags">
+              <span class="maker-zone-tag">Fusion 360</span>
+              <span class="maker-zone-tag">AutoCAD</span>
+              <span class="maker-zone-tag">SolidWorks</span>
+              <span class="maker-zone-tag">Adobe CC Suite</span>
+              <span class="maker-zone-tag">Arduino IDE</span>
+              <span class="maker-zone-tag">Cura &amp; Processing</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="maker-zone-card" style="border-top:3px solid #10B981">
+          <img src="https://www.salford.ac.uk/sites/default/files/2022-10/Maker%20space%20section%20-%20equipment_0.jpg" alt="Equipment overview of the Morson Maker Space" loading="lazy">
+          <div class="maker-zone-body">
+            <div class="maker-zone-name">Open Fabrication Area</div>
+            <div class="maker-zone-desc">General-purpose making space for timber, light metals, model making, and hands-on project work. Ideal for prototyping, coursework builds, and self-directed making.</div>
+            <div class="maker-zone-tags">
+              <span class="maker-zone-tag">Timber &amp; light metals</span>
+              <span class="maker-zone-tag">Model making</span>
+              <span class="maker-zone-tag">Prototyping</span>
+              <span class="maker-zone-tag">Open access</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sec-paper" id="news">
     <div class="wrap">
       <span class="section-eyebrow">Latest News</span>
       <div class="section-head">
@@ -570,19 +708,79 @@ footer{background:var(--ink); color:#C7CEDB; padding:60px 0 28px}
       </div>
       <div class="news-grid">
 
-        <div class="news-card news-card--featured">
-          <div class="news-card-tag">League Tables</div>
-          <div class="news-card-stat">&#x2191; 52 <span>places</span></div>
-          <h3 class="news-card-title">Computer Science rises 52 places in the Guardian University Guide 2027</h3>
-          <p class="news-card-body">From 105th to 53rd nationally &mdash; a remarkable rise to begin the new academic year. A shared achievement that everyone in CS&amp;E should be proud of.</p>
-          <a class="news-card-link" href="https://www.salford.ac.uk/news" target="_blank" rel="noopener">Read the full University announcement &rarr;</a>
+        <div class="news-card news-card--featured" style="padding:0; overflow:hidden; gap:0">
+          <img src="https://www.salford.ac.uk/sites/default/files/2024-04/peel-bulding-horizontal-1100x300.jpg" alt="Peel Building, University of Salford" style="width:100%; height:200px; object-fit:cover; object-position:center 40%; display:block">
+          <div style="padding:24px 28px 20px; display:flex; flex-direction:column; gap:10px">
+            <div class="news-card-tag">League Tables</div>
+            <div class="news-card-stat">&#x2191; 52 <span>places</span></div>
+            <h3 class="news-card-title">Computer Science rises 52 places in the Guardian University Guide 2027</h3>
+            <p class="news-card-body">The University of Salford rose 28 places overall to 57th nationally in the Guardian University Guide 2027 &mdash; and Computer Science led the charge, jumping from 105th to 53rd. The guide weighs teaching quality, student satisfaction, continuation rates and graduate outcomes. Over 77% of Salford graduates are in highly skilled employment or further study.</p>
+            <a class="news-card-link" href="https://www.salford.ac.uk/news/university-of-salford-rises-28-places-in-guardian-university-guide-2027" target="_blank" rel="noopener">Read the full University announcement &rarr;</a>
+          </div>
+        </div>
+
+        <div class="news-card" style="display:flex; flex-direction:column; gap:0; padding:0; overflow:hidden; border-color:var(--line)">
+          <div style="background:var(--ink); padding:22px 24px 18px; flex-shrink:0">
+            <div class="news-card-tag" style="color:var(--circuit)">Rankings at a glance</div>
+            <h3 class="news-card-title" style="color:var(--white); margin-top:6px; font-size:1rem">CS&amp;E disciplines &mdash; national league tables</h3>
+          </div>
+          <div style="padding:0; flex:1; display:flex; flex-direction:column">
+            <div style="display:flex; align-items:center; gap:16px; padding:16px 24px; border-bottom:1px solid var(--line)">
+              <div style="font-family:var(--serif); font-size:2rem; font-weight:700; color:var(--red); line-height:1; min-width:52px">53<span style="font-size:.8rem; color:var(--steel); font-weight:500; margin-left:2px">rd</span></div>
+              <div>
+                <div style="font-size:.82rem; font-weight:600; color:var(--ink)">Computer Science</div>
+                <div style="font-size:.75rem; color:var(--steel)">Guardian University Guide 2027 &mdash; up from 105th</div>
+                <a href="https://www.salford.ac.uk/news/university-of-salford-rises-28-places-in-guardian-university-guide-2027" target="_blank" rel="noopener" style="font-size:.68rem; color:var(--red); font-family:var(--mono); text-decoration:none">salford.ac.uk/news &rarr;</a>
+              </div>
+            </div>
+            <div style="display:flex; align-items:center; gap:16px; padding:16px 24px; border-bottom:1px solid var(--line)">
+              <div style="font-family:var(--serif); font-size:2rem; font-weight:700; color:var(--circuit); line-height:1; min-width:52px; white-space:nowrap">&#x2191;52</div>
+              <div>
+                <div style="font-size:.82rem; font-weight:600; color:var(--ink)">Places risen in a single year</div>
+                <div style="font-size:.75rem; color:var(--steel)">Computer Science &mdash; Guardian 2027</div>
+                <a href="https://www.salford.ac.uk/news/university-of-salford-rises-28-places-in-guardian-university-guide-2027" target="_blank" rel="noopener" style="font-size:.68rem; color:var(--red); font-family:var(--mono); text-decoration:none">salford.ac.uk/news &rarr;</a>
+              </div>
+            </div>
+            <div style="display:flex; align-items:center; gap:16px; padding:16px 24px; border-bottom:1px solid var(--line)">
+              <div style="font-family:var(--serif); font-size:2rem; font-weight:700; color:var(--red); line-height:1; min-width:52px">43<span style="font-size:.8rem; color:var(--steel); font-weight:500; margin-left:2px">rd</span></div>
+              <div>
+                <div style="font-size:.82rem; font-weight:600; color:var(--ink)">Civil Engineering</div>
+                <div style="font-size:.75rem; color:var(--steel)">Guardian University Guide 2026</div>
+                <a href="https://universitydb.io/rankings/guardian/civil-engineering" target="_blank" rel="noopener" style="font-size:.68rem; color:var(--red); font-family:var(--mono); text-decoration:none">universitydb.io &rarr;</a>
+              </div>
+            </div>
+            <div style="display:flex; align-items:center; gap:16px; padding:16px 24px; border-bottom:1px solid var(--line)">
+              <div style="font-family:var(--serif); font-size:2rem; font-weight:700; color:var(--red); line-height:1; min-width:52px">44<span style="font-size:.8rem; color:var(--steel); font-weight:500; margin-left:2px">th</span></div>
+              <div>
+                <div style="font-size:.82rem; font-weight:600; color:var(--ink)">Mechanical Engineering</div>
+                <div style="font-size:.75rem; color:var(--steel)">Guardian University Guide 2026</div>
+                <a href="https://universitydb.io/rankings/guardian/mechanical-engineering" target="_blank" rel="noopener" style="font-size:.68rem; color:var(--red); font-family:var(--mono); text-decoration:none">universitydb.io &rarr;</a>
+              </div>
+            </div>
+            <div style="display:flex; align-items:center; gap:16px; padding:16px 24px; border-bottom:1px solid var(--line)">
+              <div style="font-family:var(--serif); font-size:2rem; font-weight:700; color:var(--red); line-height:1; min-width:52px">5<span style="font-size:.8rem; color:var(--steel); font-weight:500; margin-left:2px">th</span></div>
+              <div>
+                <div style="font-size:.82rem; font-weight:600; color:var(--ink)">Physiotherapy <span style="font-weight:400; color:var(--steel-lt)">(university-wide)</span></div>
+                <div style="font-size:.75rem; color:var(--steel)">Guardian University Guide 2027</div>
+                <a href="https://www.salford.ac.uk/news/university-of-salford-rises-28-places-in-guardian-university-guide-2027" target="_blank" rel="noopener" style="font-size:.68rem; color:var(--red); font-family:var(--mono); text-decoration:none">salford.ac.uk/news &rarr;</a>
+              </div>
+            </div>
+            <div style="display:flex; align-items:center; gap:16px; padding:16px 24px">
+              <div style="font-family:var(--serif); font-size:2rem; font-weight:700; color:var(--red); line-height:1; min-width:52px">8<span style="font-size:.8rem; color:var(--steel); font-weight:500; margin-left:2px">th</span></div>
+              <div>
+                <div style="font-size:.82rem; font-weight:600; color:var(--ink)">Physics <span style="font-weight:400; color:var(--steel-lt)">(university-wide)</span></div>
+                <div style="font-size:.75rem; color:var(--steel)">Guardian University Guide 2027</div>
+                <a href="https://www.salford.ac.uk/news/university-of-salford-rises-28-places-in-guardian-university-guide-2027" target="_blank" rel="noopener" style="font-size:.68rem; color:var(--red); font-family:var(--mono); text-decoration:none">salford.ac.uk/news &rarr;</a>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="news-card" style="grid-column: 1 / -1;">
           <div class="news-card-tag">New Responsibilities</div>
           <h3 class="news-card-title">Additional Responsibilities</h3>
           <div class="news-card-body" style="margin-top:4px">
-            <div id="news-roles-grid" style="display:grid; grid-template-columns:repeat(6,1fr); gap:14px; margin-top:8px"></div>
+            <div id="news-roles-grid" style="display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:8px"></div>
             <table id="news-roles-table" style="width:100%; border-collapse:collapse; font-size:.85rem; line-height:1.6; margin-top:18px">
               <thead>
                 <tr>
@@ -596,7 +794,8 @@ footer{background:var(--ink); color:#C7CEDB; padding:60px 0 28px}
                 <tr><td style="padding:5px 8px 5px 0; border-bottom:1px solid var(--line); color:var(--steel)">Dr Stefan Pletschacher</td><td style="padding:5px 0 5px 8px; border-bottom:1px solid var(--line); color:var(--steel)">Student Experience Lead</td></tr>
                 <tr><td style="padding:5px 8px 5px 0; border-bottom:1px solid var(--line); color:var(--steel)">Dr Ali Alameer</td><td style="padding:5px 0 5px 8px; border-bottom:1px solid var(--line); color:var(--steel)">SEE Faculty Wellbeing Lead</td></tr>
                 <tr><td style="padding:5px 8px 5px 0; border-bottom:1px solid var(--line); color:var(--steel)">Dr Christian Clausner</td><td style="padding:5px 0 5px 8px; border-bottom:1px solid var(--line); color:var(--steel)">SEE Faculty Wellbeing Lead</td></tr>
-                <tr><td style="padding:5px 8px 5px 0; color:var(--steel)">Dr Omar Alani</td><td style="padding:5px 0 5px 8px; color:var(--steel)">Lead International for Engineering</td></tr>
+                <tr><td style="padding:5px 8px 5px 0; border-bottom:1px solid var(--line); color:var(--steel)">Dr Omar Alani</td><td style="padding:5px 0 5px 8px; border-bottom:1px solid var(--line); color:var(--steel)">Lead International for Engineering</td></tr>
+                <tr><td style="padding:5px 8px 5px 0; color:var(--steel)">Dr Maybin Muyeba</td><td style="padding:5px 0 5px 8px; color:var(--steel)">Lead International for Computer Science</td></tr>
               </tbody>
             </table>
           </div>
@@ -621,14 +820,14 @@ footer{background:var(--ink); color:#C7CEDB; padding:60px 0 28px}
 
   <section class="sec-paper" id="gmiot-news">
     <div class="wrap">
-      <span class="section-eyebrow">New Facility &middot; Opening December 2025</span>
+      <span class="section-eyebrow">New Facility &middot; Opened December 2025</span>
       <div class="section-head">
-        <h2>Inside the new GMIoT building</h2>
-        <p>A first look at the Greater Manchester Institute of Technology &mdash; a £14.3m, low-carbon building taking shape right next to the SEE Building on Peel Park campus.</p>
+        <h2>Inside the GMIoT building</h2>
+        <p>The Greater Manchester Institute of Technology &mdash; a £14.3m, low-carbon building now open next to the SEE Building on Peel Park campus.</p>
       </div>
       <div class="gmiot-feature">
         <div class="gmiot-feature-copy">
-          <p>Designed by jmarchitects and built by Tilbury Douglas, the two-storey, 1,840m&sup2; GMIoT building will house digital labs, virtual reality spaces, a prototyping workshop and ICT studios &mdash; delivering Higher Technical Qualifications, HNDs and apprenticeships across construction, engineering, digital, media and health science, in partnership with GCHQ, Siemens, Laing O&rsquo;Rourke, TalkTalk and the BBC.</p>
+          <p>Designed by jmarchitects and built by Tilbury Douglas, the two-storey, 1,840m&sup2; GMIoT building houses digital labs, virtual reality spaces, a prototyping workshop and ICT studios &mdash; delivering Higher Technical Qualifications, HNDs and apprenticeships across construction, engineering, digital, media and health science, in partnership with GCHQ, Siemens, Laing O&rsquo;Rourke, TalkTalk and the BBC.</p>
           <p>The building is A-rated and low carbon, featuring a green roof with photovoltaic panels and a living wall supported by rainwater harvesting &mdash; part of the University&rsquo;s commitment to Net Zero Carbon by 2038. Its exterior shingle cladding was deliberately colour-matched: green tiles echoing neighbouring Peel Park, and red tiles to match the SEE Building next door.</p>
           <a href="https://gmiot.ac.uk/" target="_blank" rel="noopener" class="btn btn-primary">Visit GMIoT.ac.uk &rarr;</a>
         </div>
@@ -648,7 +847,7 @@ footer{background:var(--ink); color:#C7CEDB; padding:60px 0 28px}
     </div>
   </section>
 
-  <section class="sec-white" id="work-with-us">
+  <section class="sec-paper" id="work-with-us">
     <div class="wrap">
       <span class="section-eyebrow">Engage</span>
       <div class="section-head">
@@ -731,6 +930,7 @@ footer{background:var(--ink); color:#C7CEDB; padding:60px 0 28px}
         <a href="javascript:void(0)" onclick="navSection('disciplines')">Academic Staff</a>
         <a href="javascript:void(0)" onclick="navSection('research')">Research Themes</a>
         <a href="javascript:void(0)" onclick="navSection('labs')">Labs &amp; Facilities</a>
+        <a href="javascript:void(0)" onclick="navSection('maker-space')">Maker Space</a>
         <a href="javascript:void(0)" onclick="navSection('work-with-us')">Work with us</a>
       </div>
       <div class="foot-col">
@@ -932,7 +1132,7 @@ const DISCIPLINES = {
       },
         {
         slug: "maybin-muyeba", name: "Dr Maybin Muyeba", initials: "MM",
-        title: "Senior Lecturer in Computer Science", bio: "Dr Maybin Muyeba is a Senior Lecturer in Computer Science at the University of Salford with research interests in data mining, business intelligence, and database systems. He contributes to teaching in the Computer Science discipline group at undergraduate and postgraduate levels.",
+        title: "Lead International for Computer Science; Senior Lecturer in Computer Science", bio: "Dr Maybin Muyeba is a Senior Lecturer in Computer Science at the University of Salford and serves as Lead International for Computer Science. His research interests include data mining, business intelligence, and database systems. He contributes to teaching in the Computer Science discipline group at undergraduate and postgraduate levels.",
         email: "m.muyeba@salford.ac.uk", wtId: "2798143", photo: "https://www.salford.ac.uk/sites/default/files/staff-profiles/2798143.jpg",
         expertise: ["Data Mining", "Business Intelligence", "Database Systems", "Computer Science"], isProfessor: false, isDirector: false, unverified: false
       },
@@ -1629,7 +1829,7 @@ const TOTAL_STAFF = ALL_PEOPLE.length;
 
 document.getElementById('topbarCount').textContent = TOTAL_STAFF;
 document.getElementById('consoleStaffCount').textContent = TOTAL_STAFF;
-document.getElementById('statStaff').textContent = TOTAL_STAFF;
+
 
 // ============ discipline grid (landing) ============
 const DISC_IMAGES = {
@@ -1682,7 +1882,7 @@ function renderThemes(){
 const LABS = [
   {
     id:'gmiot', name:'GMIoT — Greater Manchester Institute of Technology',
-    desc:'A £14.3m, two-storey, 1,840m² building on Peel Park campus offering digital labs, VR spaces, a prototyping workshop and ICT studios, delivered with partners including GCHQ, Siemens, Laing O\u2019Rourke and the BBC. Completing December 2025.',
+    desc:'A £14.3m, two-storey, 1,840m² building on Peel Park campus offering digital labs, VR spaces, a prototyping workshop and ICT studios, delivered with partners including GCHQ, Siemens, Laing O\u2019Rourke and the BBC. Opened December 2025.',
     badge:'new', badgeLabel:'New', featured:true, tags:['Digital Skills','VR Labs','Industry Partners'],
     img:'https://www.salford.ac.uk/sites/default/files/styles/16x9_medium/public/2025-10/IMG_5686_0.JPG'
   },
@@ -1798,7 +1998,7 @@ function openDiscipline(key){
   subnav.style.display = 'block';
   inner.innerHTML = DISC_KEYS.map(k => {
     const d = DISCIPLINES[k];
-    return `<a href="javascript:void(0)" class="${k===key?'active':''}" onclick="openDiscipline('${k}')">${escapeHtml(d.short)} &middot; ${escapeHtml(d.label)}</a>`;
+    return `<a href="javascript:void(0)" class="${k===key?'active':''}" onclick="openDiscipline('${k}')">${escapeHtml(d.short)} &middot; ${escapeHtml(d.label)} <span class="subnav-count">${d.people.length}</span></a>`;
   }).join('');
 
   const d = DISCIPLINES[key];
@@ -2042,7 +2242,8 @@ initReveal();
     { slug: "stefan-pletschacher",disc: "computer-science", role: "Student Experience Lead" },
     { slug: "ali-alameer",        disc: "computer-science", role: "SEE Faculty Wellbeing Lead" },
     { slug: "christian-clausner", disc: "computer-science", role: "SEE Faculty Wellbeing Lead" },
-    { slug: "omar-alani",         disc: "physics-acoustics", role: "Lead International for Engineering" }
+    { slug: "omar-alani",         disc: "physics-acoustics", role: "Lead International for Engineering" },
+    { slug: "maybin-muyeba",      disc: "computer-science",  role: "Lead International for Computer Science" }
   ];
   const grid = document.getElementById('news-roles-grid');
   if(!grid) return;
